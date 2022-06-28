@@ -1,0 +1,32 @@
+<template>
+  <section v-editable="blok" class="page-section grid-section" :class="'bg-' + blok.background_color">
+    <div class="container text-center">
+      <Headline class="mb-4">{{ blok.headline }}</Headline>
+      <Lead>
+        {{ blok.lead }}
+      </Lead>
+      <div :class="gridClasses">
+        <Card v-for="card in blok.cards" :key="card._uid" :card="card" />
+      </div>
+    </div>
+  </section>
+</template>
+
+<script setup>
+const props = defineProps({ blok: Object })
+
+const gridClasses = computed(() => {
+  let gridClasses = 'grid md:grid-cols-2 gap-12 mt-16'
+
+  switch (props.blok.cols) {
+    case '4':
+      gridClasses += ' lg:grid-cols-3 xl:grid-cols-4'
+      break
+    case '3':
+      gridClasses += ' lg:grid-cols-3'
+      break
+  }
+
+  return gridClasses
+})
+</script>
