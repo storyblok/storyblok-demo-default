@@ -6,7 +6,7 @@
     <main class="relative container py-16 flex items-start">
       <section class="pr-32">
         <Headline>{{ blok.headline }}</Headline>
-        <Headline>{{ blok.subheadline }}</Headline>
+        <Subheadline class="mb-6">{{ blok.subheadline }}</Subheadline>
         <Lead>{{ blok.teaser }}</Lead>
         <RichText :text="blok.text" />
       </section>

@@ -47,7 +47,6 @@ onMounted(() => {
   window.addEventListener('scroll', () => {
     moveY.value = (window.scrollY / 100) * 30
     scale.value = 1 + window.scrollY / 5000
-    console.log(scale.value)
   })
 })
 </script>

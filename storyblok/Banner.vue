@@ -11,7 +11,7 @@
         <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
       </div>
     </div>
-    <img :src="blok.background_image.filename" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" :style="transform" />
+    <img :src="blok.background_image.filename" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" />
   </section>
 </template>
 

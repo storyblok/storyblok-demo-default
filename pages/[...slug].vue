@@ -1,7 +1,7 @@
 <script setup>
 let { slug } = useRoute().params
 
-let resolveRelations = ['banner-reference.banner']
+let resolveRelations = ['banner-reference.banner', 'featured-articles-section.articles']
 
 // resolve relations for all article single views, exclude article overview page
 if (slug.includes('articles') && slug.length > 1) {
@@ -16,10 +16,16 @@ if (slug) {
   slug = 'home'
 }
 
-const story = await useStoryblok(slug, {
-  version: 'draft',
-  resolve_relations: resolveRelations,
-})
+const story = await useStoryblok(
+  slug,
+  {
+    version: 'draft',
+    resolve_relations: resolveRelations,
+  },
+  {
+    resolveRelations: resolveRelations,
+  }
+)
 </script>
 
 <template>
