@@ -13,7 +13,7 @@
       </div>
     </div>
     <video v-if="showVideo" :src="blok.background_video.filename" :alt="blok.background_video.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover" autoplay muted loop></video>
-    <img v-else :src="blok.background_image.filename" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" :style="transform" />
+    <img v-else :src="optimizedImage" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" :style="transform" />
   </section>
 </template>
 
@@ -27,6 +27,8 @@ const textColor = computed(() => {
 const textAlignment = computed(() => {
   return 'text-' + props.blok.alignment
 })
+
+const optimizedImage = computed(() => props.blok.background_image.filename + '/m/2000x0')
 
 const showVideo = computed(() => {
   if (props.blok.background_image.filename && !props.blok.background_video.filename) {

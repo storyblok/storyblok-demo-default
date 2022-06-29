@@ -1,5 +1,5 @@
 <template>
-  <section class="relative flex items-center py-12" v-editable="blok">
+  <section class="relative flex items-center py-12 md:py-24 lg:py-32" v-editable="blok">
     <div class="container relative z-10">
       <h1 class="text-3xl md:text-7xl font-bold mb-4 text-center" :class="[textColor, textAlignment]">
         {{ blok.headline }}
@@ -11,7 +11,7 @@
         <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
       </div>
     </div>
-    <img :src="blok.background_image.filename" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" />
+    <img :src="optimizedImage" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full pointer-events-none" :class="backgroundFit" />
   </section>
 </template>
 
@@ -25,4 +25,10 @@ const textColor = computed(() => {
 const textAlignment = computed(() => {
   return 'text-' + props.blok.alignment
 })
+
+const backgroundFit = computed(() => {
+  return props.blok.background_fit === 'cover' ? 'object-cover' : 'object-contain'
+})
+
+const optimizedImage = computed(() => props.blok.background_image.filename + '/m/2000x0')
 </script>

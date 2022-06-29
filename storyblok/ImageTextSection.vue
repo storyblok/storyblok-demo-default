@@ -9,12 +9,14 @@
         </div>
       </div>
       <div>
-        <img :src="blok.image.filename" :alt="blok.image.alt" class="rounded-3xl pointer-events-none" />
+        <img :src="optimizedImage" :alt="blok.image.alt" class="rounded-xl pointer-events-none" />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-defineProps({ blok: Object })
+const props = defineProps({ blok: Object })
+
+const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
 </script>

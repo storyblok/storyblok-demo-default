@@ -10,7 +10,7 @@ const props = defineProps({ button: Object })
 const type = props.button.link.linktype
 
 const classes = computed(() => {
-  let classes = 'inline-flex items-center rounded-3xl font-bold cursor-pointer transition-all duration-300 border border-' + props.button.button_color
+  let classes = 'inline-flex items-center rounded-xl font-bold cursor-pointer transition-all duration-300 border border-' + props.button.button_color
 
   switch (props.button.size) {
     case 'small':
