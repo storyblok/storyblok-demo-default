@@ -3,12 +3,10 @@
 </template>
 
 <script setup>
-import RichTextResolver from 'storyblok-js-client/source/richTextResolver'
 const props = defineProps({ text: Object })
 
-const resolver = new RichTextResolver()
-
-const richText = computed(() => resolver.render(props.text))
+const storyblokApi = useStoryblokApi()
+const richText = computed(() => storyblokApi.richTextResolver.render(props.text))
 </script>
 
 <style>

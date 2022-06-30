@@ -1,5 +1,5 @@
 <template>
-  <section class="relative min-h-[700px] overflow-hidden flex items-center py-12" v-editable="blok">
+  <section class="bg-red-300 hero relative overflow-hidden flex items-center py-12" :class="height" v-editable="blok">
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
       <h1 class="text-3xl md:text-7xl font-bold mb-4" :class="[textColor, textAlignment]">
@@ -13,12 +13,16 @@
       </div>
     </div>
     <video v-if="showVideo" :src="blok.background_video.filename" :alt="blok.background_video.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover" autoplay muted loop></video>
-    <img v-else :src="optimizedImage" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" :style="transform" />
+    <img v-else :src="optimizedImage" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" />
   </section>
 </template>
 
 <script setup>
 const props = defineProps({ blok: Object })
+
+const height = computed(() => {
+  return props.blok.full_height ? 'min-h-[calc(100vh-128px)]' : 'min-h-[500px] md:min-h-[700px]'
+})
 
 const textColor = computed(() => {
   return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
@@ -36,19 +40,5 @@ const showVideo = computed(() => {
   } else if (props.blok.background_video.filename) {
     return true
   }
-})
-
-const moveY = ref(0)
-const scale = ref(1)
-
-const transform = computed(() => {
-  return 'transform: translateY(' + moveY.value + 'px) scale(' + scale.value + ')'
-})
-
-onMounted(() => {
-  window.addEventListener('scroll', () => {
-    moveY.value = (window.scrollY / 100) * 30
-    scale.value = 1 + window.scrollY / 5000
-  })
 })
 </script>

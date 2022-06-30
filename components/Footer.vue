@@ -13,7 +13,7 @@ const currentYear = today.getFullYear()
 
 <template>
   <footer class="relative w-full bg-dark">
-    <div class="container grid grid-cols-3 py-16">
+    <div class="container grid lg:grid-cols-3 gap-12 py-16">
       <div v-for="index in 3" :key="index">
         <h3 class="text-white font-bold text-2xl mb-5">{{ siteConfig.content['footer_nav_' + index + '_headline'] }}</h3>
         <nav>

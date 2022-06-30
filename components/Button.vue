@@ -1,6 +1,7 @@
 <template>
   <NuxtLink :to="button.link.cached_url" :class="classes" v-editable="button">
     {{ button.label }}
+    <slot />
   </NuxtLink>
 </template>
 
@@ -10,7 +11,7 @@ const props = defineProps({ button: Object })
 const type = props.button.link.linktype
 
 const classes = computed(() => {
-  let classes = 'inline-flex items-center rounded-xl font-bold cursor-pointer transition-all duration-300 border border-' + props.button.button_color
+  let classes = 'inline-flex items-center rounded-full font-bold cursor-pointer transition-all duration-300 border border-' + props.button.button_color
 
   switch (props.button.size) {
     case 'small':
@@ -20,7 +21,7 @@ const classes = computed(() => {
       classes += ' py-4 px-8'
       break
     case 'medium':
-    case 'default':
+    default:
       classes += ' py-3 px-6'
       break
   }
