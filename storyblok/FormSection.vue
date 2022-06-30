@@ -1,7 +1,7 @@
 <template>
   <section v-editable="blok" class="relative page-section form-section bg-dark">
-    <div class="container relative z-10 grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12-12 place-items-center">
-      <div class="text-white">
+    <div class="container relative z-10 grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12 place-items-center">
+      <div class="text-center lg:text-left text-white">
         <Headline class="mb-4" color="white">{{ blok.headline }}</Headline>
         <Lead>
           {{ blok.lead }}

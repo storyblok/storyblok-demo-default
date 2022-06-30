@@ -11,11 +11,11 @@
               {{ blok.subheadline }}
             </h3>
           </div>
-          <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-x-8 mt-12 mx-auto">
+          <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 mt-12 mx-auto">
             <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
           </div>
         </div>
-        <img :src="optimizedImage + filters" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full pointer-events-none" :class="backgroundFit" />
+        <img :src="optimizedImage + filters" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full pointer-events-none" />
       </div>
     </div>
   </section>
@@ -26,10 +26,6 @@ const props = defineProps({ blok: Object })
 
 const textColor = computed(() => {
   return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
-})
-
-const backgroundFit = computed(() => {
-  return props.blok.background_fit === 'cover' ? 'object-cover' : 'object-contain'
 })
 
 const filters = computed(() => {

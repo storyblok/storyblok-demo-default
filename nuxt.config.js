@@ -8,6 +8,11 @@ export default defineNuxtConfig({
       isCustomElement: (tag) => ['model-viewer'].includes(tag),
     },
   },
+  head: {
+    bodyAttrs: {
+      class: 'test',
+    },
+  },
   publicRuntimeConfig: {
     STORYBLOK_PUBLIC_TOKEN: process.env.STORYBLOK_PUBLIC_TOKEN,
   },

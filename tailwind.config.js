@@ -46,12 +46,13 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: 'Outfit, sans-serif',
+      sans: 'Oxygen, Outfit, sans-serif',
     },
     extend: {
       colors: {
         primary: '#437C90',
-        primary_alt: '#3794b4',
+        primary_alt: '#2cafdc',
+        //primary_alt: '#3794b4',
         secondary: '#D55672',
         tertiary: '#E8985E',
         light: '#f6f7f7',
