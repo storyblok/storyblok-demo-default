@@ -1,6 +1,6 @@
 <template>
   <section v-editable="blok" class="page-section image-text-section" :class="'bg-' + blok.background_color">
-    <div class="container grid md:grid-cols-2 gap-12 items-center">
+    <div class="container grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12-12 items-center">
       <div class="order-last text-left" :class="blok.reverse_layout ? '' : 'lg:order-first'">
         <Headline size="small" class="mb-2">{{ blok.headline }}</Headline>
         <RichText :text="blok.text" />

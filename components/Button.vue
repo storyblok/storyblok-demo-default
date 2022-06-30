@@ -15,10 +15,10 @@ const classes = computed(() => {
 
   switch (props.button.size) {
     case 'small':
-      classes += ' py-2 px-4'
+      classes += ' py-2 px-4 text-sm'
       break
     case 'large':
-      classes += ' py-4 px-8'
+      classes += ' py-4 px-8 text-2xl'
       break
     case 'medium':
     default:

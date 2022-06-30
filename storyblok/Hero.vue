@@ -2,10 +2,10 @@
   <section class="bg-red-300 hero relative overflow-hidden flex items-center py-12" :class="height" v-editable="blok">
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
-      <h1 class="text-3xl md:text-7xl font-bold mb-4" :class="[textColor, textAlignment]">
+      <h1 class="text-2xl md:text-5xl lg:text-7xl font-bold mb-4" :class="[textColor, textAlignment]">
         {{ blok.headline }}
       </h1>
-      <h2 class="text-xl md:text-4xl font-thin" :class="[textColor, textAlignment]">
+      <h2 class="text-xl md:text-2xl lg:text-4xl font-thin" :class="[textColor, textAlignment]">
         {{ blok.subheadline }}
       </h2>
       <div class="flex flex-col space-y-8 mt-12 mx-auto" :class="props.blok.alignment === 'left' ? 'items-start' : 'items-center'">
