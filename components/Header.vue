@@ -20,7 +20,7 @@ const toggleMobileNav = () => {
 }
 
 const route = useRoute()
-watch(route, (to) => {
+watch(route, () => {
   mobileNavOpen.value = false
 })
 

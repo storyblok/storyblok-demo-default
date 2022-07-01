@@ -1,7 +1,4 @@
-# Nuxt 3 Minimal Starter
-
-Look at the [nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
-
+# Storyblok Demo 2022
 ## Setup
 
 Make sure to install the dependencies:
