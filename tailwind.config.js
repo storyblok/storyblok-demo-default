@@ -46,7 +46,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: 'Oxygen, Outfit, sans-serif',
+      sans: 'Oxygen, sans-serif',
     },
     extend: {
       colors: {
