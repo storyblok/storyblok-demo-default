@@ -1,5 +1,5 @@
 <template>
-  <!-- <GlobalStyles /> -->
+  <GlobalStyles />
   <Header />
   <slot />
   <Footer />

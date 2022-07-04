@@ -1,5 +1,4 @@
 <script setup>
-import RichText from './RichText.vue'
 const siteConfig = ref(null)
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
@@ -18,7 +17,7 @@ const currentYear = today.getFullYear()
       <div class="md:col-span-3 lg:col-span-2 flex items-center">
         <div>
           <NuxtLink to="/" class="flex mb-8">
-            <img :src="siteConfig.content.footer_logo.filename" :alt="siteConfig.content.header_logo.alt" class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700" />
+            <img :src="siteConfig.content.footer_logo.filename" :alt="siteConfig.content.header_logo.alt" class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700 pointer-events-none" />
           </NuxtLink>
           <RichText :text="siteConfig.content.footer_about" class="text-white mb-8" />
           <SocialIcons :twitter="siteConfig.content.twitter" :instagram="siteConfig.content.instagram" :youtube="siteConfig.content.youtube" :facebook="siteConfig.content.facebook" />

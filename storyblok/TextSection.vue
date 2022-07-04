@@ -6,7 +6,7 @@
         <Lead>
           {{ blok.lead }}
         </Lead>
-        <RichText :text="blok.text" />
+        <RichText :text="blok.text" :class="{ 'mx-auto': blok.alignment === 'center' }" />
         <div class="mt-8">
           <Button v-for="button in blok.button" :key="button._uid" :button="button" />
         </div>

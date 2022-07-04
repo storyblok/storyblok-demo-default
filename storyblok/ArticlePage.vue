@@ -1,7 +1,7 @@
 <template>
   <article v-editable="blok">
     <header class="w-full h-[300px] sm:h-[400px] md:h-[600px]">
-      <img :src="blok.image.filename" :alt="blok.image.alt" class="w-full h-full object-cover" />
+      <img :src="blok.image.filename" :alt="blok.image.alt" class="w-full h-full object-cover pointer-events-none" />
     </header>
     <main class="relative container py-12 md:py-16 lg:flex lg:items-start">
       <section class="mb-12 lg:mb-0 lg:pr-32">
@@ -34,7 +34,7 @@
             <h4 class="font-bold text-lg">Author</h4>
           </div>
           <div class="flex items-center space-x-2">
-            <img :src="blok.author.content.profile.filename" :alt="blok.author.content.profile.alt" class="w-20 h-20 rounded-full object-cover pointer-events-none border border-secondary" />
+            <img :src="blok.author.content.profile.filename" :alt="blok.author.content.profile.alt" class="w-20 h-20 rounded-full object-cover pointer-events-none border border-secondary pointer-events-none" />
             <h5 class="text-secondary">{{ blok.author.name }}</h5>
           </div>
         </div>
