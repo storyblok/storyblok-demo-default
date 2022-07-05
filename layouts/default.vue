@@ -1,8 +1,28 @@
 <template>
   <main :style="cssVariables">
-    <Header />
+    <Header
+      :logo="siteConfig.content.header_logo"
+      :disable_transparency="siteConfig.content.header_disable_transparency"
+      :nav="siteConfig.content.header_nav"
+      :buttons="siteConfig.content.header_buttons"
+    />
     <slot />
-    <Footer />
+    <Footer
+      :logo="siteConfig.content.footer_logo"
+      :about="siteConfig.content.footer_about"
+      :navs="{
+        nav_1_headline: siteConfig.content.footer_nav_1_headline,
+        nav_2_headline: siteConfig.content.footer_nav_2_headline,
+        nav_3_headline: siteConfig.content.footer_nav_3_headline,
+        nav_1: siteConfig.content.footer_nav_1,
+        nav_2: siteConfig.content.footer_nav_2,
+        nav_3: siteConfig.content.footer_nav_3,
+      }"
+      :twitter="siteConfig.content.footer_twitter"
+      :instagram="siteConfig.content.footer_instagram"
+      :youtube="siteConfig.content.footer_youtube"
+      :facebook="siteConfig.content.footer_facebook"
+    />
   </main>
 </template>
 
@@ -31,6 +51,7 @@ const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
   version: 'draft',
+  resolve_links: 'url',
 })
 
 siteConfig.value = data.story
