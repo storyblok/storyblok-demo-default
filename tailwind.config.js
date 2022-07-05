@@ -48,15 +48,19 @@ module.exports = {
     fontFamily: {
       sans: 'Oxygen, sans-serif',
     },
+    borderRadius: {
+      none: '0',
+      sm: 'var(--rounded_sm)',
+      DEFAULT: 'var(--rounded_default)',
+      md: 'var(--rounded_md)',
+      lg: 'var(--rounded_lg)',
+      xl: 'var(--rounded_xl)',
+      '2xl': 'var(--rounded_2xl)',
+      '3xl': 'var(--rounded_3xl)',
+      full: 'var(--rounded_full)',
+    },
     extend: {
       colors: {
-        /* primary: '#437C90',
-        primary_highlight: '#2cafdc',
-        secondary: '#D55672',
-        tertiary: '#E8985E',
-        light: '#f6f7f7',
-        medium: '#bfc7c5',
-        dark: '#152336', */
         primary: 'var(--primary)',
         primary_highlight: 'var(--primary_highlight)',
         secondary: 'var(--secondary)',
