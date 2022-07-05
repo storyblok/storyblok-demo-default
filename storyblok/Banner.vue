@@ -1,7 +1,7 @@
 <template>
   <section class="page-section banner-section" v-editable="blok">
     <div class="container">
-      <div class="relative rounded-xl lg:rounded-[60px] bg-light py-12 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-24 xl:py-28 2xl:py-32 overflow-hidden shadow-md">
+      <div class="relative rounded-xl lg:rounded-[3xl] bg-light py-12 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-24 xl:py-28 2xl:py-32 overflow-hidden shadow-md">
         <div class="relative min-h-[360px] z-20 flex flex-col h-full">
           <div class="grow">
             <h2 class="text-2xl md:text-5xl lg:text-7xl text-center font-bold mb-4" :class="[textColor]">

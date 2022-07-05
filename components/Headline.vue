@@ -19,7 +19,7 @@ const classes = computed(() => {
   if (props.color === 'white') {
     classes += ' text-white'
   } else {
-    classes += ' text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary_alt to-primary'
+    classes += ' text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary_highlight to-primary'
   }
 
   return classes

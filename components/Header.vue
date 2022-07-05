@@ -29,7 +29,7 @@ const logoScale = ref('scale-100')
 
 onMounted(() => {
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) {
+    if (window.scrollY > 60) {
       headerStyle.value = ' bg-opacity-80 backdrop-blur-lg shadow-md h-20'
       logoScale.value = 'scale-75'
     } else {

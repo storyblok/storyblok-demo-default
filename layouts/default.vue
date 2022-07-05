@@ -43,10 +43,10 @@ const cssVariables = computed(() => {
     theme.tertiary = siteConfig.value.content.tertiary.color
     theme.light = siteConfig.value.content.light.color
     theme.dark = siteConfig.value.content.dark.color
-    if (siteConfig.value.content.disable_rounded_corners) {
-      for (const key in theme) {
-        if (key.startsWith('rounded_')) theme[key] = 0
-      }
+  }
+  if (siteConfig.value.content.disable_rounded_corners) {
+    for (const key in theme) {
+      if (key.startsWith('rounded_')) theme[key] = 0
     }
   }
   return {
