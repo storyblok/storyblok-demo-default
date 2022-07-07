@@ -7,5 +7,6 @@ const category = await useStoryblok(`categories/${slug}`, {
 </script>
 
 <template>
+  <!-- do we really need this extra fetch here just for the UUID? -->
   <Category v-if="category" :blok="category.content" :uuid="category.uuid" />
 </template>

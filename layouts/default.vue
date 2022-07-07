@@ -1,52 +1,59 @@
 <template>
-  <main :style="cssVariables">
+  <main :style="cssVariables" v-editable="story.content">
+    <!-- <pre>{{ story.content.header_nav }}</pre> -->
     <Header
-      :logo="siteConfig.content.header_logo"
-      :disable_transparency="siteConfig.content.header_disable_transparency"
-      :nav="siteConfig.content.header_nav"
-      :buttons="siteConfig.content.header_buttons"
+      :logo="story.content.header_logo"
+      :disable_transparency="story.content.header_disable_transparency"
+      :nav="story.content.header_nav"
+      :buttons="story.content.header_buttons"
     />
     <slot />
     <Footer
-      :logo="siteConfig.content.footer_logo"
-      :about="siteConfig.content.footer_about"
+      :logo="story.content.footer_logo"
+      :about="story.content.footer_about"
       :navs="{
-        nav_1_headline: siteConfig.content.footer_nav_1_headline,
-        nav_2_headline: siteConfig.content.footer_nav_2_headline,
-        nav_3_headline: siteConfig.content.footer_nav_3_headline,
-        nav_1: siteConfig.content.footer_nav_1,
-        nav_2: siteConfig.content.footer_nav_2,
-        nav_3: siteConfig.content.footer_nav_3,
+        nav_1_headline: story.content.footer_nav_1_headline,
+        nav_2_headline: story.content.footer_nav_2_headline,
+        nav_3_headline: story.content.footer_nav_3_headline,
+        nav_1: story.content.footer_nav_1,
+        nav_2: story.content.footer_nav_2,
+        nav_3: story.content.footer_nav_3,
       }"
-      :twitter="siteConfig.content.footer_twitter"
-      :instagram="siteConfig.content.footer_instagram"
-      :youtube="siteConfig.content.footer_youtube"
-      :facebook="siteConfig.content.footer_facebook"
+      :twitter="story.content.footer_twitter"
+      :instagram="story.content.footer_instagram"
+      :youtube="story.content.footer_youtube"
+      :facebook="story.content.footer_facebook"
     />
   </main>
 </template>
 
 <script setup>
-const theme = reactive({
-  primary: '#437C90',
-  primary_highlight: '#2cafdc',
-  secondary: '#D55672',
-  tertiary: '#E8985E',
-  light: '#f6f7f7',
-  medium: '#bfc7c5',
-  dark: '#152336',
-  rounded_sm: '0.125rem',
-  rounded_default: '0.25rem',
-  rounded_md: '0.375rem',
-  rounded_lg: '0.5rem',
-  rounded_xl: '0.75rem',
-  rounded_2xl: '1rem',
-  rounded_3xl: '1.6rem',
-  rounded_full: '9999px',
-})
+const defaultColors = {
+  '--primary': '#437C90',
+  '--primary_highlight': '#2cafdc',
+  '--secondary': '#D55672',
+  '--tertiary': '#E8985E',
+  '--light': '#f6f7f7',
+  '--medium': '#bfc7c5',
+  '--dark': '#152336',
+}
 
-const siteConfig = ref()
+const defaultBorderRadiuses = {
+  '--rounded_sm': '0.125rem',
+  '--rounded_default': '0.25rem',
+  '--rounded_md': '0.375rem',
+  '--rounded_lg': '0.5rem',
+  '--rounded_xl': '0.75rem',
+  '--rounded_2xl': '1rem',
+  '--rounded_3xl': '1.6rem',
+  '--rounded_full': '9999px',
+}
 
+const theme = reactive({ ...defaultColors, ...defaultBorderRadiuses })
+
+//const story = await useStoryblok('site-config', { version: 'draft', resolve_links: 'url' }, { resolveLinks: 'url' })
+
+const story = ref()
 const storyblokApi = useStoryblokApi()
 
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
@@ -54,40 +61,38 @@ const { data } = await storyblokApi.get('cdn/stories/site-config', {
   resolve_links: 'url',
 })
 
-siteConfig.value = data.story
+story.value = data.story
 
 const cssVariables = computed(() => {
-  if (siteConfig.value.content.use_custom_colors) {
-    theme.primary = siteConfig.value.content.primary.color
-    theme.primary_highlight = siteConfig.value.content.primary_highlight.color
-    theme.secondary = siteConfig.value.content.secondary.color
-    theme.tertiary = siteConfig.value.content.tertiary.color
-    theme.light = siteConfig.value.content.light.color
-    theme.dark = siteConfig.value.content.dark.color
+  if (story.value.content.use_custom_colors) {
+    theme['--primary'] = story.value.content.primary.color
+    theme['--primary_highlight'] = story.value.content.primary_highlight.color
+    theme['--secondary'] = story.value.content.secondary.color
+    theme['--tertiary'] = story.value.content.tertiary.color
+    theme['--light'] = story.value.content.light.color
+    theme['--dark'] = story.value.content.dark.color
+  } else {
+    Object.assign(theme, defaultColors)
   }
-  if (siteConfig.value.content.disable_rounded_corners) {
+  if (story.value.content.disable_rounded_corners) {
     for (const key in theme) {
-      if (key.startsWith('rounded_')) theme[key] = 0
+      if (key.startsWith('--rounded_')) theme[key] = 0
     }
+  } else {
+    Object.assign(theme, defaultBorderRadiuses)
   }
-  return {
-    '--primary': theme.primary,
-    '--primary_highlight': theme.primary_highlight,
-    '--secondary': theme.secondary,
-    '--tertiary': theme.tertiary,
-    '--white': theme.white,
-    '--dark': theme.dark,
-    '--light': theme.light,
-    '--rounded_sm': theme.rounded_md,
-    '--rounded_default': theme.rounded_md,
-    '--rounded_md': theme.rounded_md,
-    '--rounded_lg': theme.rounded_lg,
-    '--rounded_xl': theme.rounded_xl,
-    '--rounded_2xl': theme.rounded_2xl,
-    '--rounded_3xl': theme.rounded_3xl,
-    '--rounded_full': theme.rounded_full,
-  }
+  return theme
 })
+
+/* const { slug } = useRoute().params
+
+onMounted(() => {
+  if (slug && slug[0] !== 'site-config') return
+  useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+    preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
+    //resolveLinks: 'url',
+  })
+}) */
 </script>
 
 <style>
