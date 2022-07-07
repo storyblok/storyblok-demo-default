@@ -1,23 +1,16 @@
 <script setup>
 const route = useRoute()
-const languageCodes = ref()
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/spaces/me')
-languageCodes.value = data.space.language_codes
 
 /**
  * Create correct slug and handle language parameter
  */
-let slug = route.params.slug
+let slug = route.params.slug.slice()
 let language = 'default'
 
 if (slug) {
-  if (languageCodes.value.includes(slug[0])) {
-    // set correct language
-    language = slug[0]
-    // remove first slug entry if it matches query language
-    slug.shift()
-  }
+  language = await getLanguage(slug)
+  // remove first slug entry if it matches query language
+  if (language !== 'default') slug = slug.slice(1)
   slug = slug.join('/')
 } else {
   slug = 'home'
@@ -51,5 +44,5 @@ const story = await useStoryblok(
 </script>
 
 <template>
-  <StoryblokComponent v-if="story" :blok="story.content" />
+  <StoryblokComponent v-if="story" :blok="story.content" :uuid="story.uuid" />
 </template>

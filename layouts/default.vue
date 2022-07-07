@@ -1,6 +1,5 @@
 <template>
   <main :style="cssVariables" v-editable="story.content">
-    <!-- <pre>{{ story.content.header_nav }}</pre> -->
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"

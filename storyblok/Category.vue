@@ -15,6 +15,11 @@
 <script setup>
 const props = defineProps({ blok: Object, uuid: String })
 
+let { slug } = useRoute().params
+let language = 'default'
+
+if (slug) language = await getLanguage(slug)
+
 const articles = ref(null)
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(`cdn/stories/`, {
@@ -25,6 +30,8 @@ const { data } = await storyblokApi.get(`cdn/stories/`, {
       in_array: props.uuid,
     },
   },
+  language: language,
+  fallback_lang: 'default',
 })
 
 articles.value = data.stories

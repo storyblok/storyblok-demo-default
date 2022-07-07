@@ -65,6 +65,8 @@
 <script setup>
 const props = defineProps({ blok: Object })
 
+const route = useRoute()
+
 const optimizedArticleImage = computed(() => props.blok.image.filename + '/m/2000x0')
-const optimizedAuthorImage = computed(() => blok.author.content.profile_picture.filename + '/m/80x0')
+const optimizedAuthorImage = computed(() => props.blok.author.content.profile_picture.filename + '/m/80x0')
 </script>
