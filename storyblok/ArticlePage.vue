@@ -16,8 +16,8 @@
         <RichText :text="blok.text" />
       </section>
       <section class="sticky top-32 w-[300px] shrink-0 flex flex-col space-y-6">
-        <div class="flex flex-col space-y-3">
-          <div class="flex items-center space-x-1">
+        <div class="flex flex-col space-y-3 bg-light p-4 rounded-lg">
+          <div class="flex items-center space-x-1 text-primary">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fill-rule="evenodd"
@@ -30,13 +30,13 @@
           <ul class="flex flex-col space-y-2">
             <li v-for="cat in blok.categories" :key="cat.uuid">
               <NuxtLink :to="'/' + cat.full_slug"
-                ><h5 class="text-secondary hover:text-primary transition-all">{{ cat.name }}</h5></NuxtLink
+                ><h5 class="text-secondary hover:text-primary font-bold transition-all">{{ cat.name }}</h5></NuxtLink
               >
             </li>
           </ul>
         </div>
-        <div class="flex flex-col space-y-3">
-          <div class="flex items-center space-x-1">
+        <div class="flex flex-col space-y-3 bg-light p-4 rounded-lg">
+          <div class="flex items-center space-x-1 text-primary">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fill-rule="evenodd"
@@ -51,11 +51,11 @@
               v-if="blok.author.content.profile_picture.filename"
               :src="optimizedAuthorImage"
               :alt="blok.author.content.profile_picture.alt"
-              class="w-20 h-20 rounded-full object-cover pointer-events-none border border-secondary"
+              class="w-20 h-20 rounded-full object-cover pointer-events-none border-4 border-secondary"
             />
-            <h5 class="text-secondary">{{ blok.author.name }}</h5>
-            <div>{{ blok.author.content.description }}</div>
+            <h5 class="text-secondary font-bold">{{ blok.author.name }}</h5>
           </div>
+          <div class="text-sm leading-relaxed">{{ blok.author.content.description }}</div>
         </div>
       </section>
     </main>

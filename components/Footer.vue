@@ -28,7 +28,7 @@ const currentYear = today.getFullYear()
           <SocialIcons :twitter="twitter" :instagram="instagram" :youtube="youtube" :facebook="facebook" />
         </div>
       </div>
-      <!-- <div v-for="index in 3" :key="index">
+      <div v-for="index in 3" :key="index">
         <h3 class="text-white font-bold text-2xl mb-5">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
@@ -39,7 +39,7 @@ const currentYear = today.getFullYear()
             </li>
           </ul>
         </nav>
-      </div> -->
+      </div>
     </div>
     <div class="border-t border-white border-opacity-20 py-4">
       <div class="container text-white text-xs text-center">&copy; Storyblok {{ currentYear }}</div>

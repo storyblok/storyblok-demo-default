@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink :to="button.link.cached_url" :class="classes" v-editable="button">
+  <NuxtLink :to="url" :class="classes" v-editable="button">
     {{ button.label }}
     <slot />
   </NuxtLink>
@@ -8,10 +8,25 @@
 <script setup>
 const props = defineProps({ button: Object })
 
-const type = props.button.link.linktype
+const url = computed(() => {
+  switch (props.button.link.linktype) {
+    case 'story':
+      // here we need to test if the story object exists because it won't be resolved when the bridge is used on site-config
+      return '/' + props.button.link.story?.full_slug
+    case 'url':
+    case 'asset':
+      return props.button.link.url
+    case 'email':
+      return 'mailto:' + props.button.link.email
+    default:
+      return '#'
+  }
+})
 
 const classes = computed(() => {
-  let classes = 'inline-flex items-center rounded-full font-bold cursor-pointer transition-all duration-300 border border-' + props.button.button_color
+  let classes =
+    'inline-flex items-center rounded-full font-bold cursor-pointer transition-all duration-300 border border-' +
+    props.button.button_color
 
   switch (props.button.size) {
     case 'small':

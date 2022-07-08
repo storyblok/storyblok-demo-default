@@ -18,10 +18,10 @@
         nav_2: story.content.footer_nav_2,
         nav_3: story.content.footer_nav_3,
       }"
-      :twitter="story.content.footer_twitter"
-      :instagram="story.content.footer_instagram"
-      :youtube="story.content.footer_youtube"
-      :facebook="story.content.footer_facebook"
+      :twitter="story.content.twitter"
+      :instagram="story.content.instagram"
+      :youtube="story.content.youtube"
+      :facebook="story.content.facebook"
     />
   </main>
 </template>
@@ -83,15 +83,14 @@ const cssVariables = computed(() => {
   return theme
 })
 
-/* const { slug } = useRoute().params
+const { slug } = useRoute().params
 
 onMounted(() => {
   if (slug && slug[0] !== 'site-config') return
   useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
     preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
-    //resolveLinks: 'url',
   })
-}) */
+})
 </script>
 
 <style>
