@@ -1,11 +1,14 @@
 <template>
-  <section class="hero relative overflow-hidden flex items-center py-12" :class="height" v-editable="blok">
+  <section class="hero relative overflow-hidden flex py-12" :class="[height, verticalAlignment]" v-editable="blok">
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
-      <h1 class="text-2xl md:text-5xl lg:text-7xl font-medium mb-4" :class="[textColor, textAlignment]">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-bold mb-4"
+        :class="[textColor, horizontalAlignment]"
+      >
         {{ blok.headline }}
       </h1>
-      <h2 class="text-xl md:text-2xl lg:text-4xl font-thin" :class="[textColor, textAlignment]">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl" :class="[textColor, horizontalAlignment]">
         {{ blok.subheadline }}
       </h2>
       <div
@@ -44,8 +47,12 @@ const textColor = computed(() => {
   return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
 })
 
-const textAlignment = computed(() => {
-  return 'text-' + props.blok.alignment
+const horizontalAlignment = computed(() => {
+  return 'text-' + props.blok.horizontal_alignment
+})
+
+const verticalAlignment = computed(() => {
+  return 'items-' + props.blok.vertical_alignment
 })
 
 const optimizedImage = computed(() => props.blok.background_image.filename + '/m/2000x0')

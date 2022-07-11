@@ -36,6 +36,9 @@ module.exports = {
     'border-dark',
     'border-white',
     'border-light',
+    'items-start',
+    'items-center',
+    'items-end',
   ],
   theme: {
     container: {
