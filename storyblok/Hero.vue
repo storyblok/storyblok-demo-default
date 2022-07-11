@@ -8,12 +8,28 @@
       <h2 class="text-xl md:text-2xl lg:text-4xl font-thin" :class="[textColor, textAlignment]">
         {{ blok.subheadline }}
       </h2>
-      <div class="flex flex-col space-y-8 mt-12 mx-auto" :class="props.blok.alignment === 'left' ? 'items-start' : 'items-center'">
+      <div
+        class="flex flex-col space-y-8 mt-12 mx-auto"
+        :class="props.blok.alignment === 'left' ? 'items-start' : 'items-center'"
+      >
         <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
       </div>
     </div>
-    <video v-if="showVideo" :src="blok.background_video.filename" :alt="blok.background_video.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover" autoplay muted loop></video>
-    <img v-else :src="optimizedImage" :alt="blok.background_image.alt" class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none" />
+    <video
+      v-if="showVideo"
+      :src="blok.background_video.filename"
+      :alt="blok.background_video.alt"
+      class="absolute z-0 top-0 left-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+    ></video>
+    <img
+      v-else-if="!showVideo && blok.background_image.filename"
+      :src="optimizedImage"
+      :alt="blok.background_image.alt"
+      class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none"
+    />
   </section>
 </template>
 

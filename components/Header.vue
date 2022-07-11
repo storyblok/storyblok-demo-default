@@ -47,7 +47,7 @@ onMounted(() => {
           </li>
         </ul>
       </nav>
-      <nav class="ml-auto invisible hidden lg:visible lg:block">
+      <nav class="ml-auto invisible hidden md:visible md:block md:mr-8 lg:mr-0">
         <ul class="flex space-x-4 xl:space-x-8 items-center">
           <li v-for="button in buttons" :key="button._uid">
             <Button :button="button" />

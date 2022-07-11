@@ -4,9 +4,9 @@
       <div
         class="relative rounded-xl lg:rounded-[3xl] bg-light py-12 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-24 xl:py-28 2xl:py-32 overflow-hidden shadow-md"
       >
-        <div class="relative min-h-[360px] z-20 flex flex-col h-full">
+        <div class="relative lg:min-h-[360px] z-20 flex flex-col h-full">
           <div class="grow">
-            <h2 class="text-2xl md:text-5xl lg:text-7xl text-center font-bold mb-4" :class="[textColor]">
+            <h2 class="text-4xl md:text-5xl lg:text-6xl text-center font-bold mb-4" :class="[textColor]">
               {{ blok.headline }}
             </h2>
             <h3 class="text-xl md:text-2xl lg:text-4xl text-center ont-thin" :class="[textColor]">
@@ -34,7 +34,7 @@
 const props = defineProps({ blok: Object })
 
 const textColor = computed(() => {
-  return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
+  return 'text-' + props.blok.text_color
 })
 
 const filters = computed(() => {

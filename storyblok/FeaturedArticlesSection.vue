@@ -1,12 +1,17 @@
 <template>
   <section v-editable="blok" class="page-section grid-section" :class="'bg-' + blok.background_color">
     <div class="container text-center">
-      <Headline class="mb-4">{{ blok.headline }}</Headline>
+      <Headline>{{ blok.headline }}</Headline>
       <Lead>
         {{ blok.lead }}
       </Lead>
       <div :class="gridClasses">
-        <ArticleCard v-for="article in blok.articles" :key="article.uuid" :article="article.content" :slug="article.full_slug" />
+        <ArticleCard
+          v-for="article in blok.articles"
+          :key="article.uuid"
+          :article="article.content"
+          :slug="article.full_slug"
+        />
       </div>
     </div>
   </section>
@@ -16,7 +21,7 @@
 const props = defineProps({ blok: Object })
 
 const gridClasses = computed(() => {
-  let gridClasses = 'grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12  mt-16'
+  let gridClasses = 'grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 md:mt-12 place-items-center'
 
   switch (props.blok.cols) {
     case '4':

@@ -1,11 +1,37 @@
 <template>
-  <main :style="cssVariables" v-editable="story.content">
+  <main :style="cssVariables">
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
     />
+    <div v-if="isSiteConfig && story.content.use_custom_colors" class="container py-12">
+      <Headline class="mb-8">Color Previews</Headline>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+        <div class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-white">Primary</span>
+        </div>
+        <div class="bg-primary_highlight w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-white">Primary Highlight</span>
+        </div>
+        <div class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-white">Secondary</span>
+        </div>
+        <div class="bg-tertiary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-white">Tertiary</span>
+        </div>
+        <div class="bg-white w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-black">White</span>
+        </div>
+        <div class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-black">Light</span>
+        </div>
+        <div class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+          <span class="text-sm text-white">Dark</span>
+        </div>
+      </div>
+    </div>
     <slot />
     <Footer
       :logo="story.content.footer_logo"
@@ -85,12 +111,16 @@ const cssVariables = computed(() => {
 
 const { slug } = useRoute().params
 
-onMounted(() => {
-  if (slug && slug[0] !== 'site-config') return
+const isSiteConfig = computed(() => {
+  return slug && slug[0] === 'site-config'
+})
+
+/* onMounted(() => {
+  if (!isSiteConfig) return
   useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
     preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
   })
-})
+}) */
 </script>
 
 <style>
@@ -98,7 +128,7 @@ body {
   @apply pt-32;
 }
 section.page-section {
-  @apply py-20 md:py-24 lg:py-28 xl:py-32 2xl:py-40;
+  @apply py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32;
 }
 
 section.banner-section + section.banner-section {
