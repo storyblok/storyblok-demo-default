@@ -13,7 +13,7 @@
       </h2>
       <div
         class="flex flex-col space-y-8 mt-12 mx-auto"
-        :class="props.blok.alignment === 'left' ? 'items-start' : 'items-center'"
+        :class="props.blok.horizontal_alignment === 'left' ? 'items-start' : 'items-center'"
       >
         <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
       </div>
