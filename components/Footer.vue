@@ -14,8 +14,8 @@ const currentYear = today.getFullYear()
 
 <template>
   <footer class="relative w-full bg-dark">
-    <div class="container grid md:grid-cols-3 lg:grid-cols-5 gap-12 py-16">
-      <div class="md:col-span-3 lg:col-span-2 flex items-center">
+    <div class="container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 py-16">
+      <div class="sm:col-span-2 md:col-span-3 lg:col-span-2 flex items-center">
         <div>
           <NuxtLink to="/" class="flex mb-8">
             <img
@@ -24,12 +24,12 @@ const currentYear = today.getFullYear()
               class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
             />
           </NuxtLink>
-          <RichText :text="about" class="text-white mb-8" />
+          <RichText :text="about" class="text-white mb-8 text-sm lg:text-base" />
           <SocialIcons :twitter="twitter" :instagram="instagram" :youtube="youtube" :facebook="facebook" />
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="text-white font-bold text-2xl mb-5">
+        <h3 class="text-white font-medium text-xl xl:text-2xl mb-5">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>

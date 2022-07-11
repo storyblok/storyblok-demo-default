@@ -25,12 +25,12 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <h4 class="font-bold text-lg">Categories</h4>
+            <h4 class="font-medium text-lg">Categories</h4>
           </div>
           <ul class="flex flex-col space-y-2">
             <li v-for="cat in blok.categories" :key="cat.uuid">
               <NuxtLink :to="'/' + cat.full_slug"
-                ><h5 class="text-secondary hover:text-primary font-bold transition-all">{{ cat.name }}</h5></NuxtLink
+                ><h5 class="text-secondary hover:text-primary font-medium transition-all">{{ cat.name }}</h5></NuxtLink
               >
             </li>
           </ul>
@@ -44,7 +44,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <h4 class="font-bold text-lg">Author</h4>
+            <h4 class="font-medium text-lg">Author</h4>
           </div>
           <div class="flex items-center space-x-2">
             <img
@@ -53,7 +53,7 @@
               :alt="blok.author.content.profile_picture.alt"
               class="w-20 h-20 rounded-full object-cover pointer-events-none border-4 border-secondary"
             />
-            <h5 class="text-secondary font-bold">{{ blok.author.name }}</h5>
+            <h5 class="text-secondary font-medium">{{ blok.author.name }}</h5>
           </div>
           <div class="text-sm leading-relaxed">{{ blok.author.content.description }}</div>
         </div>

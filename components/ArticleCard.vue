@@ -11,7 +11,7 @@
       />
     </div>
     <div class="p-4">
-      <h3 class="text-secondary font-bold mb-4 text-xl">{{ article.headline }}</h3>
+      <h3 class="text-secondary font-medium mb-4 text-xl">{{ article.headline }}</h3>
       <div class="line-clamp-3">{{ article.teaser }}</div>
     </div>
   </NuxtLink>

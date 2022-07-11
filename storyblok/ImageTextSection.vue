@@ -9,7 +9,32 @@
         </div>
       </div>
       <div>
-        <img :src="optimizedImage" :alt="blok.image.alt" class="rounded-xl pointer-events-none" />
+        <div v-if="blok.image.filename">
+          <img
+            v-if="!fixedHeightImages"
+            :src="optimizedImage"
+            :alt="blok.image.alt"
+            class="rounded-xl pointer-events-none"
+          />
+          <img
+            v-if="fixedHeightImages"
+            :src="fixedHeightImages.mobile"
+            :alt="blok.image.alt"
+            class="rounded-xl pointer-events-none md:hidden md:invisible"
+          />
+          <img
+            v-if="fixedHeightImages"
+            :src="fixedHeightImages.tablet"
+            :alt="blok.image.alt"
+            class="rounded-xl pointer-events-none hidden invisible md:block md:visible lg:hidden lg:invisible"
+          />
+          <img
+            v-if="fixedHeightImages"
+            :src="fixedHeightImages.desktop"
+            :alt="blok.image.alt"
+            class="rounded-xl pointer-events-none hidden invisible lg:block lg:visible"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -17,6 +42,23 @@
 
 <script setup>
 const props = defineProps({ blok: Object })
+
+const fixedHeightImages = computed(() => {
+  if (props.blok.image_layout !== 'fixed-height') return false
+  let images = {
+    mobile: props.blok.image.filename + '/m/600x300',
+    tablet: props.blok.image.filename + '/m/800x1200',
+    desktop: props.blok.image.filename + '/m/1000x1200',
+  }
+
+  if (props.blok.image.focus) {
+    for (const key of Object.keys(images)) {
+      images[key] += '/filters:focal(' + props.blok.image.focus + ')'
+    }
+  }
+
+  return images
+})
 
 const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
 </script>

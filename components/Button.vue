@@ -25,7 +25,7 @@ const url = computed(() => {
 
 const classes = computed(() => {
   let classes =
-    'inline-flex items-center rounded-full font-bold cursor-pointer transition-all duration-300 border border-' +
+    'inline-flex items-center rounded-full font-medium cursor-pointer transition-all duration-300 border border-' +
     props.button.button_color
 
   switch (props.button.size) {

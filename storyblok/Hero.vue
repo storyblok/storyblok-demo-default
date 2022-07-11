@@ -2,7 +2,7 @@
   <section class="hero relative overflow-hidden flex items-center py-12" :class="height" v-editable="blok">
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
-      <h1 class="text-2xl md:text-5xl lg:text-7xl font-bold mb-4" :class="[textColor, textAlignment]">
+      <h1 class="text-2xl md:text-5xl lg:text-7xl font-medium mb-4" :class="[textColor, textAlignment]">
         {{ blok.headline }}
       </h1>
       <h2 class="text-xl md:text-2xl lg:text-4xl font-thin" :class="[textColor, textAlignment]">

@@ -8,7 +8,7 @@
     />
     <div class="flex flex-col grow">
       <div class="grow">
-        <h3 class="text-xl font-bold mb-2">{{ card.label }}</h3>
+        <h3 class="text-xl font-medium mb-2">{{ card.label }}</h3>
         <div>{{ card.text }}</div>
       </div>
       <div class="mt-4">

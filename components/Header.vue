@@ -41,7 +41,7 @@ onMounted(() => {
         />
       </NuxtLink>
       <nav class="main-nav ml-8 invisible hidden lg:visible lg:block">
-        <ul class="flex space-x-4 xl:space-x-8 xl:text-lg font-bold">
+        <ul class="flex space-x-4 xl:space-x-8 xl:text-lg font-medium">
           <li v-for="item in nav" :key="item._uid">
             <NavItem class="text-primary hover:text-secondary" :item="item" />
           </li>

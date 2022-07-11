@@ -46,7 +46,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: 'Oxygen, sans-serif',
+      sans: 'Roboto, sans-serif',
     },
     borderRadius: {
       none: '0',
