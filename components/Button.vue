@@ -33,7 +33,7 @@ const classes = computed(() => {
       classes += ' py-2 px-4 text-sm'
       break
     case 'large':
-      classes += ' py-4 px-8 text-2xl'
+      classes += ' py-4 px-8 text-xl'
       break
     case 'medium':
     default:

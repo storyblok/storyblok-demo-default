@@ -1,6 +1,6 @@
 <template>
   <!-- <pre>{{ headerNav }}</pre> -->
-  <transition name="slide">
+  <Transition name="slide">
     <nav
       v-if="mobileNavOpen"
       class="fixed top-0 min-w-[240px] max-w-[400px] w-[calc(100%-120px)] h-screen z-50 bg-white bg-opacity-70 backdrop-blur-lg flex items-center justify-center shadow-lg"
@@ -14,7 +14,7 @@
         </li>
       </ul>
     </nav>
-  </transition>
+  </Transition>
 </template>
 
 <script setup>

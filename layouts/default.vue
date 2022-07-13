@@ -6,7 +6,7 @@
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
     />
-    <div v-if="isSiteConfig && story.content.use_custom_colors" class="container py-12">
+    <div v-if="slug && slug[0] === 'site-config' && story.content.use_custom_colors" class="container py-12">
       <Headline class="mb-8">Color Previews</Headline>
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
         <div class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
@@ -110,10 +110,6 @@ const cssVariables = computed(() => {
 })
 
 const { slug } = useRoute().params
-
-const isSiteConfig = computed(() => {
-  return slug && slug[0] === 'site-config'
-})
 
 onMounted(() => {
   if (slug && slug[0] !== 'site-config') return

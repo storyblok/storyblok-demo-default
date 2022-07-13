@@ -1,4 +1,6 @@
 <script setup>
+import { resolveDynamicComponent } from 'vue'
+
 const route = useRoute()
 
 /**
@@ -25,22 +27,6 @@ let resolveRelations = ['banner-reference.banner', 'featured-articles-section.ar
 if (slug.includes('articles') && slug.length > 1) {
   resolveRelations.push('article-page.categories', 'article-page.author')
 }
-
-/**
- * Fetch story
- */
-/* const story = await useStoryblok(
-  slug,
-  {
-    version: 'draft',
-    language: language,
-    fallback_lang: 'default',
-    resolve_relations: resolveRelations,
-  },
-  {
-    resolveRelations: resolveRelations,
-  }
-) */
 
 const story = ref(null)
 const storyblokApi = useStoryblokApi()
