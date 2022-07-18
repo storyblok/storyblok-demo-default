@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({ logo: Object, disable_transparency: Boolean, nav: Object, buttons: Object })
+const props = defineProps({ logo: Object, disable_transparency: Boolean, nav: Object, buttons: Object, dark: Boolean })
 
 const mobileNavOpen = ref(false)
 
@@ -14,6 +14,10 @@ watch(route, () => {
 
 const headerClasses = ref('h-32')
 const logoScale = ref('scale-100')
+
+const headerBg = computed(() => {
+  return props.dark ? 'dark-header bg-black' : 'bg-white'
+})
 
 onMounted(() => {
   let transparency = props.disable_transparency ? '' : 'bg-opacity-80 backdrop-blur-lg'
@@ -30,7 +34,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <header class="fixed z-50 top-0 left-0 w-full bg-white transition-all duration-700" :class="headerClasses">
+  <header class="fixed z-50 top-0 left-0 w-full transition-all duration-700" :class="[headerClasses, headerBg]">
     <div class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start">
       <NuxtLink to="/" class="flex shrink-0">
         <img
@@ -43,7 +47,7 @@ onMounted(() => {
       <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
         <ul class="flex space-x-4 xl:space-x-8 xl:text-lg font-medium">
           <li v-for="item in nav" :key="item._uid">
-            <NavItem class="text-primary hover:text-secondary" :item="item" />
+            <NavItem class="hover:text-secondary" :class="dark ? 'text-white' : 'text-primary '" :item="item" />
           </li>
         </ul>
       </nav>
@@ -61,7 +65,10 @@ onMounted(() => {
 </template>
 
 <style scoped>
-nav.main-nav a.router-link-active {
+header nav.main-nav a.router-link-active {
   @apply underline underline-offset-4 decoration-4 decoration-primary;
+}
+header.dark-header nav.main-nav a.router-link-active {
+  @apply decoration-white;
 }
 </style>

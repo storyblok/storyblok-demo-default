@@ -5,6 +5,7 @@
       :disable_transparency="story.content.header_disable_transparency"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
+      :dark="story.content.header_dark"
     />
     <div v-if="slug && slug[0] === 'site-config' && story.content.use_custom_colors" class="container py-12">
       <Headline class="mb-8">Color Previews</Headline>
