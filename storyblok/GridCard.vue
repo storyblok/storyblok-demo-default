@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-md h-full flex flex-col rounded-xl p-4 shadow-md" v-editable="card">
+  <div class="max-w-md h-full flex flex-col rounded-lg p-4 shadow-md" v-editable="card">
     <img
       v-if="card.icon.filename"
       :src="card.icon.filename"

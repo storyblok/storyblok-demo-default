@@ -40,14 +40,14 @@ onMounted(() => {
           :class="logoScale"
         />
       </NuxtLink>
-      <nav class="main-nav ml-8 invisible hidden lg:visible lg:block">
+      <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
         <ul class="flex space-x-4 xl:space-x-8 xl:text-lg font-medium">
           <li v-for="item in nav" :key="item._uid">
             <NavItem class="text-primary hover:text-secondary" :item="item" />
           </li>
         </ul>
       </nav>
-      <nav class="ml-auto invisible hidden md:visible md:block md:mr-8 lg:mr-0">
+      <nav class="invisible ml-auto lg:ml-0 hidden md:visible md:block md:mr-8 lg:mr-0">
         <ul class="flex space-x-4 xl:space-x-8 items-center">
           <li v-for="button in buttons" :key="button._uid">
             <Button :button="button" />

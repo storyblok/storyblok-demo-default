@@ -3,7 +3,7 @@
     :to="'/' + slug"
     class="max-w-md flex flex-col rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg"
   >
-    <div class="w-full h-[180px] overflow-hidden">
+    <div class="w-full h-[210px] xl:h-[300px] overflow-hidden">
       <img
         :src="optimizedImage"
         :alt="article.image.alt"

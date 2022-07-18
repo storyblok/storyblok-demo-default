@@ -28,7 +28,7 @@ const gridCardColor = computed(() => {
 })
 
 const gridClasses = computed(() => {
-  let gridClasses = 'grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 md:mt-12 place-items-center'
+  let gridClasses = 'grid md:grid-cols-2 gap-10 md:gap-12 md:mt-12 place-items-center'
 
   switch (props.blok.cols) {
     case '4':

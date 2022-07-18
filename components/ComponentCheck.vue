@@ -2,7 +2,7 @@
   <StoryblokComponent v-if="componentExists(blok.component)" :blok="blok" />
   <div v-else class="container flex justify-center">
     <div
-      class="inline-flex items-center justify-center space-x-2 rounded-xl p-8 my-16 text-xl text-dark bg-light shadow-md"
+      class="inline-flex items-center justify-center space-x-2 rounded-lg p-8 my-16 text-xl text-dark bg-light shadow-md"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -14,7 +14,7 @@
       <input
         type="email"
         placeholder="Your email"
-        class="border-white px-6 py-4 rounded-xl border-2 focus:border-secondary focus:outline-none transition-all"
+        class="border-white px-6 py-4 rounded-lg border-2 focus:border-secondary focus:outline-none transition-all"
         required
       />
     </div>

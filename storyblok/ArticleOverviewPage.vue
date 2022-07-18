@@ -1,7 +1,7 @@
 <template>
   <main class="container py-12 md:py-16" v-editable="blok">
     <Headline>{{ blok.headline }}</Headline>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 md:gap-12 my-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 my-16">
       <ArticleCard
         v-for="article in articles"
         :key="article.uuid"
