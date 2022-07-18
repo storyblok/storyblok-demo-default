@@ -54,13 +54,13 @@
 
 <script setup>
 const defaultColors = {
-  '--primary': '#437C90',
-  '--primary_highlight': '#2cafdc',
-  '--secondary': '#D55672',
-  '--tertiary': '#E8985E',
+  '--primary': '#693562',
+  '--primary_highlight': '#a04b60',
+  '--secondary': '#1985A1',
+  '--tertiary': '#ECA72C',
   '--light': '#f6f7f7',
-  '--medium': '#bfc7c5',
-  '--dark': '#152336',
+  '--medium': '#f6f7f7',
+  '--dark': '#101d25',
 }
 
 const defaultBorderRadiuses = {

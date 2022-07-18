@@ -49,7 +49,7 @@ module.exports = {
       },
     },
     fontFamily: {
-      sans: 'Roboto, sans-serif',
+      sans: 'Outfit, sans-serif',
     },
     borderRadius: {
       none: '0',

@@ -3,7 +3,7 @@
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
       <h1
-        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-bold mb-4"
+        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-extrabold mb-4"
         :class="[textColor, horizontalAlignment]"
       >
         {{ blok.headline }}

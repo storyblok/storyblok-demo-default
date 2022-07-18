@@ -11,6 +11,7 @@
           :key="article.uuid"
           :article="article.content"
           :slug="article.full_slug"
+          :class="gridCardColor"
         />
       </div>
     </div>
@@ -19,6 +20,12 @@
 
 <script setup>
 const props = defineProps({ blok: Object })
+
+const gridCardColor = computed(() => {
+  let color = 'bg-light'
+  if (props.blok.background_color === 'light') color = 'bg-white'
+  return color
+})
 
 const gridClasses = computed(() => {
   let gridClasses = 'grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 md:mt-12 place-items-center'

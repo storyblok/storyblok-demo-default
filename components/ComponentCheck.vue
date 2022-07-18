@@ -17,7 +17,7 @@
         />
       </svg>
       <span
-        >Component named <span class="font-bold">{{ blok.component }}</span> is not defined in your frontend framework
+        >Component named <span class="font-medium">{{ blok.component }}</span> is not defined in your frontend framework
         yet.</span
       >
     </div>

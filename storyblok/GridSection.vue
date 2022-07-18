@@ -6,7 +6,7 @@
         {{ blok.lead }}
       </Lead>
       <div :class="gridClasses">
-        <GridCard v-for="card in blok.cards" :key="card._uid" :card="card" />
+        <GridCard v-for="card in blok.cards" :key="card._uid" :card="card" :class="gridCardColor" />
       </div>
     </div>
   </section>
@@ -14,6 +14,12 @@
 
 <script setup>
 const props = defineProps({ blok: Object })
+
+const gridCardColor = computed(() => {
+  let color = 'bg-light'
+  if (props.blok.background_color === 'light') color = 'bg-white'
+  return color
+})
 
 const gridClasses = computed(() => {
   let gridClasses = 'grid md:grid-cols-2 gap-6 sm:gap-10 md:gap-12 place-items-center items-start mt-16'

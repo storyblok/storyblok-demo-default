@@ -8,6 +8,7 @@
         :key="article.uuid"
         :article="article.content"
         :slug="article.full_slug"
+        class="bg-light"
       />
     </div>
   </main>

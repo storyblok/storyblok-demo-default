@@ -7,7 +7,7 @@
         <div class="relative lg:min-h-[360px] z-20 flex flex-col h-full">
           <div class="grow">
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight text-center font-medium mb-4"
+              class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight text-center font-extrabold mb-4"
               :class="[textColor]"
             >
               {{ blok.headline }}

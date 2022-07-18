@@ -25,19 +25,19 @@ const url = computed(() => {
 
 const classes = computed(() => {
   let classes =
-    'inline-flex items-center rounded-full font-medium cursor-pointer transition-all duration-300 border border-' +
+    'inline-flex items-center rounded-full font-light tracking-wider uppercase cursor-pointer transition-all duration-300 border border-' +
     props.button.button_color
 
   switch (props.button.size) {
     case 'small':
-      classes += ' py-2 px-4 text-sm'
+      classes += ' py-2 px-6 text-sm'
       break
     case 'large':
-      classes += ' py-4 px-8 text-xl'
+      classes += ' py-4 px-10 text-xl'
       break
     case 'medium':
     default:
-      classes += ' py-3 px-6'
+      classes += ' py-3 px-8'
       break
   }
 

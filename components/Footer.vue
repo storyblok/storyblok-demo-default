@@ -29,7 +29,7 @@ const currentYear = today.getFullYear()
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="text-white font-medium text-xl xl:text-2xl mb-5">
+        <h3 class="text-white font-extrabold text-xl xl:text-2xl mb-5">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
