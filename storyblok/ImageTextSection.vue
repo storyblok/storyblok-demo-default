@@ -47,7 +47,7 @@ const fixedHeightImages = computed(() => {
   if (props.blok.image_layout !== 'fixed-height') return false
   let images = {
     mobile: props.blok.image.filename + '/m/600x300',
-    tablet: props.blok.image.filename + '/m/1000x500  ',
+    tablet: props.blok.image.filename + '/m/1000x500',
     desktop: props.blok.image.filename + '/m/1000x1250',
   }
 

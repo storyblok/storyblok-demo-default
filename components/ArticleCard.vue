@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="'/' + slug"
-    class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 hover:shadow-lg group"
+    class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl group"
   >
     <div class="w-full h-[210px] xl:h-[300px] overflow-hidden">
       <img

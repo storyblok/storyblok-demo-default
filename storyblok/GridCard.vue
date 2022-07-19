@@ -4,7 +4,7 @@
       v-if="card.icon.filename"
       :src="card.icon.filename"
       :alt="card.icon.alt"
-      class="w-20 mx-auto my-8 pointer-events-none"
+      class="w-20 mx-auto mb-6 pointer-events-none"
     />
     <div class="flex flex-col grow">
       <div class="grow">

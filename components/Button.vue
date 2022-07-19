@@ -47,7 +47,7 @@ const classes = computed(() => {
     } else {
       classes += ' text-dark'
     }
-    classes += ' hover:scale-105 transform hover:shadow-lg bg-' + props.button.button_color
+    classes += ' hover:scale-105 transform bg-' + props.button.button_color
   } else {
     if (props.button.button_color !== 'white' && props.button.button_color !== 'light') {
       classes += ' hover:text-white'
