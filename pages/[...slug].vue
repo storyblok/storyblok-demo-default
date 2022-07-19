@@ -35,6 +35,7 @@ const { data } = await storyblokApi.get('cdn/stories/' + slug, {
   language: language,
   fallback_lang: 'default',
   resolve_relations: resolveRelations,
+  resolve_links: 'url',
 })
 
 story.value = data.story

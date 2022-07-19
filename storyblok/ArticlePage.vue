@@ -10,9 +10,9 @@
     </header>
     <main class="relative container py-12 md:py-16 lg:flex lg:items-start">
       <section class="mb-12 lg:mb-0 lg:pr-32">
-        <Headline>{{ blok.headline }}</Headline>
-        <Subheadline class="mb-6">{{ blok.subheadline }}</Subheadline>
-        <Lead>{{ blok.teaser }}</Lead>
+        <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
+        <Subheadline v-if="blok.subheadline" class="mt-6 mb-10">{{ blok.subheadline }}</Subheadline>
+        <Lead v-if="blok.teaser" class="mb-10">{{ blok.teaser }}</Lead>
         <RichText :text="blok.text" />
       </section>
       <section class="sticky top-32 w-[300px] shrink-0 flex flex-col space-y-6">
@@ -25,12 +25,12 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <h4 class="font-extrabold text-lg">Categories</h4>
+            <h4 class="font-normal tracking-wide uppercase text-sm">Categories</h4>
           </div>
           <ul class="flex flex-col space-y-2">
             <li v-for="cat in blok.categories" :key="cat.uuid">
               <NuxtLink :to="'/' + cat.full_slug"
-                ><h5 class="text-secondary hover:text-primary font-extrabold transition-all">
+                ><h5 class="text-secondary hover:text-primary font-medium transition-all">
                   {{ cat.name }}
                 </h5></NuxtLink
               >
@@ -46,7 +46,7 @@
                 clip-rule="evenodd"
               />
             </svg>
-            <h4 class="font-extrabold text-lg">Author</h4>
+            <h4 class="font-normal tracking-wide uppercase text-sm">Author</h4>
           </div>
           <div class="flex items-center space-x-2">
             <img
@@ -55,9 +55,9 @@
               :alt="blok.author.content.profile_picture.alt"
               class="w-20 h-20 rounded-full object-cover pointer-events-none border-4 border-secondary"
             />
-            <h5 class="text-secondary font-extrabold">{{ blok.author.name }}</h5>
+            <h5 class="text-secondary">{{ blok.author.name }}</h5>
           </div>
-          <div class="text-sm leading-relaxed">{{ blok.author.content.description }}</div>
+          <div class="text-sm leading-relaxed font-light">{{ blok.author.content.description }}</div>
         </div>
       </section>
     </main>

@@ -1,7 +1,7 @@
 <template>
   <main class="container py-12 md:py-16" v-editable="blok">
-    <Headline>{{ blok.headline }}</Headline>
-    <Lead>{{ blok.description }}</Lead>
+    <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
+    <Lead v-if="blok.description">{{ blok.description }}</Lead>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 md:gap-12 my-16 place-items-center">
       <ArticleCard
         v-for="article in articles"

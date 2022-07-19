@@ -45,7 +45,7 @@ onMounted(() => {
         />
       </NuxtLink>
       <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
-        <ul class="flex space-x-4 xl:space-x-8 xl:text-lg font-medium">
+        <ul class="flex space-x-4 xl:space-x-8 xl:text-lg">
           <li v-for="item in nav" :key="item._uid">
             <NavItem class="hover:text-secondary" :class="dark ? 'text-white' : 'text-primary '" :item="item" />
           </li>
@@ -58,7 +58,7 @@ onMounted(() => {
           </li>
         </ul>
       </nav>
-      <MobileNavToggle @click="toggleMobileNav" />
+      <MobileNavToggle @click="toggleMobileNav" :color="dark ? 'bg-white' : 'bg-primary '" />
     </div>
   </header>
   <MobileNav :mobileNavOpen="mobileNavOpen" :headerNav="nav" />

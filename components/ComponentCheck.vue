@@ -1,9 +1,7 @@
 <template>
   <StoryblokComponent v-if="componentExists(blok.component)" :blok="blok" />
   <div v-else class="container flex justify-center">
-    <div
-      class="inline-flex items-center justify-center space-x-2 rounded-lg p-8 my-16 text-xl text-dark bg-light shadow-md"
-    >
+    <div class="inline-flex items-center justify-center space-x-2 rounded-lg p-8 my-16 text-xl text-dark bg-light">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="h-12 w-12 text-yellow-600 shrink-0"
@@ -16,7 +14,7 @@
           clip-rule="evenodd"
         />
       </svg>
-      <span
+      <span class="font-light"
         >Component named <span class="font-medium">{{ blok.component }}</span> is not defined in your frontend framework
         yet.</span
       >

@@ -55,8 +55,10 @@
 
 <script setup>
 const defaultColors = {
-  '--primary': '#693562',
-  '--primary_highlight': '#a04b60',
+  '--primary': '#a04b60',
+  //'--primary': '#693562',
+  '--primary_highlight': '#6F3443',
+  //'--primary_highlight': '#a04b60',
   '--secondary': '#1985A1',
   '--tertiary': '#ECA72C',
   '--light': '#f6f7f7',
