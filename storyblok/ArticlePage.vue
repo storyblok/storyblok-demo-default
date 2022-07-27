@@ -18,7 +18,7 @@
       <section class="sticky top-32 w-[300px] shrink-0 flex flex-col space-y-6">
         <div class="flex flex-col space-y-3 bg-light p-4 rounded-lg">
           <div class="flex items-center space-x-1 text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fill-rule="evenodd"
                 d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z"
@@ -30,7 +30,7 @@
           <ul class="flex flex-col space-y-2">
             <li v-for="cat in blok.categories" :key="cat.uuid">
               <NuxtLink :to="'/' + cat.full_slug"
-                ><h5 class="text-secondary hover:text-primary font-medium transition-all">
+                ><h5 class="text-secondary hover:text-primary transition-all">
                   {{ cat.name }}
                 </h5></NuxtLink
               >
@@ -39,7 +39,7 @@
         </div>
         <div class="flex flex-col space-y-3 bg-light p-4 rounded-lg">
           <div class="flex items-center space-x-1 text-primary">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
               <path
                 fill-rule="evenodd"
                 d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
@@ -53,7 +53,7 @@
               v-if="blok.author.content.profile_picture.filename"
               :src="optimizedAuthorImage"
               :alt="blok.author.content.profile_picture.alt"
-              class="w-20 h-20 rounded-full object-cover pointer-events-none border-4 border-secondary"
+              class="w-20 h-20 rounded-full object-cover pointer-events-none"
             />
             <h5 class="text-secondary">{{ blok.author.name }}</h5>
           </div>
@@ -70,5 +70,5 @@ const props = defineProps({ blok: Object })
 const route = useRoute()
 
 const optimizedArticleImage = computed(() => props.blok.image.filename + '/m/2000x0')
-const optimizedAuthorImage = computed(() => props.blok.author.content.profile_picture.filename + '/m/80x0')
+const optimizedAuthorImage = computed(() => props.blok.author.content.profile_picture.filename + '/m/200x0')
 </script>
