@@ -12,17 +12,4 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
   ],
   css: ['@/assets/css/fonts.css'],
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => ['model-viewer'].includes(tag),
-    },
-  },
-  head: {
-    bodyAttrs: {
-      class: 'test',
-    },
-  },
-  publicRuntimeConfig: {
-    STORYBLOK_PUBLIC_TOKEN: process.env.STORYBLOK_PUBLIC_TOKEN,
-  },
 })
