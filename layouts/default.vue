@@ -113,13 +113,6 @@ const cssVariables = computed(() => {
 })
 
 const { slug } = useRoute().params
-
-onMounted(() => {
-  if (slug && slug[0] !== 'site-config') return
-  useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-    preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
-  })
-})
 </script>
 
 <style>
