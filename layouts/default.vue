@@ -111,6 +111,8 @@ const cssVariables = computed(() => {
   }
   return theme
 })
+
+const { slug } = useRoute().params
 </script>
 
 <style>
