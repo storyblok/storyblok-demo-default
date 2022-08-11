@@ -4,12 +4,20 @@
     "build": "nuxt build",
     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "deploy": "node ./deploy/deploy.js",
+    "predeploy": "rimraf dist && node ./deploy/predeploy.js"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.1.3",
     "@storyblok/nuxt": "^4.0.1",
     "@tailwindcss/typography": "^0.5.2",
+    "axios": "^0.27.2",
+    "axios-concurrency": "^1.0.4",
+    "chalk": "^4.1.0",
+    "dotenv": "^16.0.1",
+    "glob": "^8.0.3",
+    "isbinaryfile": "^5.0.0",
     "nuxt": "^3.0.0-rc.6"
   },
   "dependencies": {

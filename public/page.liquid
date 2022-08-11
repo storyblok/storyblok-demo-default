@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html data-n-head="">
+  <head>
+    <title data-n-head="true">Storyblok Demo</title>
+    <meta data-n-head="true" charset="utf-8" />
+    <meta
+      data-n-head="true"
+      name="viewport"
+      content="width=device-width,initial-scale=1"
+    />
+    <meta
+      data-n-head="true"
+      data-hid="description"
+      name="description"
+      content="Storyblok demo project"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://a.storyblok.com/t/163682/assets/entry.b80e6736.css"
+    />
+  </head>
+
+  <body data-n-head="">
+    <div id="__nuxt"></div>
+    <script>
+      window.__NUXT__ = (function (a) {
+        return {
+          serverRendered: false,
+          config: {
+            public: {
+              STORYBLOK_PUBLIC_TOKEN: "{{ public_token }}",
+              storyblok: {
+                accessToken: "{{ private_token }}",
+                useApiClient: a,
+                bridge: a,
+              },
+            },
+            app: {
+              baseURL: "/",
+              buildAssetsDir: "/",
+              cdnURL: "https://a.storyblok.com/t/163682/assets/",
+            },
+          },
+        };
+      })(true);
+    </script>
+    <script
+      type="module"
+      src="https://a.storyblok.com/t/163682/assets/entry-06ce5dfb.mjs"
+    ></script>
+  </body>
+</html>
