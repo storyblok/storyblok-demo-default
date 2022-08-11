@@ -31,27 +31,17 @@ if (slug.includes("articles") && slug.length > 1) {
   resolveRelations.push("article-page.categories", "article-page.author");
 }
 
-const story = ref(null);
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/" + slug, {
-  version: "draft",
-  language: language,
-  fallback_lang: "default",
-  resolve_relations: resolveRelations,
-  resolve_links: "url",
-});
-
-story.value = data.story;
-
-/**
- * Use Bridge
- */
-onMounted(() => {
-  if (slug && slug[0] === "site-config") return;
-  useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-    resolveRelations: resolveRelations,
-  });
-});
+const story = await useStoryblok(
+  slug,
+  {
+    version: "draft",
+    language: language,
+    fallback_lang: "default",
+    resolve_relations: resolveRelations,
+    resolve_links: "url",
+  },
+  { resolveRelations }
+);
 </script>
 
 <template>
