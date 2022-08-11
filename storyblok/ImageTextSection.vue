@@ -1,11 +1,26 @@
 <template>
-  <section v-editable="blok" class="page-section image-text-section" :class="'bg-' + blok.background_color">
-    <div class="container grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12 items-center">
-      <div class="order-last text-left" :class="blok.reverse_layout ? '' : 'lg:order-first'">
-        <Headline v-if="blok.headline" size="small" class="mb-2">{{ blok.headline }}</Headline>
+  <section
+    v-editable="blok"
+    class="page-section image-text-section"
+    :class="'bg-' + blok.background_color"
+  >
+    <div
+      class="container grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12 items-center"
+    >
+      <div
+        class="order-last text-left"
+        :class="blok.reverse_layout ? '' : 'lg:order-first'"
+      >
+        <Headline v-if="blok.headline" size="small" class="mb-2">{{
+          blok.headline
+        }}</Headline>
         <RichText :text="blok.text" />
         <div v-if="blok.button.length" class="mt-8">
-          <Button v-for="button in blok.button" :key="button._uid" :button="button" />
+          <Button
+            v-for="button in blok.button"
+            :key="button._uid"
+            :button="button"
+          />
         </div>
       </div>
       <div>
@@ -41,24 +56,24 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object });
 
 const fixedHeightImages = computed(() => {
-  if (props.blok.image_layout !== 'fixed-height') return false
+  if (props.blok.image_layout !== "fixed-height") return false;
   let images = {
-    mobile: props.blok.image.filename + '/m/600x300',
-    tablet: props.blok.image.filename + '/m/1000x500',
-    desktop: props.blok.image.filename + '/m/1000x1250',
-  }
+    mobile: props.blok.image.filename + "/m/600x300",
+    tablet: props.blok.image.filename + "/m/1000x500",
+    desktop: props.blok.image.filename + "/m/1000x1250",
+  };
 
   if (props.blok.image.focus) {
     for (const key of Object.keys(images)) {
-      images[key] += '/filters:focal(' + props.blok.image.focus + ')'
+      images[key] += "/filters:focal(" + props.blok.image.focus + ")";
     }
   }
 
-  return images
-})
+  return images;
+});
 
-const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
+const optimizedImage = computed(() => props.blok.image.filename + "/m/1000x0");
 </script>

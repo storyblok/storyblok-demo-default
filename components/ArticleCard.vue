@@ -11,8 +11,12 @@
       />
     </div>
     <div class="grow p-6 text-left">
-      <h3 class="text-secondary font-medium mb-3 text-xl">{{ article.headline }}</h3>
-      <div class="line-clamp-3 font-light leading-relaxed">{{ article.teaser }}</div>
+      <h3 class="text-secondary font-medium mb-3 text-xl">
+        {{ article.headline }}
+      </h3>
+      <div class="line-clamp-3 font-light leading-relaxed">
+        {{ article.teaser }}
+      </div>
     </div>
     <div class="flex text-secondary justify-between px-6 py-3">
       <span class="uppercase font-light tracking-widest">Read</span>
@@ -33,7 +37,9 @@
 </template>
 
 <script setup>
-const props = defineProps({ article: Object, slug: String })
+const props = defineProps({ article: Object, slug: String });
 
-const optimizedImage = computed(() => props.article.image.filename + '/m/400x0')
+const optimizedImage = computed(
+  () => props.article.image.filename + "/m/400x0"
+);
 </script>

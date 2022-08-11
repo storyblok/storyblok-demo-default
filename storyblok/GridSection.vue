@@ -1,38 +1,48 @@
 <template>
-  <section v-editable="blok" class="page-section grid-section" :class="'bg-' + blok.background_color">
+  <section
+    v-editable="blok"
+    class="page-section grid-section"
+    :class="'bg-' + blok.background_color"
+  >
     <div class="container text-center">
       <Headline v-if="blok.headline" class="mb-4">{{ blok.headline }}</Headline>
       <Lead v-if="blok.lead">
         {{ blok.lead }}
       </Lead>
       <div :class="gridClasses">
-        <GridCard v-for="card in blok.cards" :key="card._uid" :card="card" :class="gridCardColor" />
+        <GridCard
+          v-for="card in blok.cards"
+          :key="card._uid"
+          :card="card"
+          :class="gridCardColor"
+        />
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object });
 
 const gridCardColor = computed(() => {
-  let color = 'bg-light'
-  if (props.blok.background_color === 'light') color = 'bg-white'
-  return color
-})
+  let color = "bg-light";
+  if (props.blok.background_color === "light") color = "bg-white";
+  return color;
+});
 
 const gridClasses = computed(() => {
-  let gridClasses = 'grid md:grid-cols-2 gap-10 md:gap-12 place-items-center items-start mt-16'
+  let gridClasses =
+    "grid md:grid-cols-2 gap-10 md:gap-12 place-items-center items-start mt-16";
 
   switch (props.blok.cols) {
-    case '4':
-      gridClasses += ' lg:grid-cols-3 xl:grid-cols-4'
-      break
-    case '3':
-      gridClasses += ' lg:grid-cols-3'
-      break
+    case "4":
+      gridClasses += " lg:grid-cols-3 xl:grid-cols-4";
+      break;
+    case "3":
+      gridClasses += " lg:grid-cols-3";
+      break;
   }
 
-  return gridClasses
-})
+  return gridClasses;
+});
 </script>

@@ -2,7 +2,11 @@
   <ul class="flex space-x-8 text-white">
     <!-- Icons by https://simpleicons.org/ -->
     <li v-if="twitter">
-      <a :href="twitter.url" target="_blank" class="hover:text-secondary transition-colors">
+      <a
+        :href="twitter.url"
+        target="_blank"
+        class="hover:text-secondary transition-colors"
+      >
         <svg
           role="img"
           viewBox="0 0 24 24"
@@ -16,7 +20,11 @@
       ></a>
     </li>
     <li v-if="instagram">
-      <a :href="instagram.url" target="_blank" class="hover:text-secondary transition-colors">
+      <a
+        :href="instagram.url"
+        target="_blank"
+        class="hover:text-secondary transition-colors"
+      >
         <svg
           role="img"
           viewBox="0 0 24 24"
@@ -30,7 +38,11 @@
       ></a>
     </li>
     <li v-if="youtube">
-      <a :href="youtube.url" target="_blank" class="hover:text-secondary transition-colors">
+      <a
+        :href="youtube.url"
+        target="_blank"
+        class="hover:text-secondary transition-colors"
+      >
         <svg
           role="img"
           viewBox="0 0 24 24"
@@ -45,7 +57,11 @@
       </a>
     </li>
     <li v-if="facebook">
-      <a :href="facebook.url" target="_blank" class="hover:text-secondary transition-colors">
+      <a
+        :href="facebook.url"
+        target="_blank"
+        class="hover:text-secondary transition-colors"
+      >
         <svg
           role="img"
           viewBox="0 0 24 24"
@@ -62,5 +78,10 @@
 </template>
 
 <script setup>
-defineProps({ twitter: Object, instagram: Object, youtube: Object, facebook: Object })
+defineProps({
+  twitter: Object,
+  instagram: Object,
+  youtube: Object,
+  facebook: Object,
+});
 </script>

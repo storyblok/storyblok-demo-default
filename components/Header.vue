@@ -1,41 +1,54 @@
 <script setup>
-const props = defineProps({ logo: Object, disable_transparency: Boolean, nav: Object, buttons: Object, dark: Boolean })
+const props = defineProps({
+  logo: Object,
+  disable_transparency: Boolean,
+  nav: Object,
+  buttons: Object,
+  dark: Boolean,
+});
 
-const mobileNavOpen = ref(false)
+const mobileNavOpen = ref(false);
 
 const toggleMobileNav = () => {
-  mobileNavOpen.value = !mobileNavOpen.value
-}
+  mobileNavOpen.value = !mobileNavOpen.value;
+};
 
-const route = useRoute()
+const route = useRoute();
 watch(route, () => {
-  mobileNavOpen.value = false
-})
+  mobileNavOpen.value = false;
+});
 
-const headerClasses = ref('h-32')
-const logoScale = ref('scale-100')
+const headerClasses = ref("h-32");
+const logoScale = ref("scale-100");
 
 const headerBg = computed(() => {
-  return props.dark ? 'dark-header bg-black' : 'bg-white'
-})
+  return props.dark ? "dark-header bg-black" : "bg-white";
+});
 
 onMounted(() => {
-  let transparency = props.disable_transparency ? '' : 'bg-opacity-80 backdrop-blur-lg'
-  window.addEventListener('scroll', () => {
+  let transparency = props.disable_transparency
+    ? ""
+    : "bg-opacity-80 backdrop-blur-lg";
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 60) {
-      headerClasses.value = ' shadow-md h-20 ' + transparency
-      logoScale.value = 'scale-75'
+      headerClasses.value = " shadow-md h-20 " + transparency;
+      logoScale.value = "scale-75";
     } else {
-      headerClasses.value = 'h-32'
-      logoScale.value = 'scale-100'
+      headerClasses.value = "h-32";
+      logoScale.value = "scale-100";
     }
-  })
-})
+  });
+});
 </script>
 
 <template>
-  <header class="fixed z-50 top-0 left-0 w-full transition-all duration-700" :class="[headerClasses, headerBg]">
-    <div class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start">
+  <header
+    class="fixed z-50 top-0 left-0 w-full transition-all duration-700"
+    :class="[headerClasses, headerBg]"
+  >
+    <div
+      class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start"
+    >
       <NuxtLink to="/" class="flex shrink-0">
         <img
           :src="logo.filename"
@@ -47,18 +60,27 @@ onMounted(() => {
       <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
         <ul class="flex space-x-4 xl:space-x-8 xl:text-lg">
           <li v-for="item in nav" :key="item._uid">
-            <NavItem class="hover:text-secondary" :class="dark ? 'text-white' : 'text-primary '" :item="item" />
+            <NavItem
+              class="hover:text-secondary"
+              :class="dark ? 'text-white' : 'text-primary '"
+              :item="item"
+            />
           </li>
         </ul>
       </nav>
-      <nav class="invisible ml-auto lg:ml-0 hidden md:visible md:block md:mr-8 lg:mr-0">
+      <nav
+        class="invisible ml-auto lg:ml-0 hidden md:visible md:block md:mr-8 lg:mr-0"
+      >
         <ul class="flex space-x-4 xl:space-x-8 items-center">
           <li v-for="button in buttons" :key="button._uid">
             <Button :button="button" />
           </li>
         </ul>
       </nav>
-      <MobileNavToggle @click="toggleMobileNav" :color="dark ? 'bg-white' : 'bg-primary '" />
+      <MobileNavToggle
+        @click="toggleMobileNav"
+        :color="dark ? 'bg-white' : 'bg-primary '"
+      />
     </div>
   </header>
   <MobileNav :mobileNavOpen="mobileNavOpen" :headerNav="nav" />

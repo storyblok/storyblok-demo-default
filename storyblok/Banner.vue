@@ -12,14 +12,21 @@
             >
               {{ blok.headline }}
             </h2>
-            <h3 class="text-2xl md:text-3xl lg:text-4xl text-center font-thin" :class="[textColor]">
+            <h3
+              class="text-2xl md:text-3xl lg:text-4xl text-center font-thin"
+              :class="[textColor]"
+            >
               {{ blok.subheadline }}
             </h3>
           </div>
           <div
             class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 mt-12 mx-auto"
           >
-            <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
+            <Button
+              v-for="button in blok.buttons"
+              :key="button._uid"
+              :button="button"
+            />
           </div>
         </div>
         <img
@@ -34,27 +41,35 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object });
 
 const textColor = computed(() => {
-  return 'text-' + props.blok.text_color
-})
+  return "text-" + props.blok.text_color;
+});
 
 const filters = computed(() => {
-  const blur = props.blok.background_blur > 0 ? 'blur(' + props.blok.background_blur + ')' : ''
-  const brightness = props.blok.background_brightness != 0 ? 'brightness(' + props.blok.background_brightness + ')' : ''
+  const blur =
+    props.blok.background_blur > 0
+      ? "blur(" + props.blok.background_blur + ")"
+      : "";
+  const brightness =
+    props.blok.background_brightness != 0
+      ? "brightness(" + props.blok.background_brightness + ")"
+      : "";
 
-  let filters = '/filters:'
+  let filters = "/filters:";
   if (blur && !brightness) {
-    return filters + blur
+    return filters + blur;
   } else if (!blur && brightness) {
-    return filters + brightness
+    return filters + brightness;
   } else if (blur && brightness) {
-    return filters + blur + ':' + brightness
+    return filters + blur + ":" + brightness;
   } else {
-    return ''
+    return "";
   }
-})
+});
 
-const optimizedImage = computed(() => props.blok.background_image?.filename + '/m/2000x0')
+const optimizedImage = computed(
+  () => props.blok.background_image?.filename + "/m/2000x0"
+);
 </script>
