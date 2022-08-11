@@ -8,11 +8,9 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^5.1.3",
-    "@storyblok/nuxt": "^4.0.1",
+    "@storyblok/nuxt": "^4.1.3",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "nuxt": "^3.0.0-rc.6"
-  },
-  "dependencies": {
-    "@tailwindcss/line-clamp": "^0.4.0"
   }
 }
