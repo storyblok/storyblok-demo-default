@@ -79,8 +79,6 @@ const defaultBorderRadiuses = {
 
 const theme = reactive({ ...defaultColors, ...defaultBorderRadiuses })
 
-//const story = await useStoryblok('site-config', { version: 'draft', resolve_links: 'url' }, { resolveLinks: 'url' })
-
 const story = ref()
 const storyblokApi = useStoryblokApi()
 
@@ -115,10 +113,11 @@ const cssVariables = computed(() => {
 const { slug } = useRoute().params
 
 onMounted(() => {
-  if (slug && slug[0] !== 'site-config') return
-  useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-    preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
-  })
+  if (slug[0] !== undefined && slug[0] === 'site-config') {
+    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+      preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
+    })
+  }
 })
 </script>
 

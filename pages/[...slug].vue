@@ -1,6 +1,4 @@
 <script setup>
-import { resolveDynamicComponent } from 'vue'
-
 const route = useRoute()
 
 /**
@@ -21,7 +19,10 @@ if (slug) {
 /**
  * Resolve relations
  */
-let resolveRelations = ['banner-reference.banner', 'featured-articles-section.articles']
+let resolveRelations = [
+  'banner-reference.banner',
+  'featured-articles-section.articles',
+]
 
 // resolve relations for all article single views, exclude article overview page
 if (slug.includes('articles') && slug.length > 1) {
@@ -44,7 +45,7 @@ story.value = data.story
  * Use Bridge
  */
 onMounted(() => {
-  if (slug && slug[0] === 'site-config') return
+  if (slug[0] !== undefined && slug[0] === 'site-config') return
   useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
     resolveRelations: resolveRelations,
   })

@@ -1,12 +1,13 @@
 <template>
   <NuxtLink
     :to="'/' + slug"
+    v-if="article"
     class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl group"
   >
     <div class="w-full h-[210px] xl:h-[300px] overflow-hidden">
       <img
         :src="optimizedImage"
-        :alt="article.image.alt"
+        :alt="article.image && article.image.alt"
         class="w-full h-full object-cover group-hover:scale-110 transition-all duration-700 transform pointer-events-none"
       />
     </div>
@@ -35,5 +36,5 @@
 <script setup>
 const props = defineProps({ article: Object, slug: String })
 
-const optimizedImage = computed(() => props.article.image.filename + '/m/400x0')
+const optimizedImage = computed(() => props.article?.image?.filename + '/m/400x0')
 </script>
