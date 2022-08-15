@@ -1,5 +1,9 @@
 <template>
-  <section class="hero relative overflow-hidden flex py-12" :class="[height, verticalAlignment]" v-editable="blok">
+  <section
+    class="hero relative overflow-hidden flex py-12"
+    :class="[height, verticalAlignment]"
+    v-editable="blok"
+  >
     <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
       <h1
@@ -8,14 +12,25 @@
       >
         {{ blok.headline }}
       </h1>
-      <h2 class="text-2xl md:text-3xl lg:text-4xl" :class="[textColor, horizontalAlignment]">
+      <h2
+        class="text-2xl md:text-3xl lg:text-4xl"
+        :class="[textColor, horizontalAlignment]"
+      >
         {{ blok.subheadline }}
       </h2>
       <div
         class="flex flex-col space-y-8 mt-12 mx-auto"
-        :class="props.blok.horizontal_alignment === 'left' ? 'items-start' : 'items-center'"
+        :class="
+          props.blok.horizontal_alignment === 'left'
+            ? 'items-start'
+            : 'items-center'
+        "
       >
-        <Button v-for="button in blok.buttons" :key="button._uid" :button="button" />
+        <Button
+          v-for="button in blok.buttons"
+          :key="button._uid"
+          :button="button"
+        />
       </div>
     </div>
     <video
@@ -37,31 +52,38 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object });
 
 const height = computed(() => {
-  return props.blok.full_height ? 'min-h-[calc(100vh-128px)]' : 'min-h-[500px] md:min-h-[700px]'
-})
+  return props.blok.full_height
+    ? "min-h-[calc(100vh-128px)]"
+    : "min-h-[500px] md:min-h-[700px]";
+});
 
 const textColor = computed(() => {
-  return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
-})
+  return props.blok.text_color === "light" ? "text-white" : "text-dark";
+});
 
 const horizontalAlignment = computed(() => {
-  return 'text-' + props.blok.horizontal_alignment
-})
+  return "text-" + props.blok.horizontal_alignment;
+});
 
 const verticalAlignment = computed(() => {
-  return 'items-' + props.blok.vertical_alignment
-})
+  return "items-" + props.blok.vertical_alignment;
+});
 
-const optimizedImage = computed(() => props.blok.background_image.filename + '/m/2000x0')
+const optimizedImage = computed(
+  () => props.blok.background_image.filename + "/m/2000x0"
+);
 
 const showVideo = computed(() => {
-  if (props.blok.background_image.filename && !props.blok.background_video.filename) {
-    return false
+  if (
+    props.blok.background_image.filename &&
+    !props.blok.background_video.filename
+  ) {
+    return false;
   } else if (props.blok.background_video.filename) {
-    return true
+    return true;
   }
-})
+});
 </script>

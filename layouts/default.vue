@@ -7,28 +7,49 @@
       :buttons="story.content.header_buttons"
       :dark="story.content.header_dark"
     />
-    <div v-if="slug && slug[0] === 'site-config' && story.content.use_custom_colors" class="container py-12">
+    <div
+      v-if="
+        slug && slug[0] === 'site-config' && story.content.use_custom_colors
+      "
+      class="container py-12"
+    >
       <Headline class="mb-8">Color Previews</Headline>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-        <div class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
+      >
+        <div
+          class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-white">Primary</span>
         </div>
-        <div class="bg-primary_highlight w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-primary_highlight w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-white">Primary Highlight</span>
         </div>
-        <div class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-white">Secondary</span>
         </div>
-        <div class="bg-tertiary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-tertiary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-white">Tertiary</span>
         </div>
-        <div class="bg-white w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-white w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-black">White</span>
         </div>
-        <div class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-black">Light</span>
         </div>
-        <div class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm">
+        <div
+          class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
           <span class="text-sm text-white">Dark</span>
         </div>
       </div>
