@@ -1,72 +1,88 @@
 <template>
-  <NuxtLink :to="url" :class="classes" v-editable="button">
+  <NuxtLink
+    :to="url"
+    :class="[classes, { 'disable-clicks': inEditor }]"
+    v-editable="button"
+  >
     {{ button.label }}
     <slot />
   </NuxtLink>
 </template>
 
 <script setup>
-const props = defineProps({ button: Object });
+const { query } = useRoute()
+
+const inEditor = computed(() => {
+  return query._storyblok ? true : false
+})
+
+const props = defineProps({ button: Object })
 
 const url = computed(() => {
   switch (props.button.link.linktype) {
-    case "story":
+    case 'story':
       // here we need to test if the story object exists because it won't be resolved when the bridge is used on site-config
-      return "/" + props.button.link.story?.full_slug;
-    case "url":
-    case "asset":
-      return props.button.link.url;
-    case "email":
-      return "mailto:" + props.button.link.email;
+      return '/' + props.button.link.story?.full_slug
+    case 'url':
+    case 'asset':
+      return props.button.link.url
+    case 'email':
+      return 'mailto:' + props.button.link.email
     default:
-      return "#";
+      return '#'
   }
-});
+})
 
 const classes = computed(() => {
   let classes =
-    "inline-flex items-center rounded-full font-light tracking-widest uppercase cursor-pointer transition-all duration-300 border border-" +
-    props.button.button_color;
+    'inline-flex items-center rounded-full font-light tracking-widest uppercase cursor-pointer transition-all duration-300 border border-' +
+    props.button.button_color
 
   switch (props.button.size) {
-    case "small":
-      classes += " py-2 px-6 text-sm";
-      break;
-    case "large":
-      classes += " py-4 px-10 text-xl";
-      break;
-    case "medium":
+    case 'small':
+      classes += ' py-2 px-6 text-sm'
+      break
+    case 'large':
+      classes += ' py-4 px-10 text-xl'
+      break
+    case 'medium':
     default:
-      classes += " py-3 px-8";
-      break;
+      classes += ' py-3 px-8'
+      break
   }
 
   if (props.button.ghost == false) {
     if (
-      props.button.button_color !== "white" &&
-      props.button.button_color !== "light"
+      props.button.button_color !== 'white' &&
+      props.button.button_color !== 'light'
     ) {
-      classes += " text-white";
+      classes += ' text-white'
     } else {
-      classes += " text-dark";
+      classes += ' text-dark'
     }
-    classes += " hover:scale-105 transform bg-" + props.button.button_color;
+    classes += ' hover:scale-105 transform bg-' + props.button.button_color
   } else {
     if (
-      props.button.button_color !== "white" &&
-      props.button.button_color !== "light"
+      props.button.button_color !== 'white' &&
+      props.button.button_color !== 'light'
     ) {
-      classes += " hover:text-white";
+      classes += ' hover:text-white'
     } else {
-      classes += " hover:text-dark";
+      classes += ' hover:text-dark'
     }
     classes +=
-      " bg-transparent text-" +
+      ' bg-transparent text-' +
       props.button.button_color +
-      " hover:bg-" +
-      props.button.button_color;
+      ' hover:bg-' +
+      props.button.button_color
   }
 
-  return classes;
-});
+  return classes
+})
 </script>
+
+<style scoped>
+.disable-clicks {
+  pointer-events: none;
+}
+</style>

@@ -77,9 +77,7 @@
 <script setup>
 const defaultColors = {
   '--primary': '#a04b60',
-  //'--primary': '#693562',
   '--primary_highlight': '#6F3443',
-  //'--primary_highlight': '#a04b60',
   '--secondary': '#1985A1',
   '--tertiary': '#ECA72C',
   '--light': '#f6f7f7',
@@ -136,7 +134,7 @@ const { slug } = useRoute().params
 onMounted(() => {
   if (slug[0] !== undefined && slug[0] === 'site-config') {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-      preventClicks: true, // useful here to prevent default behavior when clicking on buttons/links
+      //preventClicks: true,
     })
   }
 })
