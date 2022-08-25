@@ -51,10 +51,16 @@ const currentYear = today.getFullYear()
         </nav>
       </div>
     </div>
-    <div class="border-t border-white border-opacity-20 py-4">
-      <div class="container text-white text-xs text-center">
-        &copy; Storyblok {{ currentYear }}
-      </div>
+    <div>
+      <div
+        class="h-[1px] w-full bg-gradient-to-r from-dark via-medium to-dark"
+      ></div>
+      <img
+        src="~/assets/images/made-with-love.svg"
+        width="180"
+        class="block mx-auto py-9 pointer-events-none"
+        alt="Made with love by the Storyblok team!"
+      />
     </div>
   </footer>
 </template>

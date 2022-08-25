@@ -5,7 +5,7 @@
       :disable_transparency="story.content.header_disable_transparency"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
-      :dark="story.content.header_dark"
+      :light="story.content.header_light"
     />
     <div
       v-if="
@@ -76,23 +76,21 @@
 
 <script setup>
 const defaultColors = {
-  '--primary': '#a04b60',
-  '--primary_highlight': '#6F3443',
-  '--secondary': '#1985A1',
-  '--tertiary': '#ECA72C',
-  '--light': '#f6f7f7',
-  '--medium': '#f6f7f7',
-  '--dark': '#101d25',
+  '--primary': '#395ECE',
+  '--secondary': '#00B3B0',
+  '--light': '#F8F8F8',
+  '--medium': '#435366',
+  '--dark': '#0A0F15',
 }
 
 const defaultBorderRadiuses = {
-  '--rounded_sm': '0.125rem',
-  '--rounded_default': '0.25rem',
-  '--rounded_md': '0.375rem',
-  '--rounded_lg': '0.5rem',
-  '--rounded_xl': '0.75rem',
-  '--rounded_2xl': '1rem',
-  '--rounded_3xl': '1.6rem',
+  '--rounded_sm': '4px',
+  '--rounded_default': '6px',
+  '--rounded_md': '8px',
+  '--rounded_lg': '10px',
+  '--rounded_xl': '15px',
+  '--rounded_2xl': '20px',
+  '--rounded_3xl': '25px',
   '--rounded_full': '9999px',
 }
 
@@ -111,10 +109,9 @@ story.value = data.story
 const cssVariables = computed(() => {
   if (story.value.content.use_custom_colors) {
     theme['--primary'] = story.value.content.primary.color
-    theme['--primary_highlight'] = story.value.content.primary_highlight.color
     theme['--secondary'] = story.value.content.secondary.color
-    theme['--tertiary'] = story.value.content.tertiary.color
     theme['--light'] = story.value.content.light.color
+    theme['--medium'] = story.value.content.light.color
     theme['--dark'] = story.value.content.dark.color
   } else {
     Object.assign(theme, defaultColors)
@@ -137,7 +134,7 @@ const slug = route.query.path?.split('/')
 // const slug = route.params.slug
 
 onMounted(() => {
-  if (slug[0] !== undefined && slug[0] === 'site-config') {
+  if (slug && slug[0] !== undefined && slug[0] === 'site-config') {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory))
   }
 })
@@ -153,5 +150,12 @@ section.page-section {
 
 section.banner-section + section.banner-section {
   @apply pt-0;
+}
+
+section.hero-section + section.text-section {
+  @apply py-0;
+}
+section.hero-section + section.text-section > .container {
+  @apply -translate-y-24;
 }
 </style>

@@ -4,7 +4,7 @@ const props = defineProps({
   disable_transparency: Boolean,
   nav: Object,
   buttons: Object,
-  dark: Boolean,
+  light: Boolean,
 })
 
 const mobileNavOpen = ref(false)
@@ -22,16 +22,17 @@ const headerClasses = ref('h-32')
 const logoScale = ref('scale-100')
 
 const headerBg = computed(() => {
-  return props.dark ? 'dark-header bg-black' : 'bg-white'
+  return props.light ? 'bg-light' : 'bg-[#0B0F19]'
+})
+
+const headerTransparency = computed(() => {
+  return props.disable_transparency ? '' : 'bg-opacity-80 backdrop-blur-lg'
 })
 
 onMounted(() => {
-  let transparency = props.disable_transparency
-    ? ''
-    : 'bg-opacity-80 backdrop-blur-lg'
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      headerClasses.value = ' shadow-md h-20 ' + transparency
+      headerClasses.value = ' shadow-md h-20'
       logoScale.value = 'scale-75'
     } else {
       headerClasses.value = 'h-32'
@@ -44,7 +45,7 @@ onMounted(() => {
 <template>
   <header
     class="fixed z-50 top-0 left-0 w-full transition-all duration-700"
-    :class="[headerClasses, headerBg]"
+    :class="[headerClasses, headerBg, headerTransparency]"
   >
     <div
       class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start"
@@ -62,7 +63,7 @@ onMounted(() => {
           <li v-for="item in nav" :key="item._uid">
             <NavItem
               class="hover:text-secondary"
-              :class="dark ? 'text-white' : 'text-primary '"
+              :class="light ? 'text-primary' : 'text-white'"
               :item="item"
             />
           </li>
@@ -79,7 +80,7 @@ onMounted(() => {
       </nav>
       <MobileNavToggle
         @click="toggleMobileNav"
-        :color="dark ? 'bg-white' : 'bg-primary '"
+        :color="light ? 'bg-dark' : 'bg-light'"
       />
     </div>
   </header>
@@ -89,8 +90,5 @@ onMounted(() => {
 <style scoped>
 header nav.main-nav a.router-link-active {
   @apply underline underline-offset-4 decoration-4 decoration-primary;
-}
-header.dark-header nav.main-nav a.router-link-active {
-  @apply decoration-white;
 }
 </style>

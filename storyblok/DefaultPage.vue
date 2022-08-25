@@ -1,6 +1,11 @@
 <template>
   <div v-editable="blok">
-    <ComponentCheck v-for="blok in blok.body" :key="blok._uid" :blok="blok" />
+    <ComponentCheck
+      v-for="(blok, index) in blok.body"
+      :key="blok._uid"
+      :blok="blok"
+      :index="index"
+    />
   </div>
 </template>
 

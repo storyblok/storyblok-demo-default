@@ -1,10 +1,9 @@
 <template>
   <section
-    class="hero relative overflow-hidden flex py-12"
-    :class="[height, verticalAlignment]"
+    class="hero-section relative overflow-hidden flex py-36"
+    :class="[height, verticalAlignment, { '-mt-32': index == 0 }]"
     v-editable="blok"
   >
-    <!--  h-[calc(100vh-128px)] -->
     <div class="container relative z-10">
       <h1
         class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-extrabold mb-4"
@@ -52,12 +51,14 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object, index: Number })
 
 const height = computed(() => {
-  return props.blok.full_height
-    ? 'min-h-[calc(100vh-128px)]'
-    : 'min-h-[500px] md:min-h-[700px]'
+  if (props.blok.full_height) {
+    return props.index > 0 ? 'min-h-[calc(100vh-128px)]' : 'min-h-screen'
+  } else {
+    return 'min-h-[500px] md:min-h-[700px]'
+  }
 })
 
 const textColor = computed(() => {

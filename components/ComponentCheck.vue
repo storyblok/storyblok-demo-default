@@ -1,5 +1,9 @@
 <template>
-  <StoryblokComponent v-if="componentExists(blok.component)" :blok="blok" />
+  <StoryblokComponent
+    v-if="componentExists(blok.component)"
+    :blok="blok"
+    :index="index"
+  />
   <div v-else class="container flex justify-center">
     <div
       class="inline-flex items-center justify-center space-x-2 rounded-lg p-8 my-16 text-xl text-dark bg-light"

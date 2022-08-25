@@ -25,9 +25,7 @@
 const props = defineProps({ blok: Object })
 
 const gridCardColor = computed(() => {
-  let color = 'bg-light'
-  if (props.blok.background_color === 'light') color = 'bg-white'
-  return color
+  return props.blok.background_color === 'light' ? 'bg-white' : 'bg-light'
 })
 
 const gridClasses = computed(() => {

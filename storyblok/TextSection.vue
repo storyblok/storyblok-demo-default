@@ -4,7 +4,7 @@
     class="page-section text-section"
     :class="'bg-' + blok.background_color"
   >
-    <div class="container">
+    <div class="container rounded-lg p-12 z-10" :class="containerColor">
       <div
         class="max-w-3xl"
         :class="{ 'mx-auto text-center': blok.alignment === 'center' }"
@@ -33,4 +33,8 @@
 
 <script setup>
 const props = defineProps({ blok: Object })
+
+const containerColor = computed(() => {
+  return props.blok.background_color === 'light' ? 'bg-white' : 'bg-light'
+})
 </script>
