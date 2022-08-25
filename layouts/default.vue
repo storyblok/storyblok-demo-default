@@ -129,13 +129,16 @@ const cssVariables = computed(() => {
   return theme
 })
 
-const { slug } = useRoute().params
+const route = useRoute()
+
+// Here we are getting the path as a URL parameter
+const slug = route.query.path?.split('/')
+// In your project you would typically want to do the following:
+// const slug = route.params.slug
 
 onMounted(() => {
   if (slug[0] !== undefined && slug[0] === 'site-config') {
-    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
-      //preventClicks: true,
-    })
+    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory))
   }
 })
 </script>
