@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-defineProps({ blok: Object });
+defineProps({ blok: Object })
 const componentExists = (component) =>
-  typeof resolveComponent(component) !== "string";
+  typeof resolveComponent(component) !== 'string'
 </script>

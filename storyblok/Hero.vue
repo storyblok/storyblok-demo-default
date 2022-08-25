@@ -52,38 +52,38 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object });
+const props = defineProps({ blok: Object })
 
 const height = computed(() => {
   return props.blok.full_height
-    ? "min-h-[calc(100vh-128px)]"
-    : "min-h-[500px] md:min-h-[700px]";
-});
+    ? 'min-h-[calc(100vh-128px)]'
+    : 'min-h-[500px] md:min-h-[700px]'
+})
 
 const textColor = computed(() => {
-  return props.blok.text_color === "light" ? "text-white" : "text-dark";
-});
+  return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
+})
 
 const horizontalAlignment = computed(() => {
-  return "text-" + props.blok.horizontal_alignment;
-});
+  return 'text-' + props.blok.horizontal_alignment
+})
 
 const verticalAlignment = computed(() => {
-  return "items-" + props.blok.vertical_alignment;
-});
+  return 'items-' + props.blok.vertical_alignment
+})
 
 const optimizedImage = computed(
-  () => props.blok.background_image.filename + "/m/2000x0"
-);
+  () => props.blok.background_image.filename + '/m/2000x0'
+)
 
 const showVideo = computed(() => {
   if (
     props.blok.background_image.filename &&
     !props.blok.background_video.filename
   ) {
-    return false;
+    return false
   } else if (props.blok.background_video.filename) {
-    return true;
+    return true
   }
-});
+})
 </script>

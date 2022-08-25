@@ -14,20 +14,20 @@
 </template>
 
 <script setup>
-defineProps({ blok: Object });
+defineProps({ blok: Object })
 
-let { slug } = useRoute().params;
-let language = "default";
+let { slug } = useRoute().params
+let language = 'default'
 
-if (slug) language = await getLanguage(slug);
+if (slug) language = await getLanguage(slug)
 
-const articles = ref(null);
-const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/", {
-  version: "draft",
-  starts_with: "articles",
+const articles = ref(null)
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories/', {
+  version: 'draft',
+  starts_with: 'articles',
   language: language,
-  fallback_lang: "default",
-});
-articles.value = data.stories.filter((story) => story.is_startpage !== true);
+  fallback_lang: 'default',
+})
+articles.value = data.stories.filter((story) => story.is_startpage !== true)
 </script>

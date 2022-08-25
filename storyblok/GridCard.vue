@@ -28,5 +28,5 @@
 </template>
 
 <script setup>
-defineProps({ card: Object });
+defineProps({ card: Object })
 </script>

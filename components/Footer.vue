@@ -7,9 +7,9 @@ defineProps({
   instagram: Object,
   youtube: Object,
   facebook: Object,
-});
-const today = new Date();
-const currentYear = today.getFullYear();
+})
+const today = new Date()
+const currentYear = today.getFullYear()
 </script>
 
 <template>
@@ -40,7 +40,7 @@ const currentYear = today.getFullYear();
       </div>
       <div v-for="index in 3" :key="index">
         <h3 class="text-white font-extrabold text-xl xl:text-2xl mb-5">
-          {{ navs["nav_" + index + "_headline"] }}
+          {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
           <ul class="flex flex-col space-y-3 text-lg">

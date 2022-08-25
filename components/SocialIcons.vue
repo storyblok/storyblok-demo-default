@@ -83,5 +83,5 @@ defineProps({
   instagram: Object,
   youtube: Object,
   facebook: Object,
-});
+})
 </script>

@@ -1,12 +1,15 @@
 <template>
-  <NuxtLink
-    :to="url"
-    :class="[classes, { 'disable-clicks': inEditor }]"
-    v-editable="button"
-  >
-    {{ button.label }}
-    <slot />
-  </NuxtLink>
+  <button :class="classes">
+    <NuxtLink
+      :to="url"
+      :class="{ 'disable-clicks': inEditor }"
+      class="block w-full h-full"
+      v-editable="button"
+    >
+      {{ button.label }}
+      <slot />
+    </NuxtLink>
+  </button>
 </template>
 
 <script setup>

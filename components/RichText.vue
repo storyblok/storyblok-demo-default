@@ -3,12 +3,12 @@
 </template>
 
 <script setup>
-const props = defineProps({ text: Object });
+const props = defineProps({ text: Object })
 
-const storyblokApi = useStoryblokApi();
+const storyblokApi = useStoryblokApi()
 const richText = computed(() =>
   storyblokApi.richTextResolver.render(props.text)
-);
+)
 </script>
 
 <style>

@@ -20,18 +20,18 @@
 </template>
 
 <script setup>
-defineProps({ color: String });
+defineProps({ color: String })
 
-const active = ref(false);
+const active = ref(false)
 
 const toggle = () => {
-  active.value = !active.value;
-};
+  active.value = !active.value
+}
 
-const route = useRoute();
+const route = useRoute()
 watch(route, (to) => {
-  active.value = false;
-});
+  active.value = false
+})
 </script>
 
 <style scoped>

@@ -5,40 +5,40 @@ const props = defineProps({
   nav: Object,
   buttons: Object,
   dark: Boolean,
-});
+})
 
-const mobileNavOpen = ref(false);
+const mobileNavOpen = ref(false)
 
 const toggleMobileNav = () => {
-  mobileNavOpen.value = !mobileNavOpen.value;
-};
+  mobileNavOpen.value = !mobileNavOpen.value
+}
 
-const route = useRoute();
+const route = useRoute()
 watch(route, () => {
-  mobileNavOpen.value = false;
-});
+  mobileNavOpen.value = false
+})
 
-const headerClasses = ref("h-32");
-const logoScale = ref("scale-100");
+const headerClasses = ref('h-32')
+const logoScale = ref('scale-100')
 
 const headerBg = computed(() => {
-  return props.dark ? "dark-header bg-black" : "bg-white";
-});
+  return props.dark ? 'dark-header bg-black' : 'bg-white'
+})
 
 onMounted(() => {
   let transparency = props.disable_transparency
-    ? ""
-    : "bg-opacity-80 backdrop-blur-lg";
-  window.addEventListener("scroll", () => {
+    ? ''
+    : 'bg-opacity-80 backdrop-blur-lg'
+  window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      headerClasses.value = " shadow-md h-20 " + transparency;
-      logoScale.value = "scale-75";
+      headerClasses.value = ' shadow-md h-20 ' + transparency
+      logoScale.value = 'scale-75'
     } else {
-      headerClasses.value = "h-32";
-      logoScale.value = "scale-100";
+      headerClasses.value = 'h-32'
+      logoScale.value = 'scale-100'
     }
-  });
-});
+  })
+})
 </script>
 
 <template>

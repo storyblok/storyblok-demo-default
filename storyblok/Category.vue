@@ -16,26 +16,26 @@
   </main>
 </template>
 <script setup>
-const props = defineProps({ blok: Object, uuid: String });
+const props = defineProps({ blok: Object, uuid: String })
 
-let { slug } = useRoute().params;
-let language = "default";
+let { slug } = useRoute().params
+let language = 'default'
 
-if (slug) language = await getLanguage(slug);
+if (slug) language = await getLanguage(slug)
 
-const articles = ref(null);
-const storyblokApi = useStoryblokApi();
+const articles = ref(null)
+const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get(`cdn/stories/`, {
-  version: "draft",
-  starts_with: "articles",
+  version: 'draft',
+  starts_with: 'articles',
   filter_query: {
     categories: {
       in_array: props.uuid,
     },
   },
   language: language,
-  fallback_lang: "default",
-});
+  fallback_lang: 'default',
+})
 
-articles.value = data.stories;
+articles.value = data.stories
 </script>

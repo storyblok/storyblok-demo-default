@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-defineProps({ mobileNavOpen: Boolean, headerNav: Object });
+defineProps({ mobileNavOpen: Boolean, headerNav: Object })
 </script>
 
 <style scoped>

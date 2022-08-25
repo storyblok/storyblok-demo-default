@@ -81,14 +81,14 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object });
+const props = defineProps({ blok: Object })
 
-const route = useRoute();
+const route = useRoute()
 
 const optimizedArticleImage = computed(
-  () => props.blok.image.filename + "/m/2000x0"
-);
+  () => props.blok.image.filename + '/m/2000x0'
+)
 const optimizedAuthorImage = computed(
-  () => props.blok.author.content.profile_picture.filename + "/m/200x0"
-);
+  () => props.blok.author.content.profile_picture.filename + '/m/200x0'
+)
 </script>

@@ -17,18 +17,18 @@
 </template>
 
 <script setup>
-import ContactForm from "../components/ContactForm.vue";
-import NewsletterForm from "../components/NewsletterForm.vue";
+import ContactForm from '../components/ContactForm.vue'
+import NewsletterForm from '../components/NewsletterForm.vue'
 
-const props = defineProps({ blok: Object });
+const props = defineProps({ blok: Object })
 
 const selectedForm = computed(() => {
   switch (props.blok.form) {
-    case "newsletter":
-      return NewsletterForm;
-    case "contact":
+    case 'newsletter':
+      return NewsletterForm
+    case 'contact':
     default:
-      return ContactForm;
+      return ContactForm
   }
-});
+})
 </script>

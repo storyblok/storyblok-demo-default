@@ -58,23 +58,23 @@
 </template>
 
 <script setup>
-const showMessage = ref(false);
+const showMessage = ref(false)
 
 const submit = () => {
-  showMessage.value = true;
+  showMessage.value = true
   setTimeout(() => {
-    showMessage.value = false;
-  }, 4000);
-};
+    showMessage.value = false
+  }, 4000)
+}
 
 const button = {
   link: {
-    linktype: "url",
+    linktype: 'url',
   },
-  size: "large",
+  size: 'large',
   ghost: true,
-  button_color: "white",
-};
+  button_color: 'white',
+}
 </script>
 
 <style scoped>

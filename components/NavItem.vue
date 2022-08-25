@@ -1,12 +1,13 @@
 <template>
-  <NuxtLink
-    :to="url"
-    class="transition-colors cursor-pointer"
-    :class="{ 'disable-clicks': inEditor }"
-    v-editable="item"
-  >
-    {{ item.label }}
-  </NuxtLink>
+  <span class="transition-colors cursor-pointer">
+    <NuxtLink
+      :to="url"
+      :class="{ 'disable-clicks': inEditor }"
+      v-editable="item"
+    >
+      {{ item.label }}
+    </NuxtLink>
+  </span>
 </template>
 
 <script setup>

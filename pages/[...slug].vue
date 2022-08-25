@@ -4,7 +4,11 @@ const route = useRoute()
 /**
  * Create correct slug and handle language parameter
  */
-let slug = route.params.slug.slice()
+
+// Here we are getting the path as a URL parameter
+let slug = route.query.path?.split('/')
+// In your project you would typically want to do the following:
+// let slug = route.params.slug.slice()
 let language = 'default'
 
 if (slug) {
@@ -31,6 +35,7 @@ if (slug.includes('articles') && slug.length > 1) {
 
 const story = ref(null)
 const storyblokApi = useStoryblokApi()
+
 const { data } = await storyblokApi.get('cdn/stories/' + slug, {
   version: 'draft',
   language: language,
