@@ -12,6 +12,8 @@ npm install
 
 - **Install `mkcert` on your system:** The installation instructions for macOS, Windows and Linux can be found in the [mkcert Github repository](https://github.com/FiloSottile/mkcert).
 
+- **Change the following in your package.json:** `nuxt dev` -> `nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem`
+
 - **Create a valid certificate by running the following command in your project folder:** 
 
 ```bash
@@ -29,6 +31,13 @@ Your project will now be served on [https://localhost:3000](https://localhost:30
 Have a look at the [Nuxt 3 deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for further information.
 
 ## Some particularities to be aware of
+
+### Access token and path via URL parameters
+
+For our particular use case, we needed one deployed frontend that could be used to display a large quantity of demo spaces that are generated on the fly. Therefore, the access tokens of these spaces are passed via URL parameters. In a more typical scenario, you would probably want to hardcode the access token or store it as an environment variable (the latter being the recommended approach). The changes you have to make are documented as comments in the following files:
+- nuxt.config.js
+- layouts/default.vue
+- pages/[...slug].vue
 
 ### Internationalization and language detection
 
