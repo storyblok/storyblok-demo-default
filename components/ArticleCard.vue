@@ -2,7 +2,7 @@
   <NuxtLink
     :to="'/' + slug"
     v-if="article"
-    class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 hover:shadow-2xl group"
+    class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg group"
   >
     <div class="w-full h-[210px] xl:h-[300px] overflow-hidden">
       <img
@@ -12,25 +12,27 @@
       />
     </div>
     <div class="grow p-6 text-left">
-      <h3 class="text-secondary font-medium mb-3 text-xl">
+      <h3 class="text-dark font-medium mb-3 text-xl">
         {{ article.headline }}
       </h3>
       <div class="line-clamp-3 font-light leading-relaxed">
         {{ article.teaser }}
       </div>
     </div>
-    <div class="flex text-secondary justify-between px-6 py-3">
+    <div class="flex text-primary justify-between px-6 py-3">
       <span class="uppercase font-light tracking-widest">Read</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-5 w-5 group-hover:translate-x-3 transition-transform duration-500"
-        viewBox="0 0 20 20"
-        fill="currentColor"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 group-hover:translate-x-3 transition-transform duration-500"
       >
         <path
-          fill-rule="evenodd"
-          d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-          clip-rule="evenodd"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
         />
       </svg>
     </div>

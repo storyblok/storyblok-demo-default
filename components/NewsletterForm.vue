@@ -4,24 +4,12 @@
       <div
         class="flex space-x-1 items-center justify-center lg:justify-start text-white"
       >
-        <h4 class="text-2xl font-extrabold">Sign up for our newsletter</h4>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
-            clip-rule="evenodd"
-          />
-        </svg>
+        <h4 class="text-xl">Sign up for our newsletter</h4>
       </div>
       <input
         type="email"
         placeholder="Your email"
-        class="border-white px-6 py-4 rounded-lg border-2 focus:border-secondary focus:outline-none transition-all"
+        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
         required
       />
     </div>
@@ -29,19 +17,21 @@
     <div class="flex justify-center lg:justify-start">
       <Button :button="button" class="mt-8" @click="submit">
         <div class="flex space-x-2 items-center">
+          <span>Sign up</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
           >
             <path
-              fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clip-rule="evenodd"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
             />
           </svg>
-          <span>Sign up</span>
         </div>
       </Button>
     </div>
@@ -72,8 +62,8 @@ const button = {
     linktype: 'url',
   },
   size: 'large',
-  ghost: true,
-  button_color: 'white',
+  style: 'default',
+  button_color: 'primary',
 }
 </script>
 

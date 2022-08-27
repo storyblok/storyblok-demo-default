@@ -19,13 +19,13 @@ const currentYear = today.getFullYear()
     >
       <div class="sm:col-span-2 md:col-span-3 lg:col-span-2 flex items-center">
         <div>
-          <NuxtLink to="/" class="flex mb-8">
+          <a href="#" class="flex mb-8">
             <img
               :src="logo.filename"
               :alt="logo.alt"
               class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
             />
-          </NuxtLink>
+          </a>
           <RichText
             :text="about"
             class="text-white mb-8 text-sm lg:text-base"
@@ -39,13 +39,13 @@ const currentYear = today.getFullYear()
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="text-white font-extrabold text-xl xl:text-2xl mb-5">
+        <h3 class="text-white font-black text-xl xl:text-2xl mb-5">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
           <ul class="flex flex-col space-y-3 text-lg">
             <li v-for="item in navs['nav_' + index]" :key="item._uid">
-              <NavItem class="text-white hover:text-secondary" :item="item" />
+              <NavItem class="text-white hover:text-primary" :item="item" />
             </li>
           </ul>
         </nav>

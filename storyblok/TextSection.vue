@@ -1,10 +1,10 @@
 <template>
   <section
     v-editable="blok"
-    class="page-section text-section"
+    class="page-section text-section relative z-50"
     :class="'bg-' + blok.background_color"
   >
-    <div class="container rounded-lg p-12 z-10" :class="containerColor">
+    <div class="container rounded-lg p-12 md:py-24" :class="containerColor">
       <div
         class="max-w-3xl"
         :class="{ 'mx-auto text-center': blok.alignment === 'center' }"

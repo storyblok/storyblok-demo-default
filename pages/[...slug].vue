@@ -6,7 +6,13 @@ const route = useRoute()
  */
 
 // Here we are getting the path as a URL parameter
-let slug = route.query.path?.split('/')
+let slug = []
+if (route.query.path) {
+  slug = route.query.path?.split('/')
+} else {
+  // fallback if no path parameter found (e.g. in template space)
+  slug = route.params.slug.slice()
+}
 // In your project you would typically want to do the following:
 // let slug = route.params.slug.slice()
 let language = 'default'
@@ -53,6 +59,7 @@ onMounted(() => {
   if (slug[0] !== undefined && slug[0] === 'site-config') return
   useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
     resolveRelations: resolveRelations,
+    disableClicks: true,
   })
 })
 </script>

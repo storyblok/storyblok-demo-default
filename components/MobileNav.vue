@@ -2,11 +2,9 @@
   <Transition name="slide">
     <nav
       v-if="mobileNavOpen"
-      class="fixed top-0 min-w-[240px] max-w-[400px] w-[calc(100%-120px)] h-screen z-50 bg-black bg-opacity-70 backdrop-blur-lg flex flex-col justify-center p-8 shadow-lg"
+      class="fixed top-0 min-w-[240px] max-w-[400px] w-[calc(100%-120px)] h-screen z-[99] bg-black bg-opacity-70 backdrop-blur-lg flex flex-col justify-center p-8 shadow-lg"
     >
-      <h2 class="text-white text-2xl uppercase font-extrabold mb-4">
-        Navigation
-      </h2>
+      <h2 class="text-white text-2xl uppercase font-black mb-4">Navigation</h2>
       <ul class="flex flex-col space-y-4 text-lg font-light">
         <li v-for="item in headerNav" :key="item._uid">
           <NavItem class="text-white" :item="item" />

@@ -1,19 +1,27 @@
 <template>
-  <section class="page-section banner-section" v-editable="blok">
-    <div class="container">
+  <section
+    class="page-section banner-section"
+    :class="{ 'no-padding': blok.full_width }"
+    v-editable="blok"
+  >
+    <div :class="{ container: !blok.full_width }">
       <div
-        class="relative rounded-lg bg-light py-12 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-24 xl:py-28 2xl:py-32 overflow-hidden"
+        class="relative bg-light py-12 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-24 xl:py-28 2xl:py-32 overflow-hidden"
+        :class="[
+          { 'rounded-lg': !blok.full_width },
+          { 'plus-pattern': blok.pattern_overlay },
+        ]"
       >
-        <div class="relative lg:min-h-[360px] z-20 flex flex-col h-full">
+        <div class="relative lg:min-h-[360px] z-30 flex flex-col h-full">
           <div class="grow">
             <h2
-              class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight text-center font-extrabold mb-4"
+              class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight text-center font-black mb-4"
               :class="[textColor]"
             >
               {{ blok.headline }}
             </h2>
             <h3
-              class="text-2xl md:text-3xl lg:text-4xl text-center font-thin"
+              class="text-lg md:text-xl lg:text-2xl text-center font-thin"
               :class="[textColor]"
             >
               {{ blok.subheadline }}

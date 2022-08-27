@@ -1,10 +1,9 @@
 <template>
-  <button :class="classes">
+  <button :class="classes" v-editable="button">
     <NuxtLink
       :to="url"
       :class="{ 'disable-clicks': inEditor }"
       class="block w-full h-full"
-      v-editable="button"
     >
       {{ button.label }}
       <slot />
@@ -38,7 +37,7 @@ const url = computed(() => {
 
 const classes = computed(() => {
   let classes =
-    'inline-flex items-center rounded-full font-light tracking-widest uppercase cursor-pointer transition-all duration-300 border border-' +
+    'inline-flex items-center rounded-full tracking-wider cursor-pointer transition-all duration-300 border border-' +
     props.button.button_color
 
   switch (props.button.size) {
@@ -54,7 +53,7 @@ const classes = computed(() => {
       break
   }
 
-  if (props.button.ghost == false) {
+  if (props.button.style === 'default') {
     if (
       props.button.button_color !== 'white' &&
       props.button.button_color !== 'light'
@@ -73,8 +72,13 @@ const classes = computed(() => {
     } else {
       classes += ' hover:text-dark'
     }
+    if (props.button.style === 'semi') {
+      classes += ' bg-opacity-10 backdrop-blur-lg bg-white'
+    } else {
+      classes += ' bg-transparent'
+    }
     classes +=
-      ' bg-transparent text-' +
+      ' text-' +
       props.button.button_color +
       ' hover:bg-' +
       props.button.button_color

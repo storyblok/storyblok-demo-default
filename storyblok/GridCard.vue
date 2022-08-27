@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full max-w-md lg:max-w-none h-full flex flex-col rounded-lg p-6"
+    class="w-full max-w-md lg:max-w-none h-full flex flex-col rounded-lg p-6 shadow-sm"
     v-editable="card"
   >
     <img
@@ -11,7 +11,7 @@
     />
     <div class="flex flex-col grow">
       <div class="grow">
-        <h3 class="text-secondary font-medium mb-3 text-xl">
+        <h3 class="text-dark font-medium mb-3 text-xl">
           {{ card.label }}
         </h3>
         <div class="font-light leading-relaxed">{{ card.text }}</div>

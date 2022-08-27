@@ -1,12 +1,17 @@
 <template>
   <section
     class="hero-section relative overflow-hidden flex py-36"
-    :class="[height, verticalAlignment, { '-mt-32': index == 0 }]"
+    :class="[
+      height,
+      verticalAlignment,
+      { '-mt-32': index == 0 },
+      { 'plus-pattern': blok.pattern_overlay },
+    ]"
     v-editable="blok"
   >
-    <div class="container relative z-10">
+    <div class="container relative z-40">
       <h1
-        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-extrabold mb-4"
+        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-black mb-4"
         :class="[textColor, horizontalAlignment]"
       >
         {{ blok.headline }}

@@ -4,7 +4,7 @@
       <div
         class="flex space-x-1 items-center justify-center lg:justify-start text-white"
       >
-        <h4 class="text-2xl font-extrabold">Leave us a message</h4>
+        <h4 class="text-2xl font-black">Leave us a message</h4>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -21,19 +21,19 @@
       <input
         type="text"
         placeholder="Your name"
-        class="border-white px-6 py-4 rounded-lg border-2 focus:border-secondary focus:outline-none transition-all"
+        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
         required
       />
       <input
         type="email"
         placeholder="Your email"
-        class="border-white px-6 py-4 rounded-lg border-2 focus:border-secondary focus:outline-none transition-all"
+        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
         required
       />
       <textarea
         name="message"
         placeholder="Your message"
-        class="border-white px-6 py-4 rounded-lg border-2 focus:border-secondary focus:outline-none transition-all"
+        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white resize-none"
         required
       ></textarea>
     </div>
@@ -41,18 +41,21 @@
     <div class="flex justify-center lg:justify-start">
       <Button :button="button" @click="submit" class="mt-8">
         <div class="flex space-x-2 items-center">
+          <span>Submit</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            viewBox="0 0 20 20"
-            fill="currentColor"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
           >
             <path
-              d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
             />
-            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
           </svg>
-          <span>Submit</span>
         </div>
       </Button>
     </div>
@@ -83,8 +86,8 @@ const button = {
     linktype: 'url',
   },
   size: 'large',
-  ghost: true,
-  button_color: 'white',
+  style: 'default',
+  button_color: 'primary',
 }
 </script>
 

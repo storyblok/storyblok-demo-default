@@ -5,12 +5,12 @@
       <a
         :href="twitter.url"
         target="_blank"
-        class="hover:text-secondary transition-colors"
+        class="hover:text-primary transition-colors"
       >
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w8 h-8 fill-current pointer-events-none"
+          class="w-6 h-6 fill-current pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Twitter</title>
@@ -23,12 +23,12 @@
       <a
         :href="instagram.url"
         target="_blank"
-        class="hover:text-secondary transition-colors"
+        class="hover:text-primary transition-colors"
       >
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w8 h-8 fill-current pointer-events-none"
+          class="w-6 h-6 fill-current pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Instagram</title>
@@ -41,12 +41,12 @@
       <a
         :href="youtube.url"
         target="_blank"
-        class="hover:text-secondary transition-colors"
+        class="hover:text-primary transition-colors"
       >
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w8 h-8 fill-current pointer-events-none"
+          class="w-6 h-6 fill-current pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>YouTube</title>
@@ -60,12 +60,12 @@
       <a
         :href="facebook.url"
         target="_blank"
-        class="hover:text-secondary transition-colors"
+        class="hover:text-primary transition-colors"
       >
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w8 h-8 fill-current pointer-events-none"
+          class="w-6 h-6 fill-current pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Facebook</title>

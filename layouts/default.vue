@@ -23,29 +23,19 @@
           <span class="text-sm text-white">Primary</span>
         </div>
         <div
-          class="bg-primary_highlight w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-white">Primary Highlight</span>
-        </div>
-        <div
           class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
         >
           <span class="text-sm text-white">Secondary</span>
         </div>
         <div
-          class="bg-tertiary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-white">Tertiary</span>
-        </div>
-        <div
-          class="bg-white w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-black">White</span>
-        </div>
-        <div
           class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
         >
           <span class="text-sm text-black">Light</span>
+        </div>
+        <div
+          class="bg-medium w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-black">Medium</span>
         </div>
         <div
           class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
@@ -111,7 +101,7 @@ const cssVariables = computed(() => {
     theme['--primary'] = story.value.content.primary.color
     theme['--secondary'] = story.value.content.secondary.color
     theme['--light'] = story.value.content.light.color
-    theme['--medium'] = story.value.content.light.color
+    theme['--medium'] = story.value.content.medium.color
     theme['--dark'] = story.value.content.dark.color
   } else {
     Object.assign(theme, defaultColors)
@@ -129,13 +119,21 @@ const cssVariables = computed(() => {
 const route = useRoute()
 
 // Here we are getting the path as a URL parameter
-const slug = route.query.path?.split('/')
+let slug = []
+if (route.query.path) {
+  slug = route.query.path?.split('/')
+} else {
+  // fallback if no path parameter found (e.g. in template space)
+  slug = route.params.slug.slice()
+}
 // In your project you would typically want to do the following:
 // const slug = route.params.slug
 
 onMounted(() => {
   if (slug && slug[0] !== undefined && slug[0] === 'site-config') {
-    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory))
+    useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+      disableClicks: true,
+    })
   }
 })
 </script>
@@ -144,8 +142,17 @@ onMounted(() => {
 body {
   @apply pt-32;
 }
+
+body > div > main {
+  @apply text-medium;
+}
+
 section.page-section {
   @apply py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32;
+}
+
+section.page-section.no-padding {
+  @apply py-0;
 }
 
 section.banner-section + section.banner-section {
@@ -155,7 +162,22 @@ section.banner-section + section.banner-section {
 section.hero-section + section.text-section {
   @apply py-0;
 }
+
 section.hero-section + section.text-section > .container {
   @apply -translate-y-24;
+}
+
+.plus-pattern::before {
+  content: '';
+  @apply w-full h-full absolute top-0 left-0 z-10;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-blend-mode: overlay;
+}
+
+.plus-pattern::after {
+  content: '';
+  @apply w-full h-full absolute top-0 left-0 z-20;
+  background-image: url('~/assets/images/plus-pattern.svg');
+  background-repeat: repeat;
 }
 </style>

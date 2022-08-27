@@ -44,25 +44,25 @@ onMounted(() => {
 
 <template>
   <header
-    class="fixed z-50 top-0 left-0 w-full transition-all duration-700"
+    class="fixed z-[99] top-0 left-0 w-full transition-all duration-700"
     :class="[headerClasses, headerBg, headerTransparency]"
   >
     <div
       class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start"
     >
-      <NuxtLink to="/" class="flex shrink-0">
+      <a href="#" class="flex shrink-0">
         <img
           :src="logo.filename"
           :alt="logo.alt"
           class="w-[180px] xl:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
           :class="logoScale"
         />
-      </NuxtLink>
+      </a>
       <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
         <ul class="flex space-x-4 xl:space-x-8 xl:text-lg">
           <li v-for="item in nav" :key="item._uid">
             <NavItem
-              class="hover:text-secondary"
+              class="hover:text-primary"
               :class="light ? 'text-primary' : 'text-white'"
               :item="item"
             />

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-xl md:text-2xl font-light leading-relaxed md:leading-relaxed mb-6"
+    class="text-lg md:text-xl text-black leading-relaxed md:leading-relaxed mb-6"
   >
     <slot />
   </div>
