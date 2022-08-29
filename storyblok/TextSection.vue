@@ -4,10 +4,13 @@
     class="page-section text-section relative z-50"
     :class="'bg-' + blok.background_color"
   >
-    <div class="container rounded-lg p-12 md:py-24" :class="containerColor">
+    <div class="container">
       <div
-        class="max-w-3xl"
-        :class="{ 'mx-auto text-center': blok.alignment === 'center' }"
+        class="max-w-6xl w-full rounded-lg p-12 md:py-24"
+        :class="[
+          containerColor,
+          { 'mx-auto text-center': blok.alignment === 'center' },
+        ]"
       >
         <Headline v-if="blok.headline" class="mb-4">{{
           blok.headline

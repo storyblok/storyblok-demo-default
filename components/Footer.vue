@@ -19,13 +19,13 @@ const currentYear = today.getFullYear()
     >
       <div class="sm:col-span-2 md:col-span-3 lg:col-span-2 flex items-center">
         <div>
-          <a href="#" class="flex mb-8">
+          <NuxtLink to="/" class="flex mb-8">
             <img
               :src="logo.filename"
               :alt="logo.alt"
               class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
             />
-          </a>
+          </NuxtLink>
           <RichText
             :text="about"
             class="text-white mb-8 text-sm lg:text-base"
