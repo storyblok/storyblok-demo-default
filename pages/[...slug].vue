@@ -32,12 +32,9 @@ if (slug) {
 let resolveRelations = [
   'banner-reference.banner',
   'featured-articles-section.articles',
+  'article-page.categories',
+  'article-page.author',
 ]
-
-// resolve relations for all article single views, exclude article overview page
-if (slug.includes('articles') && slug.length > 1) {
-  resolveRelations.push('article-page.categories', 'article-page.author')
-}
 
 const story = ref(null)
 const storyblokApi = useStoryblokApi()
