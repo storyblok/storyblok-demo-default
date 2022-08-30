@@ -1,5 +1,5 @@
 <template>
-  <Banner :blok="blok.banner.content" />
+  <Banner v-if="blok.banner.content" :blok="blok.banner.content" />
 </template>
 
 <script setup>
