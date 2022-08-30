@@ -1,8 +1,9 @@
 <template>
-  <button :class="classes" v-editable="button">
+  <button>
     <NuxtLink
-      :to="url"
-      :class="{ 'disable-clicks': inEditor }"
+      :to="inEditor ? '' : url"
+      :class="classes"
+      v-editable="button"
       class="block w-full h-full"
     >
       {{ button.label }}
@@ -87,9 +88,3 @@ const classes = computed(() => {
   return classes
 })
 </script>
-
-<style scoped>
-.disable-clicks {
-  pointer-events: none;
-}
-</style>

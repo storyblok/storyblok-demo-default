@@ -1,6 +1,6 @@
 <template>
   <NuxtLink
-    :to="'/' + slug"
+    :to="inEditor ? '' : '/' + slug"
     v-if="article"
     class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg group"
   >
@@ -41,6 +41,12 @@
 
 <script setup>
 const props = defineProps({ article: Object, slug: String })
+
+const { query } = useRoute()
+
+const inEditor = computed(() => {
+  return query._storyblok ? true : false
+})
 
 const optimizedImage = computed(
   () => props.article?.image?.filename + '/m/400x0'

@@ -4,7 +4,7 @@
       <div
         class="flex space-x-1 items-center justify-center lg:justify-start text-white"
       >
-        <h4 class="text-2xl font-black">Leave us a message</h4>
+        <h4 class="text-xl">Leave us a message</h4>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
