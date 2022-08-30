@@ -132,6 +132,8 @@ if (route.query.path) {
 onMounted(() => {
   if (slug && slug[0] !== undefined && slug[0] === 'site-config') {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
+      customParent:
+        'https://storyfront-git-feat-activate-new-demo-storyblok-com.vercel.app/',
       disableClicks: true,
     })
   }
