@@ -23,11 +23,11 @@
         {{ blok.subheadline }}
       </h2>
       <div
-        class="flex flex-col space-y-8 mt-12 mx-auto"
+        class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 mt-12 mx-auto"
         :class="
           props.blok.horizontal_alignment === 'left'
-            ? 'items-start'
-            : 'items-center'
+            ? 'items-start md:justify-start'
+            : 'items-center md:justify-center'
         "
       >
         <Button
