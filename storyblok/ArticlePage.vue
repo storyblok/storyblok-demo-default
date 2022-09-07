@@ -29,7 +29,7 @@
           <RichText :text="blok.text" />
         </section>
         <section
-          class="sticky top-32 w-[300px] shrink-0 flex flex-col space-y-6"
+          class="sticky top-32 w-full max-w-[300px] shrink-0 flex flex-col space-y-6"
         >
           <div class="flex flex-col space-y-1.5 bg-light p-4 rounded-lg">
             <h4 class="font-normal tracking-wide uppercase text-medium text-sm">
@@ -45,7 +45,10 @@
               </li>
             </ul>
           </div>
-          <div class="flex flex-col space-y-3 bg-light p-4 rounded-lg">
+          <div
+            v-if="blok.author"
+            class="flex flex-col space-y-3 bg-light p-4 rounded-lg"
+          >
             <div class="flex items-center space-x-3">
               <img
                 v-if="blok.author.content.profile_picture.filename"

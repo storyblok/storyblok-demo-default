@@ -1,7 +1,10 @@
 <template>
   <section
     class="page-section banner-section"
-    :class="{ 'no-padding': blok.full_width }"
+    :class="[
+      { 'no-padding': blok.full_width },
+      { 'pointer-events-none': referenced },
+    ]"
     v-editable="blok"
   >
     <div :class="{ container: !blok.full_width }">
@@ -49,7 +52,7 @@
 </template>
 
 <script setup>
-const props = defineProps({ blok: Object })
+const props = defineProps({ blok: Object, referenced: Boolean })
 
 const textColor = computed(() => {
   return 'text-' + props.blok.text_color

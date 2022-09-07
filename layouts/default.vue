@@ -160,7 +160,7 @@ section.banner-section + section.banner-section {
 }
 
 section.hero-section + section.text-section {
-  @apply py-0 -mb-24;
+  @apply py-0 -mb-16 sm:-mb-20 md:-mb-24 lg:-mb-28;
 }
 
 section.hero-section + section.text-section > .container {
