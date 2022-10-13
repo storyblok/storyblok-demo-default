@@ -20,9 +20,10 @@
         <fieldset>
           <legend class="font-medium text-lg mb-3">Select a category</legend>
           <div class="flex flex-col space-y-3">
-            <div
+            <label
               v-for="category in categories"
               :key="category.uuid"
+              :for="category.uuid"
               class="checkbox flex"
             >
               <input
@@ -34,17 +35,18 @@
                 class="hidden invisible"
               />
               <Indicator />
-              <label :for="category.uuid">{{ category.name }}</label>
-            </div>
+              <span>{{ category.name }}</span>
+            </label>
           </div>
         </fieldset>
         <div>
           <fieldset>
             <legend class="font-medium text-lg mb-3">Select an author</legend>
             <div class="flex flex-col space-y-3">
-              <div
+              <label
                 v-for="author in authors"
                 :key="author.uuid"
+                :for="author.uuid"
                 class="radio flex"
               >
                 <input
@@ -56,8 +58,8 @@
                   class="hidden invisible"
                 />
                 <Indicator />
-                <label :for="author.uuid">{{ author.name }}</label>
-              </div>
+                <span>{{ author.name }}</span>
+              </label>
             </div>
           </fieldset>
         </div>
