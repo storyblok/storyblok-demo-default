@@ -15,6 +15,7 @@
             id="search"
             v-model="searchTerm"
             class="border border-medium px-4 py-2 rounded-full focus:outline-none"
+            @keypress.enter="fetchArticles()"
           />
         </div>
         <fieldset>
@@ -133,6 +134,10 @@ const resetFilters = () => {
   checkedAuthor.value = ''
   fetchArticles()
 }
+
+watch(searchTerm, (newValue) => {
+  if (newValue === '') fetchArticles()
+})
 
 const storyblokApi = useStoryblokApi()
 
