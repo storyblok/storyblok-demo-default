@@ -7,12 +7,11 @@
     "preview": "nuxt preview"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.3.2",
-    "@storyblok/nuxt": "^4.2.0",
-    "@storyblok/vue": "^6.2.1",
-    "@tailwindcss/line-clamp": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.4",
-    "nuxt": "^3.0.0-rc.8"
+    "@nuxtjs/tailwindcss": "^6.2.0",
+    "@storyblok/nuxt": "^5.0.2",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.9",
+    "nuxt": "^3.0.0"
   },
   "prettier": {
     "trailingComma": "es5",
