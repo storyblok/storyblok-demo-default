@@ -29,13 +29,13 @@ if (slug) {
 /**
  * Fetch current release
  */
-const releaseId = route.query._storyblok_release
+const releaseId = route.query?._storyblok_release || 0
 
 /**
  * Resolve relations
  */
 let resolveRelations = [
-  'banner-reference.banner',
+  'banner-reference.banners',
   'featured-articles-section.articles',
   'article-page.categories',
   'article-page.author',
