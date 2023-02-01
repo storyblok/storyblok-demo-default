@@ -14,7 +14,7 @@
           v-for="card in blok.cards"
           :key="card._uid"
           :card="card"
-          :class="gridCardColor"
+          :default-color="gridCardColor"
         />
       </div>
     </div>

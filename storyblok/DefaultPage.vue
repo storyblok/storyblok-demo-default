@@ -10,5 +10,5 @@
 </template>
 
 <script setup>
-defineProps({ blok: Object })
+defineProps({ blok: Object, uuid: String })
 </script>

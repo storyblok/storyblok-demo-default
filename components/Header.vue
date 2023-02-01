@@ -2,10 +2,23 @@
 const props = defineProps({
   logo: Object,
   disable_transparency: Boolean,
+  auto_nav: Boolean,
   nav: Object,
   buttons: Object,
   light: Boolean,
 })
+
+const topLevelStories = ref(null)
+const storyblokApi = useStoryblokApi()
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: 'draft',
+  level: 1,
+  excluding_slugs: 'site-config,error-404',
+  excluding_fields: 'body',
+})
+topLevelStories.value = data.stories.filter(
+  (story) => story.parent_id === 0 || story.parent_id === null
+)
 
 const mobileNavOpen = ref(false)
 
@@ -54,18 +67,29 @@ onMounted(() => {
         <img
           :src="logo.filename"
           :alt="logo.alt"
-          class="w-[180px] xl:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
+          class="max-w-[180px] xl:max-w-[250px] max-h-[80px] object-contain transition-transform origin-left duration-700 pointer-events-none"
           :class="logoScale"
         />
       </NuxtLink>
       <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
-        <ul class="flex space-x-4 xl:space-x-8 xl:text-lg">
+        <ul v-if="!auto_nav">
           <li v-for="item in nav" :key="item._uid">
             <NavItem
               class="hover:text-primary"
               :class="light ? 'text-primary' : 'text-white'"
               :item="item"
             />
+          </li>
+        </ul>
+        <ul v-else>
+          <li v-for="story in topLevelStories" :key="story.uuid">
+            <NuxtLink
+              :to="story.full_slug"
+              class="transition-colors cursor-pointer hover:text-primary"
+              :class="light ? 'text-primary' : 'text-white'"
+            >
+              {{ story.name }}
+            </NuxtLink>
           </li>
         </ul>
       </nav>
@@ -90,5 +114,9 @@ onMounted(() => {
 <style scoped>
 header nav.main-nav a.router-link-active {
   @apply underline underline-offset-4 decoration-4 decoration-primary;
+}
+
+header nav.main-nav ul {
+  @apply flex space-x-4 xl:space-x-8 xl:text-lg;
 }
 </style>

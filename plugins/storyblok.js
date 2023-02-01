@@ -1,4 +1,4 @@
-import { StoryblokVue, apiPlugin } from '@storyblok/nuxt'
+import { StoryblokVue, apiPlugin } from '@storyblok/vue'
 import { defineNuxtPlugin, useRuntimeConfig, useRoute } from '#app'
 
 export default defineNuxtPlugin(({ vueApp }) => {

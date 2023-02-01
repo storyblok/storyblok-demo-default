@@ -1,5 +1,7 @@
 <script setup>
-defineProps({
+const props = defineProps({
+  text_color: String,
+  background_color: String,
   logo: Object,
   navs: Object,
   about: Object,
@@ -8,12 +10,20 @@ defineProps({
   youtube: Object,
   facebook: Object,
 })
-const today = new Date()
-const currentYear = today.getFullYear()
+
+const textColor = computed(() => {
+  return props.text_color === 'light' ? 'text-white' : 'text-dark'
+})
+
+const backgroundColor = computed(() => {
+  return 'bg-' + props.background_color
+})
+
+const showSeparator = computed(() => props.background_color === 'dark')
 </script>
 
 <template>
-  <footer class="relative w-full bg-dark">
+  <footer class="relative w-full" :class="backgroundColor">
     <div
       class="container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 py-16"
     >
@@ -28,24 +38,30 @@ const currentYear = today.getFullYear()
           </NuxtLink>
           <RichText
             :text="about"
-            class="text-white mb-8 text-sm lg:text-base"
+            class="mb-8 text-sm lg:text-base"
+            :class="textColor"
           />
           <SocialIcons
             :twitter="twitter"
             :instagram="instagram"
             :youtube="youtube"
             :facebook="facebook"
+            :text_color="textColor"
           />
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="text-white font-black text-xl xl:text-2xl mb-5">
+        <h3 class="font-black text-xl xl:text-2xl mb-5" :class="textColor">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
           <ul class="flex flex-col space-y-3 text-lg">
             <li v-for="item in navs['nav_' + index]" :key="item._uid">
-              <NavItem class="text-white hover:text-primary" :item="item" />
+              <NavItem
+                class="hover:underline"
+                :class="textColor"
+                :item="item"
+              />
             </li>
           </ul>
         </nav>
@@ -53,6 +69,7 @@ const currentYear = today.getFullYear()
     </div>
     <div>
       <div
+        v-if="showSeparator"
         class="h-[1px] w-full bg-gradient-to-r from-dark via-medium to-dark"
       ></div>
       <img

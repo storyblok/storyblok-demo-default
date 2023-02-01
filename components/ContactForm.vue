@@ -21,19 +21,19 @@
       <input
         type="text"
         placeholder="Your name"
-        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
+        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white"
         required
       />
       <input
         type="email"
         placeholder="Your email"
-        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
+        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white"
         required
       />
       <textarea
         name="message"
         placeholder="Your message"
-        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white resize-none"
+        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white resize-none"
         required
       ></textarea>
     </div>
@@ -85,7 +85,7 @@ const button = {
   link: {
     linktype: 'url',
   },
-  size: 'large',
+  size: 'default',
   style: 'default',
   button_color: 'primary',
 }

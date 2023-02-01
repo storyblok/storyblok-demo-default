@@ -2,7 +2,10 @@
   <section
     v-editable="blok"
     class="page-section text-section relative z-50"
-    :class="'bg-' + blok.background_color"
+    :class="[
+      'bg-' + blok.background_color,
+      { 'overlap-preceding-hero': blok.overlap_preceding_hero },
+    ]"
   >
     <div class="container">
       <div

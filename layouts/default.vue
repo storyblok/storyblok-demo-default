@@ -1,69 +1,3 @@
-<template>
-  <main :style="cssVariables">
-    <Header
-      :logo="story.content.header_logo"
-      :disable_transparency="story.content.header_disable_transparency"
-      :nav="story.content.header_nav"
-      :buttons="story.content.header_buttons"
-      :light="story.content.header_light"
-    />
-    <div
-      v-if="
-        slug && slug[0] === 'site-config' && story.content.use_custom_colors
-      "
-      class="container py-12"
-    >
-      <Headline class="mb-8">Color Previews</Headline>
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
-      >
-        <div
-          class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-white">Primary</span>
-        </div>
-        <div
-          class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-white">Secondary</span>
-        </div>
-        <div
-          class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-black">Light</span>
-        </div>
-        <div
-          class="bg-medium w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-black">Medium</span>
-        </div>
-        <div
-          class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
-        >
-          <span class="text-sm text-white">Dark</span>
-        </div>
-      </div>
-    </div>
-    <slot />
-    <Footer
-      :logo="story.content.footer_logo"
-      :about="story.content.footer_about"
-      :navs="{
-        nav_1_headline: story.content.footer_nav_1_headline,
-        nav_2_headline: story.content.footer_nav_2_headline,
-        nav_3_headline: story.content.footer_nav_3_headline,
-        nav_1: story.content.footer_nav_1,
-        nav_2: story.content.footer_nav_2,
-        nav_3: story.content.footer_nav_3,
-      }"
-      :twitter="story.content.twitter"
-      :instagram="story.content.instagram"
-      :youtube="story.content.youtube"
-      :facebook="story.content.facebook"
-    />
-  </main>
-</template>
-
 <script setup>
 const defaultColors = {
   '--primary': '#395ECE',
@@ -138,6 +72,75 @@ onMounted(() => {
 })
 </script>
 
+<template>
+  <main :style="cssVariables">
+    <Header
+      :logo="story.content.header_logo"
+      :disable_transparency="story.content.header_disable_transparency"
+      :auto_nav="story.content.header_auto_nav"
+      :nav="story.content.header_nav"
+      :buttons="story.content.header_buttons"
+      :light="story.content.header_light"
+    />
+    <div
+      v-if="
+        slug && slug[0] === 'site-config' && story.content.use_custom_colors
+      "
+      class="container py-12"
+    >
+      <Headline class="mb-8">Color Previews</Headline>
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
+      >
+        <div
+          class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-white">Primary</span>
+        </div>
+        <div
+          class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-white">Secondary</span>
+        </div>
+        <div
+          class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-black">Light</span>
+        </div>
+        <div
+          class="bg-medium w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-black">Medium</span>
+        </div>
+        <div
+          class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+        >
+          <span class="text-sm text-white">Dark</span>
+        </div>
+      </div>
+    </div>
+    <slot />
+    <Footer
+      :text_color="story.content.footer_text_color"
+      :background_color="story.content.footer_background_color"
+      :logo="story.content.footer_logo"
+      :about="story.content.footer_about"
+      :navs="{
+        nav_1_headline: story.content.footer_nav_1_headline,
+        nav_2_headline: story.content.footer_nav_2_headline,
+        nav_3_headline: story.content.footer_nav_3_headline,
+        nav_1: story.content.footer_nav_1,
+        nav_2: story.content.footer_nav_2,
+        nav_3: story.content.footer_nav_3,
+      }"
+      :twitter="story.content.twitter"
+      :instagram="story.content.instagram"
+      :youtube="story.content.youtube"
+      :facebook="story.content.facebook"
+    />
+  </main>
+</template>
+
 <style>
 body {
   @apply pt-32;
@@ -159,11 +162,13 @@ section.banner-section + section.banner-section {
   @apply pt-0;
 }
 
-section.hero-section + section.text-section {
+section.hero-section + section.text-section.overlap-preceding-hero {
   @apply py-0 -mb-16 sm:-mb-20 md:-mb-24 lg:-mb-28;
 }
 
-section.hero-section + section.text-section > .container {
+section.hero-section
+  + section.text-section.overlap-preceding-hero
+  > .container {
   @apply -translate-y-24;
 }
 

@@ -1,9 +1,19 @@
+<script setup>
+defineProps({
+  twitter: Object,
+  instagram: Object,
+  youtube: Object,
+  facebook: Object,
+  text_color: String,
+})
+</script>
+
 <template>
-  <ul class="flex space-x-8 text-white">
+  <ul class="flex space-x-8" :class="text_color">
     <!-- Icons by https://simpleicons.org/ -->
-    <li v-if="twitter">
+    <li v-if="twitter.cached_url">
       <a
-        :href="twitter.url"
+        :href="twitter.cached_url"
         target="_blank"
         class="hover:text-primary transition-colors"
       >
@@ -19,9 +29,9 @@
           /></svg
       ></a>
     </li>
-    <li v-if="instagram">
+    <li v-if="instagram.cached_url">
       <a
-        :href="instagram.url"
+        :href="instagram.cached_url"
         target="_blank"
         class="hover:text-primary transition-colors"
       >
@@ -37,9 +47,9 @@
           /></svg
       ></a>
     </li>
-    <li v-if="youtube">
+    <li v-if="youtube.cached_url">
       <a
-        :href="youtube.url"
+        :href="youtube.cached_url"
         target="_blank"
         class="hover:text-primary transition-colors"
       >
@@ -56,9 +66,9 @@
         </svg>
       </a>
     </li>
-    <li v-if="facebook">
+    <li v-if="facebook.cached_url">
       <a
-        :href="facebook.url"
+        :href="facebook.cached_url"
         target="_blank"
         class="hover:text-primary transition-colors"
       >
@@ -76,12 +86,3 @@
     </li>
   </ul>
 </template>
-
-<script setup>
-defineProps({
-  twitter: Object,
-  instagram: Object,
-  youtube: Object,
-  facebook: Object,
-})
-</script>

@@ -21,7 +21,7 @@
       <div
         class="lg:flex lg:items-start bg-white bg-opacity-80 backdrop-blur-lg -mt-32 lg:-mt-64 rounded-lg p-6 lg:p-12"
       >
-        <section class="mb-12 lg:mb-0 lg:pr-32">
+        <section class="w-full mb-12 lg:mb-0 lg:pr-32">
           <Headline v-if="blok.subheadline" size="small" class="mb-10">{{
             blok.subheadline
           }}</Headline>

@@ -9,7 +9,7 @@
       <input
         type="email"
         placeholder="Your email"
-        class="px-6 py-4 bg-medium rounded-full border border-white focus:outline-none transition-all text-white"
+        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white"
         required
       />
     </div>
@@ -61,7 +61,7 @@ const button = {
   link: {
     linktype: 'url',
   },
-  size: 'large',
+  size: 'default',
   style: 'default',
   button_color: 'primary',
 }
