@@ -27,6 +27,11 @@ if (slug) {
 }
 
 /**
+ * Fetch current release
+ */
+const releaseId = route.query._storyblok_release
+
+/**
  * Resolve relations
  */
 let resolveRelations = [
@@ -45,6 +50,7 @@ const apiParams = {
   fallback_lang: 'default',
   resolve_relations: resolveRelations,
   resolve_links: 'url',
+  from_release: releaseId,
 }
 
 const error404 = ref(false)
