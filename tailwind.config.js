@@ -1,5 +1,13 @@
 module.exports = {
-  content: ['storyblok/**/*.{vue,js}', 'pages/**/*.vue'],
+  content: [
+    'storyblok/**/*.{vue,js}',
+    'pages/**/*.vue',
+    `components/**/*.{vue,js,ts}`,
+    `layouts/**/*.vue`,
+    `pages/**/*.vue`,
+    `composables/**/*.{js,ts}`,
+    `plugins/**/*.{js,ts}`,
+  ],
   safelist: [
     'bg-primary',
     'bg-secondary',

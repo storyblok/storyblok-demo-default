@@ -1,6 +1,4 @@
-import { defineNuxtConfig } from 'nuxt'
-
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/getting-started/configuration
 export default defineNuxtConfig({
   modules: [
     [
@@ -14,13 +12,18 @@ export default defineNuxtConfig({
         usePlugin: false,
       },
     ],
-    '@nuxtjs/tailwindcss',
   ],
   ssr: false,
-  css: ['@/assets/css/fonts.css'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/fonts.css'],
   runtimeConfig: {
     public: {
       templateToken: process.env.STORYBLOK_PREVIEW_TOKEN,
+    },
+  },
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
     },
   },
 })
