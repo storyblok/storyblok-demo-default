@@ -60,12 +60,12 @@ const textColor = computed(() => {
 
 const filters = computed(() => {
   const blur =
-    props.blok.background_blur > 0
-      ? 'blur(' + props.blok.background_blur + ')'
+    props.blok.background_blur.value > 0
+      ? 'blur(' + props.blok.background_blur.value + ')'
       : ''
   const brightness =
-    props.blok.background_brightness != 0
-      ? 'brightness(' + props.blok.background_brightness + ')'
+    props.blok.background_brightness.value != 0
+      ? 'brightness(' + props.blok.background_brightness.value + ')'
       : ''
 
   let filters = '/filters:'
