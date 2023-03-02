@@ -3,22 +3,27 @@ const props = defineProps({
   logo: Object,
   disable_transparency: Boolean,
   auto_nav: Boolean,
+  auto_nav_folder: String,
   nav: Object,
   buttons: Object,
   light: Boolean,
 })
 
-const topLevelStories = ref(null)
+const folderStories = ref(null)
 const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories', {
   version: 'draft',
-  level: 1,
+  level: props.auto_nav_folder ? 2 : 1,
   excluding_slugs: 'site-config,error-404',
   excluding_fields: 'body',
+  starts_with: props.auto_nav_folder,
+  per_page: 5,
 })
-topLevelStories.value = data.stories.filter(
-  (story) => story.parent_id === 0 || story.parent_id === null
-)
+folderStories.value = !props.auto_nav_folder
+  ? data.stories.filter(
+      (story) => story.parent_id === 0 || story.parent_id === null
+    )
+  : data.stories
 
 const mobileNavOpen = ref(false)
 
@@ -35,7 +40,7 @@ const headerClasses = ref('h-32')
 const logoScale = ref('scale-100')
 
 const headerBg = computed(() => {
-  return props.light ? 'bg-light' : 'bg-[#0B0F19]'
+  return props.light ? 'bg-white' : 'bg-neutral-900'
 })
 
 const headerTransparency = computed(() => {
@@ -82,7 +87,7 @@ onMounted(() => {
           </li>
         </ul>
         <ul v-else>
-          <li v-for="story in topLevelStories" :key="story.uuid">
+          <li v-for="story in folderStories" :key="story.uuid">
             <NuxtLink
               :to="story.full_slug"
               class="transition-colors cursor-pointer hover:text-primary"
@@ -108,7 +113,13 @@ onMounted(() => {
       />
     </div>
   </header>
-  <MobileNav :mobileNavOpen="mobileNavOpen" :headerNav="nav" />
+  <MobileNav
+    :mobileNavOpen="mobileNavOpen"
+    :headerNav="nav"
+    :autoNav="auto_nav"
+    :folderStories="folderStories"
+  />
+  <pre></pre>
 </template>
 
 <style scoped>

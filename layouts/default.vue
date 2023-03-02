@@ -78,6 +78,7 @@ onMounted(() => {
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"
       :auto_nav="story.content.header_auto_nav"
+      :auto_nav_folder="story.content.header_auto_nav_folder"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
       :light="story.content.header_light"

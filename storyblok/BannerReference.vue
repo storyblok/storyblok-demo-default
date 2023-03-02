@@ -31,6 +31,6 @@ const modules = [Navigation]
 
 <style scoped>
 .swiper {
-  --swiper-theme-color: var(--primary);
+  --swiper-theme-color: var(--medium);
 }
 </style>
