@@ -21,6 +21,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "swiper": "^9.0.0"
+    "swiper": "^9.1.0"
   }
 }
