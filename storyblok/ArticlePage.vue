@@ -11,7 +11,7 @@
       />
       <div v-if="blok.headline" class="container text-white relative z-10">
         <h1
-          class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-black mb-4"
+          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight sm:leading-tight md:leading-tight lg:leading-tight font-black mb-4"
         >
           {{ blok.headline }}
         </h1>
