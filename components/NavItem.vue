@@ -1,13 +1,3 @@
-<template>
-  <NuxtLink
-    :to="inEditor ? '' : url"
-    class="transition-colors cursor-pointer"
-    v-editable="item"
-  >
-    {{ item.label }}
-  </NuxtLink>
-</template>
-
 <script setup>
 const { query } = useRoute()
 
@@ -32,3 +22,13 @@ const url = computed(() => {
   }
 })
 </script>
+
+<template>
+  <NuxtLink
+    :to="inEditor ? '' : url"
+    class="transition-colors cursor-pointer"
+    v-editable="item"
+  >
+    {{ item.label }}
+  </NuxtLink>
+</template>

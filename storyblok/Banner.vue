@@ -1,3 +1,37 @@
+<script setup>
+const props = defineProps({ blok: Object, referenced: Boolean })
+
+const textColor = computed(() => {
+  return 'text-' + props.blok.text_color
+})
+
+const filters = computed(() => {
+  const blur =
+    props.blok.background_blur.value > 0
+      ? 'blur(' + props.blok.background_blur.value + ')'
+      : ''
+  const brightness =
+    props.blok.background_brightness.value != 0
+      ? 'brightness(' + props.blok.background_brightness.value + ')'
+      : ''
+
+  let filters = '/filters:'
+  if (blur && !brightness) {
+    return filters + blur
+  } else if (!blur && brightness) {
+    return filters + brightness
+  } else if (blur && brightness) {
+    return filters + blur + ':' + brightness
+  } else {
+    return ''
+  }
+})
+
+const optimizedImage = computed(
+  () => props.blok.background_image?.filename + '/m/2000x0'
+)
+</script>
+
 <template>
   <section
     class="page-section banner-section"
@@ -50,37 +84,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const props = defineProps({ blok: Object, referenced: Boolean })
-
-const textColor = computed(() => {
-  return 'text-' + props.blok.text_color
-})
-
-const filters = computed(() => {
-  const blur =
-    props.blok.background_blur.value > 0
-      ? 'blur(' + props.blok.background_blur.value + ')'
-      : ''
-  const brightness =
-    props.blok.background_brightness.value != 0
-      ? 'brightness(' + props.blok.background_brightness.value + ')'
-      : ''
-
-  let filters = '/filters:'
-  if (blur && !brightness) {
-    return filters + blur
-  } else if (!blur && brightness) {
-    return filters + brightness
-  } else if (blur && brightness) {
-    return filters + blur + ':' + brightness
-  } else {
-    return ''
-  }
-})
-
-const optimizedImage = computed(
-  () => props.blok.background_image?.filename + '/m/2000x0'
-)
-</script>

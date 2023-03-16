@@ -1,17 +1,3 @@
-<template>
-  <button>
-    <NuxtLink
-      :to="inEditor ? '' : url"
-      :class="classes"
-      v-editable="button"
-      class="block w-full h-full"
-    >
-      {{ button.label }}
-      <slot />
-    </NuxtLink>
-  </button>
-</template>
-
 <script setup>
 const { query } = useRoute()
 
@@ -88,3 +74,17 @@ const classes = computed(() => {
   return classes
 })
 </script>
+
+<template>
+  <button>
+    <NuxtLink
+      :to="inEditor ? '' : url"
+      :class="classes"
+      v-editable="button"
+      class="block w-full h-full"
+    >
+      {{ button.label }}
+      <slot />
+    </NuxtLink>
+  </button>
+</template>

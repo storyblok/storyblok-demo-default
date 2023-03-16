@@ -1,3 +1,26 @@
+<script setup>
+const props = defineProps({ blok: Object })
+
+const fixedHeightImages = computed(() => {
+  if (props.blok.image_layout !== 'fixed-height') return false
+  let images = {
+    mobile: props.blok.image.filename + '/m/600x300',
+    tablet: props.blok.image.filename + '/m/1000x500',
+    desktop: props.blok.image.filename + '/m/1000x1250',
+  }
+
+  if (props.blok.image.focus) {
+    for (const key of Object.keys(images)) {
+      images[key] += '/filters:focal(' + props.blok.image.focus + ')'
+    }
+  }
+
+  return images
+})
+
+const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
+</script>
+
 <template>
   <section
     v-editable="blok"
@@ -54,26 +77,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const props = defineProps({ blok: Object })
-
-const fixedHeightImages = computed(() => {
-  if (props.blok.image_layout !== 'fixed-height') return false
-  let images = {
-    mobile: props.blok.image.filename + '/m/600x300',
-    tablet: props.blok.image.filename + '/m/1000x500',
-    desktop: props.blok.image.filename + '/m/1000x1250',
-  }
-
-  if (props.blok.image.focus) {
-    for (const key of Object.keys(images)) {
-      images[key] += '/filters:focal(' + props.blok.image.focus + ')'
-    }
-  }
-
-  return images
-})
-
-const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
-</script>

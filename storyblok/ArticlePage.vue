@@ -1,3 +1,14 @@
+<script setup>
+const props = defineProps({ blok: Object })
+
+const optimizedArticleImage = computed(
+  () => props.blok.image.filename + '/m/2000x0'
+)
+const optimizedAuthorImage = computed(
+  () => props.blok.author.content.profile_picture.filename + '/m/200x0'
+)
+</script>
+
 <template>
   <article v-editable="blok">
     <header
@@ -72,14 +83,3 @@
     </main>
   </article>
 </template>
-
-<script setup>
-const props = defineProps({ blok: Object })
-
-const optimizedArticleImage = computed(
-  () => props.blok.image.filename + '/m/2000x0'
-)
-const optimizedAuthorImage = computed(
-  () => props.blok.author.content.profile_picture.filename + '/m/200x0'
-)
-</script>

@@ -1,3 +1,18 @@
+<script setup>
+defineProps({ color: String })
+
+const active = ref(false)
+
+const toggle = () => {
+  active.value = !active.value
+}
+
+const route = useRoute()
+watch(route, (to) => {
+  active.value = false
+})
+</script>
+
 <template>
   <button
     class="lg:hidden lg:invisible cursor-pointer"
@@ -18,21 +33,6 @@
     ></div>
   </button>
 </template>
-
-<script setup>
-defineProps({ color: String })
-
-const active = ref(false)
-
-const toggle = () => {
-  active.value = !active.value
-}
-
-const route = useRoute()
-watch(route, (to) => {
-  active.value = false
-})
-</script>
 
 <style scoped>
 button.active .bar1 {

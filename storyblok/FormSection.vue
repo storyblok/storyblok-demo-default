@@ -1,3 +1,20 @@
+<script setup>
+import ContactForm from '../components/ContactForm.vue'
+import NewsletterForm from '../components/NewsletterForm.vue'
+
+const props = defineProps({ blok: Object })
+
+const selectedForm = computed(() => {
+  switch (props.blok.form) {
+    case 'newsletter':
+      return NewsletterForm
+    case 'contact':
+    default:
+      return ContactForm
+  }
+})
+</script>
+
 <template>
   <section v-editable="blok" class="relative page-section form-section bg-dark">
     <div
@@ -15,20 +32,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import ContactForm from '../components/ContactForm.vue'
-import NewsletterForm from '../components/NewsletterForm.vue'
-
-const props = defineProps({ blok: Object })
-
-const selectedForm = computed(() => {
-  switch (props.blok.form) {
-    case 'newsletter':
-      return NewsletterForm
-    case 'contact':
-    default:
-      return ContactForm
-  }
-})
-</script>

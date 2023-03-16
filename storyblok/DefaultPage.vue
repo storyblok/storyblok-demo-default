@@ -1,3 +1,7 @@
+<script setup>
+defineProps({ blok: Object, uuid: String })
+</script>
+
 <template>
   <div v-editable="blok">
     <ComponentCheck
@@ -8,7 +12,3 @@
     />
   </div>
 </template>
-
-<script setup>
-defineProps({ blok: Object, uuid: String })
-</script>

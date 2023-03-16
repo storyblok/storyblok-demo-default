@@ -1,3 +1,9 @@
+<style>
+.prose ul li p {
+  @apply p-0 m-0;
+}
+</style>
+
 <template>
   <div v-html="richText" class="prose prose-lg" />
 </template>
@@ -10,9 +16,3 @@ const richText = computed(() =>
   storyblokApi.richTextResolver.render(props.text)
 )
 </script>
-
-<style>
-.prose ul li p {
-  @apply p-0 m-0;
-}
-</style>

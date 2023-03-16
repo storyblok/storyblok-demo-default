@@ -1,3 +1,11 @@
+<script setup>
+const props = defineProps({ blok: Object })
+
+const containerColor = computed(() => {
+  return props.blok.background_color === 'light' ? 'bg-white' : 'bg-light'
+})
+</script>
+
 <template>
   <section
     v-editable="blok"
@@ -36,11 +44,3 @@
     </div>
   </section>
 </template>
-
-<script setup>
-const props = defineProps({ blok: Object })
-
-const containerColor = computed(() => {
-  return props.blok.background_color === 'light' ? 'bg-white' : 'bg-light'
-})
-</script>

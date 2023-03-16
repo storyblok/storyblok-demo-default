@@ -1,3 +1,19 @@
+<script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { Navigation } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+const props = defineProps({ blok: Object })
+
+const modules = [Navigation]
+</script>
+
+<style scoped>
+.swiper {
+  --swiper-theme-color: var(--medium);
+}
+</style>
+
 <template>
   <div v-editable="blok">
     <swiper
@@ -18,19 +34,3 @@
     </swiper>
   </div>
 </template>
-
-<script setup>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
-const props = defineProps({ blok: Object })
-
-const modules = [Navigation]
-</script>
-
-<style scoped>
-.swiper {
-  --swiper-theme-color: var(--medium);
-}
-</style>

@@ -1,3 +1,17 @@
+<script setup>
+const props = defineProps({ card: Object, defaultColor: String })
+
+const optimizedIcon = computed(() => {
+  const isSvg = props.card.icon?.filename.slice(-3) === 'svg'
+  const optimize = isSvg ? '' : '/m/' + props.card?.icon_width + 'x0'
+  return props.card.icon?.filename + optimize
+})
+
+const textColor = computed(() => {
+  return props.card.text_color === 'light' ? 'text-white' : 'text-dark'
+})
+</script>
+
 <template>
   <div
     class="w-full max-w-md lg:max-w-none h-full flex flex-col rounded-lg p-6 shadow-sm"
@@ -33,17 +47,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const props = defineProps({ card: Object, defaultColor: String })
-
-const optimizedIcon = computed(() => {
-  const isSvg = props.card.icon?.filename.slice(-3) === 'svg'
-  const optimize = isSvg ? '' : '/m/' + props.card?.icon_width + 'x0'
-  return props.card.icon?.filename + optimize
-})
-
-const textColor = computed(() => {
-  return props.card.text_color === 'light' ? 'text-white' : 'text-dark'
-})
-</script>

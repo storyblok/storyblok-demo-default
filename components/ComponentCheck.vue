@@ -1,3 +1,9 @@
+<script setup>
+defineProps({ blok: Object })
+const componentExists = (component) =>
+  typeof resolveComponent(component) !== 'string'
+</script>
+
 <template>
   <StoryblokComponent
     v-if="componentExists(blok.component)"
@@ -28,9 +34,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-defineProps({ blok: Object })
-const componentExists = (component) =>
-  typeof resolveComponent(component) !== 'string'
-</script>

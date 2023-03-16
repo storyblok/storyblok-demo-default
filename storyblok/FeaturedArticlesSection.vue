@@ -1,27 +1,3 @@
-<template>
-  <section
-    v-editable="blok"
-    class="page-section grid-section"
-    :class="'bg-' + blok.background_color"
-  >
-    <div class="container text-center">
-      <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
-      <Lead v-if="blok.lead">
-        {{ blok.lead }}
-      </Lead>
-      <div :class="gridClasses">
-        <ArticleCard
-          v-for="article in blok.articles"
-          :key="article.uuid"
-          :article="article.content"
-          :slug="article.full_slug"
-          :class="gridCardColor"
-        />
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
 const props = defineProps({ blok: Object })
 
@@ -47,3 +23,27 @@ const gridClasses = computed(() => {
   return gridClasses
 })
 </script>
+
+<template>
+  <section
+    v-editable="blok"
+    class="page-section grid-section"
+    :class="'bg-' + blok.background_color"
+  >
+    <div class="container text-center">
+      <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
+      <Lead v-if="blok.lead">
+        {{ blok.lead }}
+      </Lead>
+      <div :class="gridClasses">
+        <ArticleCard
+          v-for="article in blok.articles"
+          :key="article.uuid"
+          :article="article.content"
+          :slug="article.full_slug"
+          :class="gridCardColor"
+        />
+      </div>
+    </div>
+  </section>
+</template>

@@ -1,3 +1,12 @@
+<script setup>
+defineProps({
+  mobileNavOpen: Boolean,
+  headerNav: Object,
+  autoNav: Boolean,
+  folderStories: Object,
+})
+</script>
+
 <template>
   <Transition name="slide">
     <nav
@@ -20,15 +29,6 @@
     </nav>
   </Transition>
 </template>
-
-<script setup>
-defineProps({
-  mobileNavOpen: Boolean,
-  headerNav: Object,
-  autoNav: Boolean,
-  folderStories: Object,
-})
-</script>
 
 <style scoped>
 .slide-enter-active,

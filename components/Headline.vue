@@ -1,9 +1,3 @@
-<template>
-  <h2 :class="classes">
-    <slot />
-  </h2>
-</template>
-
 <script setup>
 const props = defineProps({ color: String, size: String })
 
@@ -26,3 +20,9 @@ const classes = computed(() => {
   return classes
 })
 </script>
+
+<template>
+  <h2 :class="classes">
+    <slot />
+  </h2>
+</template>

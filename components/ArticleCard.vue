@@ -1,3 +1,17 @@
+<script setup>
+const props = defineProps({ article: Object, slug: String })
+
+const { query } = useRoute()
+
+const inEditor = computed(() => {
+  return query._storyblok ? true : false
+})
+
+const optimizedImage = computed(
+  () => props.article?.image?.filename + '/m/400x0'
+)
+</script>
+
 <template>
   <NuxtLink
     :to="inEditor ? '' : '/' + slug"
@@ -38,17 +52,3 @@
     </div>
   </NuxtLink>
 </template>
-
-<script setup>
-const props = defineProps({ article: Object, slug: String })
-
-const { query } = useRoute()
-
-const inEditor = computed(() => {
-  return query._storyblok ? true : false
-})
-
-const optimizedImage = computed(
-  () => props.article?.image?.filename + '/m/400x0'
-)
-</script>

@@ -1,3 +1,23 @@
+<script setup>
+const showMessage = ref(false)
+
+const submit = () => {
+  showMessage.value = true
+  setTimeout(() => {
+    showMessage.value = false
+  }, 4000)
+}
+
+const button = {
+  link: {
+    linktype: 'url',
+  },
+  size: 'default',
+  style: 'default',
+  button_color: 'primary',
+}
+</script>
+
 <template>
   <form action="" class="relative">
     <div class="flex flex-col space-y-6">
@@ -70,26 +90,6 @@
     </Transition>
   </form>
 </template>
-
-<script setup>
-const showMessage = ref(false)
-
-const submit = () => {
-  showMessage.value = true
-  setTimeout(() => {
-    showMessage.value = false
-  }, 4000)
-}
-
-const button = {
-  link: {
-    linktype: 'url',
-  },
-  size: 'default',
-  style: 'default',
-  button_color: 'primary',
-}
-</script>
 
 <style scoped>
 .fade-enter-active,

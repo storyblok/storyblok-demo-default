@@ -1,3 +1,42 @@
+<script setup>
+const props = defineProps({ blok: Object, index: Number })
+
+const height = computed(() => {
+  if (props.blok.full_height) {
+    return props.index > 0 ? 'min-h-[calc(100vh-128px)]' : 'min-h-screen'
+  } else {
+    return 'min-h-[500px] md:min-h-[700px]'
+  }
+})
+
+const textColor = computed(() => {
+  return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
+})
+
+const horizontalAlignment = computed(() => {
+  return 'text-' + props.blok.horizontal_alignment
+})
+
+const verticalAlignment = computed(() => {
+  return 'items-' + props.blok.vertical_alignment
+})
+
+const optimizedImage = computed(
+  () => props.blok.background_image.filename + '/m/2000x0'
+)
+
+const showVideo = computed(() => {
+  if (
+    props.blok.background_image.filename &&
+    !props.blok.background_video.filename
+  ) {
+    return false
+  } else if (props.blok.background_video.filename) {
+    return true
+  }
+})
+</script>
+
 <template>
   <section
     class="hero-section relative overflow-hidden flex py-36"
@@ -54,42 +93,3 @@
     />
   </section>
 </template>
-
-<script setup>
-const props = defineProps({ blok: Object, index: Number })
-
-const height = computed(() => {
-  if (props.blok.full_height) {
-    return props.index > 0 ? 'min-h-[calc(100vh-128px)]' : 'min-h-screen'
-  } else {
-    return 'min-h-[500px] md:min-h-[700px]'
-  }
-})
-
-const textColor = computed(() => {
-  return props.blok.text_color === 'light' ? 'text-white' : 'text-dark'
-})
-
-const horizontalAlignment = computed(() => {
-  return 'text-' + props.blok.horizontal_alignment
-})
-
-const verticalAlignment = computed(() => {
-  return 'items-' + props.blok.vertical_alignment
-})
-
-const optimizedImage = computed(
-  () => props.blok.background_image.filename + '/m/2000x0'
-)
-
-const showVideo = computed(() => {
-  if (
-    props.blok.background_image.filename &&
-    !props.blok.background_video.filename
-  ) {
-    return false
-  } else if (props.blok.background_video.filename) {
-    return true
-  }
-})
-</script>
