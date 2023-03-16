@@ -1,5 +1,5 @@
 <script setup>
-defineProps({ blok: Object })
+defineProps({ blok: Object, index: Number })
 const componentExists = (component) =>
   typeof resolveComponent(component) !== 'string'
 </script>
