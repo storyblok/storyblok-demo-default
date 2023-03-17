@@ -31,6 +31,12 @@ const cssVars = computed(() => {
     v-editable="blok"
     class="page-section tabbed-content-section container"
   >
+    <div class="text-center mb-12">
+      <Headline v-if="blok.headline" class="mb-4">{{ blok.headline }}</Headline>
+      <Lead v-if="blok.lead">
+        {{ blok.lead }}
+      </Lead>
+    </div>
     <div class="tabbed-content-section-mobile md:hidden md:invisible">
       <ul class="relative flex flex-col">
         <li v-for="(entry, index) in blok.entries" class="group">
