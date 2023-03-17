@@ -16,6 +16,14 @@ const setActiveTab = (index) => {
 }
 
 const tabWidth = ref(100 / props.blok.entries.length)
+
+const cssVars = computed(() => {
+  return {
+    '--indicatorWidth': tabWidth.value + '%',
+    '--indicatorMarginLeft': activeTab.value * tabWidth.value + '%',
+    '--activeTab': activeTab.value,
+  }
+})
 </script>
 
 <template>
@@ -91,6 +99,7 @@ const tabWidth = ref(100 / props.blok.entries.length)
     </div>
     <div
       class="tabbed-content-section-desktop hidden invisible md:block md:visible"
+      :style="cssVars"
     >
       <ul class="relative border-b border-gray-900 mb-8 flex">
         <li
@@ -141,8 +150,11 @@ const tabWidth = ref(100 / props.blok.entries.length)
   ul:after {
     content: '';
     @apply absolute bottom-0 left-0 h-0.5 bg-gray-900 transition-all duration-500;
-    width: v-bind(tabWidth + '%');
-    margin-left: v-bind(activeTab * tabWidth + '%');
+    width: var(--indicatorWidth);
+    margin-left: var(--indicatorMarginLeft);
+    /* TODO: use v-bind once it works reliably */
+    /* width: v-bind(tabWidth + '%');
+    margin-left: v-bind(activeTab * tabWidth + '%'); */
   }
 }
 </style>
