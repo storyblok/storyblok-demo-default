@@ -70,6 +70,8 @@ try {
     if (slug[0] !== undefined && slug[0] === 'site-config') return
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
       resolveRelations: resolveRelations,
+      customParent:
+        'https://storyfront-git-chore-demo-env-staging-storyblok-com.vercel.app/',
     })
   })
 } catch (error) {

@@ -67,6 +67,8 @@ onMounted(() => {
   if (slug && slug[0] !== undefined && slug[0] === 'site-config') {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
       preventClicks: true,
+      customParent:
+        'https://storyfront-git-chore-demo-env-staging-storyblok-com.vercel.app/',
     })
   }
 })
