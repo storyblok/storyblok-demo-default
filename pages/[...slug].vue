@@ -55,6 +55,8 @@ const apiParams = {
 
 const error404 = ref(false)
 
+const { customParent } = useRuntimeConfig().public
+
 try {
   try {
     if (slug === 'error-404') error404.value = true
@@ -70,8 +72,7 @@ try {
     if (slug[0] !== undefined && slug[0] === 'site-config') return
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
       resolveRelations: resolveRelations,
-      customParent:
-        'https://storyfront-git-chore-demo-env-staging-storyblok-com.vercel.app/',
+      customParent,
     })
   })
 } catch (error) {

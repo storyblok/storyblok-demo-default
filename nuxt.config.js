@@ -18,6 +18,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       templateToken: process.env.STORYBLOK_TOKEN,
+      customParent: process.env.STORYBLOK_CUSTOM_PARENT,
     },
   },
 })

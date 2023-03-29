@@ -63,12 +63,13 @@ if (route.query.path) {
 // In your project you would typically want to do the following:
 // const slug = route.params.slug
 
+const { customParent } = useRuntimeConfig().public
+
 onMounted(() => {
   if (slug && slug[0] !== undefined && slug[0] === 'site-config') {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
       preventClicks: true,
-      customParent:
-        'https://storyfront-git-chore-demo-env-staging-storyblok-com.vercel.app/',
+      customParent,
     })
   }
 })
