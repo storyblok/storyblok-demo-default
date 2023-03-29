@@ -15,7 +15,7 @@ const setActiveTab = (index) => {
   activeTab.value = index
 }
 
-const tabWidth = ref(100 / props.blok.entries.length)
+const tabWidth = computed(() => 100 / props.blok.entries.length)
 
 const cssVars = computed(() => {
   return {
