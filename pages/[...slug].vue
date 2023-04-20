@@ -63,7 +63,7 @@ try {
     const { data } = await storyblokApi.get('cdn/stories/' + slug, apiParams)
     story.value = data.story
   } catch (error) {
-    if (error.response.status === 404) error404.value = true
+    if (error.status === 404) error404.value = true
     const { data } = await storyblokApi.get('cdn/stories/error-404', apiParams)
     story.value = data.story
   }
