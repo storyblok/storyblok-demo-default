@@ -10,20 +10,30 @@ const props = defineProps({
 })
 
 const folderStories = ref(null)
-const storyblokApi = useStoryblokApi()
-const { data } = await storyblokApi.get('cdn/stories', {
-  version: 'draft',
-  level: props.auto_nav_folder ? 2 : 1,
-  excluding_slugs: 'site-config,error-404',
-  excluding_fields: 'body',
-  starts_with: props.auto_nav_folder,
-  per_page: 5,
-})
-folderStories.value = !props.auto_nav_folder
-  ? data.stories.filter(
-      (story) => story.parent_id === 0 || story.parent_id === null
-    )
-  : data.stories
+
+const getFolderStories = async () => {
+  const storyblokApi = useStoryblokApi()
+  const { data } = await storyblokApi.get('cdn/stories', {
+    version: 'draft',
+    level: props.auto_nav_folder ? 2 : 1,
+    excluding_slugs: 'site-config,error-404',
+    excluding_fields: 'body',
+    starts_with: props.auto_nav_folder,
+    per_page: 5,
+  })
+  folderStories.value = !props.auto_nav_folder
+    ? data.stories.filter(
+        (story) => story.parent_id === 0 || story.parent_id === null
+      )
+    : data.stories
+}
+
+getFolderStories()
+
+watch(
+  () => props.auto_nav_folder,
+  () => getFolderStories()
+)
 
 const mobileNavOpen = ref(false)
 
