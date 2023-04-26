@@ -82,7 +82,7 @@ onMounted(() => {
         <img
           :src="logo.filename"
           :alt="logo.alt"
-          class="max-w-[180px] xl:max-w-[250px] max-h-[80px] object-contain transition-transform origin-left duration-700 pointer-events-none"
+          class="max-w-[180px] xl:max-w-[250px] max-h-[80px] w-full object-contain transition-transform origin-left duration-700 pointer-events-none"
           :class="logoScale"
         />
       </NuxtLink>
