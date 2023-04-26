@@ -71,7 +71,12 @@ onMounted(() => {
       :buttons="story.content.header_buttons"
       :light="story.content.header_light"
     />
-    <div v-if="story.content.use_custom_colors" class="container py-12">
+    <div
+      v-if="
+        slug && slug[0] === 'site-config' && story.content.use_custom_colors
+      "
+      class="container py-12"
+    >
       <Headline class="mb-8">Color Previews</Headline>
       <div
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
