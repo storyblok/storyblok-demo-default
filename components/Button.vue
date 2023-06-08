@@ -10,7 +10,7 @@ const props = defineProps({ button: Object })
 const url = computed(() => {
   switch (props.button.link.linktype) {
     case 'story':
-      // here we need to test if the story object exists because it won't be resolved when the bridge is used on site-config
+      // here we need to test if the story object exists because it won't be resolved when the bridge is used on site-config 
       return '/' + props.button.link.story?.full_slug
     case 'url':
     case 'asset':
