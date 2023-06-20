@@ -12,11 +12,11 @@ const componentExists = (component) =>
   />
   <div v-else class="container flex justify-center">
     <div
-      class="inline-flex items-center justify-center space-x-2 rounded-lg p-8 my-16 text-xl text-dark bg-light"
+      class="my-16 inline-flex items-center justify-center space-x-2 rounded-lg bg-light p-8 text-xl text-dark"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        class="h-12 w-12 text-yellow-600 shrink-0"
+        class="h-12 w-12 shrink-0 text-yellow-600"
         viewBox="0 0 20 20"
         fill="currentColor"
       >
@@ -26,11 +26,11 @@ const componentExists = (component) =>
           clip-rule="evenodd"
         />
       </svg>
-      <span class="font-light"
-        >Component named
-        <span class="font-medium">{{ blok.component }}</span> is not defined in
-        your frontend framework yet.</span
-      >
+      <span class="font-light">
+        Component named
+        <span class="font-medium">{{ blok.component }}</span>
+        is not defined in your frontend framework yet.
+      </span>
     </div>
   </div>
 </template>

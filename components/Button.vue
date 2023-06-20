@@ -82,7 +82,7 @@ const classes = computed(() => {
       :to="inEditor ? '' : url"
       :class="classes"
       v-editable="button"
-      class="block w-full h-full"
+      class="block h-full w-full"
     >
       {{ button.label }}
       <slot />

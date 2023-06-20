@@ -39,7 +39,7 @@ const showVideo = computed(() => {
 
 <template>
   <section
-    class="hero-section relative overflow-hidden flex py-36"
+    class="hero-section relative flex overflow-hidden py-36"
     :class="[
       height,
       verticalAlignment,
@@ -50,7 +50,7 @@ const showVideo = computed(() => {
   >
     <div class="container relative z-40">
       <h1
-        class="text-4xl md:text-5xl lg:text-6xl leading-tight md:leading-tight lg:leading-tight font-black mb-4"
+        class="mb-4 text-4xl font-black leading-tight md:text-5xl md:leading-tight lg:text-6xl lg:leading-tight"
         :class="[textColor, horizontalAlignment]"
       >
         {{ blok.headline }}
@@ -62,7 +62,7 @@ const showVideo = computed(() => {
         {{ blok.subheadline }}
       </h2>
       <div
-        class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8 mt-12 mx-auto"
+        class="mx-auto mt-12 flex flex-col space-y-6 md:flex-row md:space-x-8 md:space-y-0"
         :class="
           props.blok.horizontal_alignment === 'left'
             ? 'items-start md:justify-start'
@@ -80,7 +80,7 @@ const showVideo = computed(() => {
       v-if="showVideo"
       :src="blok.background_video.filename"
       :alt="blok.background_video.alt"
-      class="absolute z-0 top-0 left-0 w-full h-full object-cover"
+      class="absolute left-0 top-0 z-0 h-full w-full object-cover"
       autoplay
       muted
       loop
@@ -89,7 +89,7 @@ const showVideo = computed(() => {
       v-else-if="!showVideo && blok.background_image.filename"
       :src="optimizedImage"
       :alt="blok.background_image.alt"
-      class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none"
+      class="pointer-events-none absolute left-0 top-0 z-0 h-full w-full object-cover"
     />
   </section>
 </template>

@@ -31,29 +31,29 @@ const cssVars = computed(() => {
     v-editable="blok"
     class="page-section tabbed-content-section container"
   >
-    <div class="text-center mb-12">
+    <div class="mb-12 text-center">
       <Headline v-if="blok.headline" class="mb-4">{{ blok.headline }}</Headline>
       <Lead v-if="blok.lead">
         {{ blok.lead }}
       </Lead>
     </div>
-    <div class="tabbed-content-section-mobile md:hidden md:invisible">
+    <div class="tabbed-content-section-mobile md:invisible md:hidden">
       <ul class="relative flex flex-col">
         <li v-for="(entry, index) in blok.entries" class="group">
           <button
             @click.prevent="setActiveTabMobile(index)"
-            class="cursor-pointer py-4 flex justify-between text-left w-full border-b border-gray-900 border-1 text-dark text-lg group-last:border-0"
+            class="border-1 flex w-full cursor-pointer justify-between border-b border-gray-900 py-4 text-left text-lg text-dark group-last:border-0"
             ref="buttonRefs"
           >
             <span>{{ entry.headline }}</span>
-            <span v-if="mobileTabsStates[index]"
-              ><svg
+            <span v-if="mobileTabsStates[index]">
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                class="h-6 w-6"
               >
                 <path
                   stroke-linecap="round"
@@ -62,14 +62,14 @@ const cssVars = computed(() => {
                 />
               </svg>
             </span>
-            <span v-else
-              ><svg
+            <span v-else>
+              <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                class="h-6 w-6"
               >
                 <path
                   stroke-linecap="round"
@@ -87,7 +87,7 @@ const cssVars = computed(() => {
               <img
                 :src="entry.image?.filename + '/m/800x0'"
                 :alt="entry.image?.alt"
-                class="md:order-last rounded-lg"
+                class="rounded-lg md:order-last"
               />
               <div>
                 <p>{{ entry.description }}</p>
@@ -104,10 +104,10 @@ const cssVars = computed(() => {
       </ul>
     </div>
     <div
-      class="tabbed-content-section-desktop hidden invisible md:block md:visible"
+      class="tabbed-content-section-desktop invisible hidden md:visible md:block"
       :style="cssVars"
     >
-      <ul class="relative border-b border-gray-900 mb-8 flex">
+      <ul class="relative mb-8 flex border-b border-gray-900">
         <li
           v-for="(entry, index) in blok.entries"
           :key="entry._uid"
@@ -115,7 +115,7 @@ const cssVars = computed(() => {
         >
           <button
             @click.prevent="setActiveTab(index)"
-            class="cursor-pointer p-3 text-center w-full text-dark text-lg"
+            class="w-full cursor-pointer p-3 text-center text-lg text-dark"
           >
             {{ entry.headline }}
           </button>

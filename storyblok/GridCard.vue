@@ -14,7 +14,7 @@ const textColor = computed(() => {
 
 <template>
   <div
-    class="w-full max-w-md lg:max-w-none h-full flex flex-col rounded-lg p-6 shadow-sm"
+    class="flex h-full w-full max-w-md flex-col rounded-lg p-6 shadow-sm lg:max-w-none"
     :class="card.background_color?.value ? '' : defaultColor"
     :style="
       card.background_color?.value
@@ -28,11 +28,11 @@ const textColor = computed(() => {
       :src="optimizedIcon"
       :alt="card.icon.alt"
       :width="card.icon_width"
-      class="mx-auto mb-6 pointer-events-none"
+      class="pointer-events-none mx-auto mb-6"
     />
-    <div class="flex flex-col grow">
+    <div class="flex grow flex-col">
       <div class="grow" :class="textColor">
-        <h3 class="font-medium mb-3 text-xl">
+        <h3 class="mb-3 text-xl font-medium">
           {{ card.label }}
         </h3>
         <div class="font-light leading-relaxed">{{ card.text }}</div>

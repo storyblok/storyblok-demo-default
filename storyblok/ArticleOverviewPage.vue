@@ -111,25 +111,25 @@ const button2 = {
 <template>
   <main class="container py-12 md:py-16" v-editable="blok">
     <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
-    <section class="flex my-16">
+    <section class="my-16 flex">
       <aside
-        class="flex-col space-y-6 md:w-[210px] xl:w-[240px] flex-shrink-0 md:mr-6 xl:mr-12 hidden invisible md:visible md:flex"
+        class="invisible hidden flex-shrink-0 flex-col space-y-6 md:visible md:mr-6 md:flex md:w-[210px] xl:mr-12 xl:w-[240px]"
       >
         <div>
-          <label for="search" class="block font-medium text-lg mb-3"
-            >Search for a term</label
-          >
+          <label for="search" class="mb-3 block text-lg font-medium">
+            Search for a term
+          </label>
           <input
             type="search"
             name="search"
             id="search"
             v-model="searchTerm"
-            class="border border-medium px-4 py-2 rounded-full focus:outline-none"
+            class="rounded-full border border-medium px-4 py-2 focus:outline-none"
             @keypress.enter="fetchArticles()"
           />
         </div>
         <fieldset>
-          <legend class="font-medium text-lg mb-3">Select a category</legend>
+          <legend class="mb-3 text-lg font-medium">Select a category</legend>
           <div class="flex flex-col space-y-3">
             <label
               v-for="category in categories"
@@ -143,7 +143,7 @@ const button2 = {
                 :name="category.uuid"
                 :value="category.uuid"
                 v-model="checkedCategories"
-                class="hidden invisible"
+                class="invisible hidden"
               />
               <Indicator />
               <span>{{ category.name }}</span>
@@ -152,7 +152,7 @@ const button2 = {
         </fieldset>
         <div>
           <fieldset>
-            <legend class="font-medium text-lg mb-3">Select an author</legend>
+            <legend class="mb-3 text-lg font-medium">Select an author</legend>
             <div class="flex flex-col space-y-3">
               <label
                 v-for="author in authors"
@@ -166,7 +166,7 @@ const button2 = {
                   name="author"
                   v-model="checkedAuthor"
                   :value="author.uuid"
-                  class="hidden invisible"
+                  class="invisible hidden"
                 />
                 <Indicator />
                 <span>{{ author.name }}</span>
@@ -179,18 +179,19 @@ const button2 = {
             :button="button1"
             @click.prevent="fetchArticles()"
             class="mt-4"
-            >Apply filters</Button
           >
+            Apply filters
+          </Button>
         </div>
         <div>
-          <Button :button="button2" @click.prevent="resetFilters()"
-            >Reset filters</Button
-          >
+          <Button :button="button2" @click.prevent="resetFilters()">
+            Reset filters
+          </Button>
         </div>
       </aside>
       <section
         v-if="!loading && articles.length"
-        class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-12"
+        class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-12"
       >
         <ArticleCard
           v-for="article in articles"

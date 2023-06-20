@@ -25,15 +25,15 @@ const showSeparator = computed(() => props.background_color === 'dark')
 <template>
   <footer class="relative w-full" :class="backgroundColor">
     <div
-      class="container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 py-16"
+      class="container grid gap-12 py-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
     >
-      <div class="sm:col-span-2 md:col-span-3 lg:col-span-2 flex items-center">
+      <div class="flex items-center sm:col-span-2 md:col-span-3 lg:col-span-2">
         <div>
-          <NuxtLink to="/" class="flex mb-8">
+          <NuxtLink to="/" class="mb-8 flex">
             <img
               :src="logo.filename"
               :alt="logo.alt"
-              class="w-[180px] sm:w-[250px] transition-transform origin-left duration-700 pointer-events-none"
+              class="pointer-events-none w-[180px] origin-left transition-transform duration-700 sm:w-[250px]"
             />
           </NuxtLink>
           <RichText
@@ -51,7 +51,7 @@ const showSeparator = computed(() => props.background_color === 'dark')
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="font-black text-xl xl:text-2xl mb-5" :class="textColor">
+        <h3 class="mb-5 text-xl font-black xl:text-2xl" :class="textColor">
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
@@ -75,7 +75,7 @@ const showSeparator = computed(() => props.background_color === 'dark')
       <img
         src="~/assets/images/made-with-love.svg"
         width="180"
-        class="block mx-auto py-9 pointer-events-none"
+        class="pointer-events-none mx-auto block py-9"
         alt="Made with love by the Storyblok team!"
       />
     </div>

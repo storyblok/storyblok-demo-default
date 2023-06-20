@@ -22,7 +22,7 @@ const button = {
   <form action="" class="relative">
     <div class="flex flex-col space-y-6">
       <div
-        class="flex space-x-1 items-center justify-center lg:justify-start text-white"
+        class="flex items-center justify-center space-x-1 text-white lg:justify-start"
       >
         <h4 class="text-xl">Leave us a message</h4>
         <svg
@@ -41,26 +41,26 @@ const button = {
       <input
         type="text"
         placeholder="Your name"
-        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white"
+        class="rounded-lg border border-white bg-transparent px-6 py-4 text-white transition-all focus:outline-none"
         required
       />
       <input
         type="email"
         placeholder="Your email"
-        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white"
+        class="rounded-lg border border-white bg-transparent px-6 py-4 text-white transition-all focus:outline-none"
         required
       />
       <textarea
         name="message"
         placeholder="Your message"
-        class="px-6 py-4 bg-transparent rounded-lg border border-white focus:outline-none transition-all text-white resize-none"
+        class="resize-none rounded-lg border border-white bg-transparent px-6 py-4 text-white transition-all focus:outline-none"
         required
       ></textarea>
     </div>
 
     <div class="flex justify-center lg:justify-start">
       <Button :button="button" @click="submit" class="mt-8">
-        <div class="flex space-x-2 items-center">
+        <div class="flex items-center space-x-2">
           <span>Submit</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -68,7 +68,7 @@ const button = {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            class="w-6 h-6"
+            class="h-6 w-6"
           >
             <path
               stroke-linecap="round"
@@ -83,7 +83,7 @@ const button = {
     <Transition name="fade">
       <div
         v-if="showMessage"
-        class="absolute botttom-0 left-0 translate-y-full text-white text-lg"
+        class="botttom-0 absolute left-0 translate-y-full text-lg text-white"
       >
         Thank you!
       </div>

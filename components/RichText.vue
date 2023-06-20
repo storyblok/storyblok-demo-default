@@ -1,6 +1,6 @@
 <style>
 .prose ul li p {
-  @apply p-0 m-0;
+  @apply m-0 p-0;
 }
 </style>
 

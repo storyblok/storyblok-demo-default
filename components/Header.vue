@@ -72,21 +72,21 @@ onMounted(() => {
 
 <template>
   <header
-    class="fixed z-[99] top-0 left-0 w-full transition-all duration-700"
+    class="fixed left-0 top-0 z-[99] w-full transition-all duration-700"
     :class="[headerClasses, headerBg, headerTransparency]"
   >
     <div
-      class="max-w-[1536px] mx-auto w-full px-4 lg:px-8 h-full flex items-center justify-between lg:justify-start"
+      class="mx-auto flex h-full w-full max-w-[1536px] items-center justify-between px-4 lg:justify-start lg:px-8"
     >
       <NuxtLink to="/" class="flex shrink-0">
         <img
           :src="logo.filename"
           :alt="logo.alt"
-          class="max-w-[180px] xl:max-w-[250px] max-h-[80px] w-full object-contain transition-transform origin-left duration-700 pointer-events-none"
+          class="pointer-events-none max-h-[80px] w-full max-w-[180px] origin-left object-contain transition-transform duration-700 xl:max-w-[250px]"
           :class="logoScale"
         />
       </NuxtLink>
-      <nav class="main-nav mx-auto invisible hidden lg:visible lg:block">
+      <nav class="main-nav invisible mx-auto hidden lg:visible lg:block">
         <ul v-if="!auto_nav">
           <li v-for="item in nav" :key="item._uid">
             <NavItem
@@ -100,7 +100,7 @@ onMounted(() => {
           <li v-for="story in folderStories" :key="story.uuid">
             <NuxtLink
               :to="story.full_slug"
-              class="transition-colors cursor-pointer hover:underline hover:underline-offset-2"
+              class="cursor-pointer transition-colors hover:underline hover:underline-offset-2"
               :class="light ? 'text-primary' : 'text-white'"
             >
               {{ story.name }}
@@ -109,9 +109,9 @@ onMounted(() => {
         </ul>
       </nav>
       <nav
-        class="invisible ml-auto lg:ml-0 hidden md:visible md:block md:mr-8 lg:mr-0"
+        class="invisible ml-auto hidden md:visible md:mr-8 md:block lg:ml-0 lg:mr-0"
       >
-        <ul class="flex space-x-4 xl:space-x-8 items-center">
+        <ul class="flex items-center space-x-4 xl:space-x-8">
           <li v-for="button in buttons" :key="button._uid">
             <Button :button="button" />
           </li>
@@ -134,7 +134,7 @@ onMounted(() => {
 
 <style scoped>
 header nav.main-nav a.router-link-active {
-  @apply underline underline-offset-4 decoration-4 decoration-primary;
+  @apply underline decoration-primary decoration-4 underline-offset-4;
 }
 
 header nav.main-nav ul {

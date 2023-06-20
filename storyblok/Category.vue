@@ -28,7 +28,7 @@ articles.value = data.stories
     <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
     <Lead v-if="blok.description">{{ blok.description }}</Lead>
     <div
-      class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10 md:gap-12 my-16 place-items-center"
+      class="my-16 grid place-items-center gap-6 sm:gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-3"
     >
       <ArticleCard
         v-for="article in articles"

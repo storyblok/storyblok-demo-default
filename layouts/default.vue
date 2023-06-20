@@ -79,30 +79,30 @@ onMounted(() => {
     >
       <Headline class="mb-8">Color Previews</Headline>
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
+        class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
         <div
-          class="bg-primary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-primary shadow-sm"
         >
           <span class="text-sm text-white">Primary</span>
         </div>
         <div
-          class="bg-secondary w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-secondary shadow-sm"
         >
           <span class="text-sm text-white">Secondary</span>
         </div>
         <div
-          class="bg-light w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-light shadow-sm"
         >
           <span class="text-sm text-black">Light</span>
         </div>
         <div
-          class="bg-medium w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-medium shadow-sm"
         >
           <span class="text-sm text-black">Medium</span>
         </div>
         <div
-          class="bg-dark w-full aspect-square rounded-3xl flex items-center justify-center shadow-sm"
+          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-dark shadow-sm"
         >
           <span class="text-sm text-white">Dark</span>
         </div>
@@ -152,7 +152,7 @@ section.banner-section + section.banner-section {
 }
 
 section.hero-section + section.text-section.overlap-preceding-hero {
-  @apply py-0 -mb-16 sm:-mb-20 md:-mb-24 lg:-mb-28;
+  @apply -mb-16 py-0 sm:-mb-20 md:-mb-24 lg:-mb-28;
 }
 
 section.hero-section
@@ -163,14 +163,14 @@ section.hero-section
 
 .plus-pattern::before {
   content: '';
-  @apply w-full h-full absolute top-0 left-0 z-10;
+  @apply absolute left-0 top-0 z-10 h-full w-full;
   background-color: rgba(0, 0, 0, 0.25);
   background-blend-mode: overlay;
 }
 
 .plus-pattern::after {
   content: '';
-  @apply w-full h-full absolute top-0 left-0 z-20;
+  @apply absolute left-0 top-0 z-20 h-full w-full;
   background-image: url('~/assets/images/plus-pattern.svg');
   background-repeat: repeat;
 }

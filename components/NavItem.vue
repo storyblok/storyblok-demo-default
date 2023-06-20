@@ -26,7 +26,7 @@ const url = computed(() => {
 <template>
   <NuxtLink
     :to="inEditor ? '' : url"
-    class="transition-colors cursor-pointer"
+    class="cursor-pointer transition-colors"
     v-editable="item"
   >
     {{ item.label }}

@@ -16,7 +16,7 @@ defineProps({
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w-6 h-6 fill-current pointer-events-none group-hover:scale-110 scale-100 duration-500 transition-all"
+          class="pointer-events-none h-6 w-6 scale-100 fill-current transition-all duration-500 group-hover:scale-110"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Twitter</title>
@@ -31,7 +31,7 @@ defineProps({
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w-6 h-6 fill-current pointer-events-none group-hover:scale-110 scale-100 duration-500 transition-all"
+          class="pointer-events-none h-6 w-6 scale-100 fill-current transition-all duration-500 group-hover:scale-110"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Instagram</title>
@@ -46,7 +46,7 @@ defineProps({
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w-6 h-6 fill-current pointer-events-none group-hover:scale-110 scale-100 duration-500 transition-all"
+          class="pointer-events-none h-6 w-6 scale-100 fill-current transition-all duration-500 group-hover:scale-110"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>YouTube</title>
@@ -61,7 +61,7 @@ defineProps({
         <svg
           role="img"
           viewBox="0 0 24 24"
-          class="w-6 h-6 fill-current pointer-events-none group-hover:scale-110 scale-100 duration-500 transition-all"
+          class="pointer-events-none h-6 w-6 scale-100 fill-current transition-all duration-500 group-hover:scale-110"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Facebook</title>

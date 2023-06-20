@@ -16,14 +16,14 @@ const selectedForm = computed(() => {
 </script>
 
 <template>
-  <section v-editable="blok" class="relative page-section form-section bg-dark">
+  <section v-editable="blok" class="page-section form-section relative bg-dark">
     <div
-      class="container relative z-10 grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12 place-items-center"
+      class="container relative z-10 grid place-items-center gap-6 sm:gap-10 md:gap-12 lg:grid-cols-2"
     >
-      <div class="text-center lg:text-left text-white">
-        <Headline v-if="blok.headline" class="mb-4" color="white">{{
-          blok.headline
-        }}</Headline>
+      <div class="text-center text-white lg:text-left">
+        <Headline v-if="blok.headline" class="mb-4" color="white">
+          {{ blok.headline }}
+        </Headline>
         <Lead v-if="blok.lead">{{ blok.lead }}</Lead>
       </div>
       <div class="w-full max-w-md">

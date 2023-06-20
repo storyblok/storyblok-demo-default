@@ -43,7 +43,7 @@ const optimizedImage = computed(
   >
     <div :class="{ container: !blok.full_width }">
       <div
-        class="relative bg-light py-16 px-4 sm:px-6 md:px-8 lg:px-12 lg:py-32 xl:py-40 2xl:py-48 overflow-hidden min-h-[540px] md:min-h-[600px] lg:min-h-[720px] flex items-center justify-center"
+        class="relative flex min-h-[540px] items-center justify-center overflow-hidden bg-light px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
         :class="[
           { 'rounded-lg': !blok.full_width },
           { 'plus-pattern': blok.pattern_overlay },
@@ -51,21 +51,21 @@ const optimizedImage = computed(
       >
         <div class="relative z-30">
           <h2
-            class="text-3xl md:text-4xl lg:text-5xl leading-tight md:leading-tight lg:leading-tight text-center font-black mb-4"
+            class="mb-4 text-center text-3xl font-black leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
             :class="[textColor]"
           >
             {{ blok.headline }}
           </h2>
-          <div class="max-w-3xl mx-auto">
+          <div class="mx-auto max-w-3xl">
             <h3
-              class="text-md md:text-lg lg:text-xl text-center font-thin"
+              class="text-md text-center font-thin md:text-lg lg:text-xl"
               :class="[textColor]"
             >
               {{ blok.subheadline }}
             </h3>
           </div>
           <div
-            class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 mt-12 mx-auto"
+            class="mx-auto mt-12 flex flex-col items-center justify-center space-y-6 md:flex-row md:space-x-8 md:space-y-0"
           >
             <Button
               v-for="button in blok.buttons"
@@ -78,7 +78,7 @@ const optimizedImage = computed(
           v-if="blok.background_image?.filename"
           :src="optimizedImage + filters"
           :alt="blok.background_image.alt"
-          class="absolute z-0 top-0 left-0 w-full h-full object-cover pointer-events-none"
+          class="pointer-events-none absolute left-0 top-0 z-0 h-full w-full object-cover"
         />
       </div>
     </div>

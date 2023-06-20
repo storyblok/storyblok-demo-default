@@ -15,20 +15,20 @@ watch(route, (to) => {
 
 <template>
   <button
-    class="lg:hidden lg:invisible cursor-pointer"
+    class="cursor-pointer lg:invisible lg:hidden"
     :class="{ active: active }"
     @click="toggle"
   >
     <div
-      class="bar1 transform transition-all h-0.5 w-7 my-1"
+      class="bar1 my-1 h-0.5 w-7 transform transition-all"
       :class="color"
     ></div>
     <div
-      class="bar2 transform transition-all h-0.5 w-7 my-1"
+      class="bar2 my-1 h-0.5 w-7 transform transition-all"
       :class="color"
     ></div>
     <div
-      class="bar3 transform transition-all h-0.5 w-7 my-1"
+      class="bar3 my-1 h-0.5 w-7 transform transition-all"
       :class="color"
     ></div>
   </button>

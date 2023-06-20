@@ -17,15 +17,15 @@ const containerColor = computed(() => {
   >
     <div class="container">
       <div
-        class="max-w-6xl w-full rounded-lg p-12 md:py-24 mx-auto"
+        class="mx-auto w-full max-w-6xl rounded-lg p-12 md:py-24"
         :class="[
           containerColor,
           { ' text-center': blok.alignment === 'center' },
         ]"
       >
-        <Headline v-if="blok.headline" class="mb-4">{{
-          blok.headline
-        }}</Headline>
+        <Headline v-if="blok.headline" class="mb-4">
+          {{ blok.headline }}
+        </Headline>
         <Lead v-if="blok.lead">
           {{ blok.lead }}
         </Lead>
@@ -34,7 +34,7 @@ const containerColor = computed(() => {
           :class="{ 'mx-auto': blok.alignment === 'center' }"
         />
         <div
-          class="inline-flex gap-6 mt-8"
+          class="mt-8 inline-flex gap-6"
           :class="[{ ' mx-auto': blok.alignment === 'center' }]"
         >
           <Button

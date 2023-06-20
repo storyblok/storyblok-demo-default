@@ -28,15 +28,15 @@ const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
     :class="'bg-' + blok.background_color"
   >
     <div
-      class="container grid lg:grid-cols-2 gap-6 sm:gap-10 md:gap-12 items-center"
+      class="container grid items-center gap-6 sm:gap-10 md:gap-12 lg:grid-cols-2"
     >
       <div
         class="order-last text-left"
         :class="blok.reverse_layout ? '' : 'lg:order-first'"
       >
-        <Headline v-if="blok.headline" size="small" class="mb-2">{{
-          blok.headline
-        }}</Headline>
+        <Headline v-if="blok.headline" size="small" class="mb-2">
+          {{ blok.headline }}
+        </Headline>
         <RichText :text="blok.text" />
         <div v-if="blok.button.length" class="mt-8">
           <Button
@@ -52,25 +52,25 @@ const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
             v-if="!fixedHeightImages"
             :src="optimizedImage"
             :alt="blok.image.alt"
-            class="rounded-lg shadow-2xl pointer-events-none"
+            class="pointer-events-none rounded-lg shadow-2xl"
           />
           <img
             v-if="fixedHeightImages"
             :src="fixedHeightImages.mobile"
             :alt="blok.image.alt"
-            class="rounded-lg shadow-2xl pointer-events-none md:hidden md:invisible"
+            class="pointer-events-none rounded-lg shadow-2xl md:invisible md:hidden"
           />
           <img
             v-if="fixedHeightImages"
             :src="fixedHeightImages.tablet"
             :alt="blok.image.alt"
-            class="rounded-lg shadow-2xl pointer-events-none hidden invisible md:block md:visible lg:hidden lg:invisible"
+            class="pointer-events-none invisible hidden rounded-lg shadow-2xl md:visible md:block lg:invisible lg:hidden"
           />
           <img
             v-if="fixedHeightImages"
             :src="fixedHeightImages.desktop"
             :alt="blok.image.alt"
-            class="rounded-lg shadow-2xl pointer-events-none hidden invisible lg:block lg:visible"
+            class="pointer-events-none invisible hidden rounded-lg shadow-2xl lg:visible lg:block"
           />
         </div>
       </div>

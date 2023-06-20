@@ -11,9 +11,9 @@ defineProps({
   <Transition name="slide">
     <nav
       v-if="mobileNavOpen"
-      class="fixed top-0 min-w-[240px] max-w-[400px] w-[calc(100%-120px)] h-screen z-[99] bg-[#0B0F19] bg-opacity-80 backdrop-blur-lg flex flex-col justify-center p-8 shadow-lg"
+      class="fixed top-0 z-[99] flex h-screen w-[calc(100%-120px)] min-w-[240px] max-w-[400px] flex-col justify-center bg-[#0B0F19] bg-opacity-80 p-8 shadow-lg backdrop-blur-lg"
     >
-      <h2 class="text-white text-2xl uppercase font-black mb-4">Navigation</h2>
+      <h2 class="mb-4 text-2xl font-black uppercase text-white">Navigation</h2>
       <ul v-if="!autoNav" class="flex flex-col space-y-4 text-lg font-light">
         <li v-for="item in headerNav" :key="item._uid">
           <NavItem class="text-white" :item="item" />
