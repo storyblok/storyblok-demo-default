@@ -5,10 +5,11 @@ const inEditor = computed(() => {
   return query._storyblok ? true : false
 })
 
-const props = defineProps({ button: Object })
+const props = defineProps({ button: Object, link: String })
 
 const url = computed(() => {
-  switch (props.button.link.linktype) {
+  if (props.link) return props.link
+  switch (props.button?.link?.linktype) {
     case 'story':
       // here we need to test if the story object exists because it won't be resolved when the bridge is used on site-config
       return '/' + props.button.link.story?.full_slug
