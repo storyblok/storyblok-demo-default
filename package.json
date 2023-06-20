@@ -4,20 +4,22 @@
     "build": "nuxt build",
     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@storyblok/nuxt": "^5.4.0",
     "@storyblok/vue": "^7.1.3",
     "@tailwindcss/typography": "^0.5.9",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "nuxt": "^3.3.2",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0",
     "swiper": "^9.2.2"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "semi": false,
-    "singleQuote": true
   }
 }
