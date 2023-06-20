@@ -112,7 +112,7 @@ const button2 = {
   <main class="container py-12 md:py-16" v-editable="blok">
     <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
     <section class="flex my-16">
-      <section
+      <aside
         class="flex-col space-y-6 md:w-[210px] xl:w-[240px] flex-shrink-0 md:mr-6 xl:mr-12 hidden invisible md:visible md:flex"
       >
         <div>
@@ -187,7 +187,7 @@ const button2 = {
             >Reset filters</Button
           >
         </div>
-      </section>
+      </aside>
       <section
         v-if="!loading && articles.length"
         class="grid md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-12"

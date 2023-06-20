@@ -16,7 +16,7 @@ const optimizedImage = computed(
   <NuxtLink
     :to="inEditor ? '' : '/' + slug"
     v-if="article"
-    class="max-w-md flex flex-col h-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg group"
+    class="max-w-md flex flex-col h-full w-full rounded-lg overflow-hidden group transform hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-lg group"
   >
     <div class="w-full h-[210px] xl:h-[300px] overflow-hidden">
       <img

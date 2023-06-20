@@ -90,7 +90,7 @@ onMounted(() => {
         <ul v-if="!auto_nav">
           <li v-for="item in nav" :key="item._uid">
             <NavItem
-              class="hover:text-primary"
+              class="hover:underline hover:underline-offset-2"
               :class="light ? 'text-primary' : 'text-white'"
               :item="item"
             />
@@ -100,7 +100,7 @@ onMounted(() => {
           <li v-for="story in folderStories" :key="story.uuid">
             <NuxtLink
               :to="story.full_slug"
-              class="transition-colors cursor-pointer hover:text-primary"
+              class="transition-colors cursor-pointer hover:underline hover:underline-offset-2"
               :class="light ? 'text-primary' : 'text-white'"
             >
               {{ story.name }}
