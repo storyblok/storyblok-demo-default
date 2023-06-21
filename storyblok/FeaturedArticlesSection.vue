@@ -1,4 +1,6 @@
 <script setup>
+import getGridClasses from '~~/composables/getGridClasses'
+
 const props = defineProps({ blok: Object })
 
 const gridCardColor = computed(() => {
@@ -7,21 +9,7 @@ const gridCardColor = computed(() => {
   return color
 })
 
-const gridClasses = computed(() => {
-  let gridClasses =
-    'grid md:grid-cols-2 gap-10 md:gap-12 md:mt-12 place-items-center items-start'
-
-  switch (props.blok.cols) {
-    case '4':
-      gridClasses += ' lg:grid-cols-3 xl:grid-cols-4'
-      break
-    case '3':
-      gridClasses += ' lg:grid-cols-3'
-      break
-  }
-
-  return gridClasses
-})
+const gridClasses = computed(() => getGridClasses(props.blok.cols))
 </script>
 
 <template>
