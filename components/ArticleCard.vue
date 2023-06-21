@@ -8,7 +8,7 @@ const inEditor = computed(() => {
 })
 
 const optimizedImage = computed(() =>
-  getOptimizedImage(props.article?.image?.filename, 400)
+  getOptimizedImage(props.article?.image, 400)
 )
 </script>
 

@@ -22,7 +22,7 @@ const verticalAlignment = computed(() => {
 })
 
 const optimizedImage = computed(() =>
-  getOptimizedImage(props.blok.background_image.filename, 2000)
+  getOptimizedImage(props.blok.background_image, 2000)
 )
 
 const showVideo = computed(() => {
