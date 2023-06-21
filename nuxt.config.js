@@ -21,4 +21,7 @@ export default defineNuxtConfig({
       customParent: process.env.STORYBLOK_CUSTOM_PARENT,
     },
   },
+  vite: {
+    optimizeDeps: { exclude: ['fsevents'] },
+  },
 })
