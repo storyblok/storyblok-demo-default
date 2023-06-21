@@ -1,46 +1,15 @@
 <script setup>
-const route = useRoute()
+let slug = await getProcessedSlug()
 
-/**
- * Create correct slug and handle language parameter
- */
+const language = await getLanguage(slug)
 
-// Here we are getting the path as a URL parameter
-let slug = []
-if (route.query.path) {
-  slug = route.query.path?.split('/')
-} else {
-  // fallback if no path parameter found (e.g. in template space)
-  slug = route.params.slug.slice()
-}
-// In your project you would typically want to do the following:
-// let slug = route.params.slug.slice()
-let language = 'default'
-
-if (slug) {
-  language = await getLanguage(slug)
-  // remove first slug entry if it matches query language
-  if (language !== 'default') slug = slug.slice(1)
-  slug = slug.join('/')
-} else {
-  slug = 'home'
-}
-
-/**
- * Fetch current release
- */
-const releaseId = route.query?._storyblok_release || 0
-
-/**
- * Resolve relations
- */
-let resolveRelations = [
+const releaseId = await getReleaseId()
+const resolveRelations = [
   'banner-reference.banners',
   'featured-articles-section.articles',
   'article-page.categories',
   'article-page.author',
 ]
-
 const story = ref(null)
 const storyblokApi = useStoryblokApi()
 
@@ -54,7 +23,6 @@ const apiParams = {
 }
 
 const error404 = ref(false)
-
 const { customParent } = useRuntimeConfig().public
 
 try {
@@ -72,6 +40,7 @@ try {
     useStoryblokBridge(story.value.id, (evStory) => (story.value = evStory), {
       resolveRelations: resolveRelations,
       customParent,
+      preventClicks: true,
     })
   })
 } catch (error) {
