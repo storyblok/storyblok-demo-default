@@ -4,9 +4,9 @@ const props = defineProps({ blok: Object })
 const fixedHeightImages = computed(() => {
   if (props.blok.image_layout !== 'fixed-height') return false
   let images = {
-    mobile: props.blok.image.filename + '/m/600x300',
-    tablet: props.blok.image.filename + '/m/1000x500',
-    desktop: props.blok.image.filename + '/m/1000x1250',
+    mobile: getOptimizedImage(props.blok.image.filename, 600, 300),
+    tablet: getOptimizedImage(props.blok.image.filename, 1000, 500),
+    desktop: getOptimizedImage(props.blok.image.filename, 1000, 1250),
   }
 
   if (props.blok.image.focus) {
@@ -18,7 +18,9 @@ const fixedHeightImages = computed(() => {
   return images
 })
 
-const optimizedImage = computed(() => props.blok.image.filename + '/m/1000x0')
+const optimizedImage = computed(() =>
+  getOptimizedImage(props.blok.image.filename, 1000)
+)
 </script>
 
 <template>

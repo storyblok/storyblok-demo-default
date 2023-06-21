@@ -1,11 +1,13 @@
 <script setup>
+import getOptimizedImage from '~/composables/getOptimizedImage'
+
 const props = defineProps({ blok: Object })
 
-const optimizedArticleImage = computed(
-  () => props.blok.image.filename + '/m/2000x0'
+const optimizedArticleImage = computed(() =>
+  getOptimizedImage(props.blok.image.filename, 2000)
 )
-const optimizedAuthorImage = computed(
-  () => props.blok.author.content.profile_picture.filename + '/m/200x0'
+const optimizedAuthorImage = computed(() =>
+  getOptimizedImage(props.blok.author.content.profile_picture.filename, 200)
 )
 </script>
 

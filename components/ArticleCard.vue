@@ -7,8 +7,8 @@ const inEditor = computed(() => {
   return query._storyblok ? true : false
 })
 
-const optimizedImage = computed(
-  () => props.article?.image?.filename + '/m/400x0'
+const optimizedImage = computed(() =>
+  getOptimizedImage(props.article?.image?.filename, 400)
 )
 </script>
 
