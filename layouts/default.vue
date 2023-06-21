@@ -50,6 +50,7 @@ const cssVariables = computed(() => {
   return theme
 })
 
+const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
 
 onMounted(() => {
@@ -72,9 +73,7 @@ onMounted(() => {
       :light="story.content.header_light"
     />
     <div
-      v-if="
-        slug && slug[0] === 'site-config' && story.content.use_custom_colors
-      "
+      v-if="viewingSiteConfig && story.content.use_custom_colors"
       class="container py-12"
     >
       <Headline class="mb-8">Color Previews</Headline>
