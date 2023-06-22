@@ -20,11 +20,12 @@ const gridClasses = computed(() => getGridClasses(props.blok.cols))
         {{ blok.lead }}
       </Lead>
       <div :class="gridClasses">
-        <GridCard
+        <StoryblokComponent
           v-for="card in blok.cards"
           :key="card._uid"
           :card="card"
           :default-color="gridCardColor"
+          :blok="card"
         />
       </div>
     </div>
