@@ -14,7 +14,7 @@ const textColor = computed(() => {
 
 <template>
   <div
-    class="flex h-full w-full max-w-md flex-col rounded-lg p-6 shadow-sm lg:max-w-none"
+    class="flex h-full w-full max-w-md flex-col rounded-lg p-6 lg:max-w-none"
     :class="card.background_color?.value ? '' : defaultColor"
     :style="
       card.background_color?.value
