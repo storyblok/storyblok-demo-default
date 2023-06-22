@@ -146,8 +146,16 @@ section.page-section.no-padding {
   @apply py-0;
 }
 
+section.page-section.bg-white:not(.banner-section)
+  + section.page-section.bg-white:not(.banner-section),
+section.page-section.bg-light:not(.banner-section)
+  + section.page-section.bg-light:not(.banner-section),
 section.banner-section + section.banner-section {
   @apply pt-0;
+}
+
+section.page-section.bg-white + section.banner-reference-section {
+  @apply -mt-16 sm:-mt-20 md:-mt-24 lg:-mt-28 xl:-mt-32;
 }
 
 section.hero-section + section.text-section.overlap-preceding-hero {

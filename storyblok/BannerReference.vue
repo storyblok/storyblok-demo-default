@@ -15,7 +15,7 @@ const modules = [Navigation]
 </style>
 
 <template>
-  <div v-editable="blok">
+  <section v-editable="blok" class="banner-reference-section bg-white">
     <swiper
       :slides-per-view="1"
       :space-between="50"
@@ -32,5 +32,5 @@ const modules = [Navigation]
         />
       </swiper-slide>
     </swiper>
-  </div>
+  </section>
 </template>

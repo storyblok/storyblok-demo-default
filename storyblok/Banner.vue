@@ -34,7 +34,7 @@ const optimizedImage = computed(
 
 <template>
   <section
-    class="page-section banner-section"
+    class="page-section banner-section bg-white"
     :class="[
       { 'no-padding': blok.full_width },
       { 'pointer-events-none': referenced },

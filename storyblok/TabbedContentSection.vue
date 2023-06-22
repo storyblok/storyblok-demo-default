@@ -29,7 +29,7 @@ const cssVars = computed(() => {
 <template>
   <section
     v-editable="blok"
-    class="page-section tabbed-content-section container"
+    class="page-section tabbed-content-section container bg-white"
   >
     <div class="mb-12 text-center">
       <Headline v-if="blok.headline" class="mb-4">{{ blok.headline }}</Headline>
