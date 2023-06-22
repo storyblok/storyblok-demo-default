@@ -30,6 +30,17 @@ const filters = computed(() => {
 const optimizedImage = computed(
   () => props.blok.background_image?.filename + '/m/2000x0'
 )
+
+const showVideo = computed(() => {
+  if (
+    props.blok.background_image?.filename &&
+    !props.blok.background_video?.filename
+  ) {
+    return false
+  } else if (props.blok.background_video.filename) {
+    return true
+  }
+})
 </script>
 
 <template>
@@ -74,9 +85,18 @@ const optimizedImage = computed(
             />
           </div>
         </div>
+        <video
+          v-if="showVideo"
+          :src="blok.background_video.filename"
+          :alt="blok.background_video.alt"
+          class="absolute left-0 top-0 z-0 h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+        ></video>
         <img
-          v-if="blok.background_image?.filename"
-          :src="optimizedImage + filters"
+          v-else-if="!showVideo && blok.background_image.filename"
+          :src="optimizedImage"
           :alt="blok.background_image.alt"
           class="pointer-events-none absolute left-0 top-0 z-0 h-full w-full object-cover"
         />

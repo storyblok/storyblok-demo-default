@@ -27,8 +27,8 @@ const optimizedImage = computed(() =>
 
 const showVideo = computed(() => {
   if (
-    props.blok.background_image.filename &&
-    !props.blok.background_video.filename
+    props.blok.background_image?.filename &&
+    !props.blok.background_video?.filename
   ) {
     return false
   } else if (props.blok.background_video.filename) {
