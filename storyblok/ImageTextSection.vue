@@ -9,12 +9,6 @@ const fixedHeightImages = computed(() => {
     desktop: getOptimizedImage(props.blok.image, 1000, 1250),
   }
 
-  if (props.blok.image.focus) {
-    for (const key of Object.keys(images)) {
-      images[key] += '/filters:focal(' + props.blok.image.focus + ')'
-    }
-  }
-
   return images
 })
 

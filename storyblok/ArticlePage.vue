@@ -1,6 +1,7 @@
 <script setup>
 const props = defineProps({ blok: Object })
 
+console.log(props.blok.image)
 const optimizedArticleImage = computed(() =>
   getOptimizedImage(props.blok.image, 2000)
 )

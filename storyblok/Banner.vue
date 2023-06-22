@@ -27,8 +27,8 @@ const filters = computed(() => {
   }
 })
 
-const optimizedImage = computed(() =>
-  getOptimizedImage(props.blok.background_image, 2000)
+const optimizedImage = computed(
+  () => props.blok.background_image?.filename + '/m/2000x0'
 )
 </script>
 
