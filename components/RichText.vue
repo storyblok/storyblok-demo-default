@@ -11,8 +11,5 @@
 <script setup>
 const props = defineProps({ text: Object })
 
-const storyblokApi = useStoryblokApi()
-const richText = computed(() =>
-  storyblokApi.richTextResolver.render(props.text)
-)
+const richText = computed(() => renderCustomRichText(props.text))
 </script>
