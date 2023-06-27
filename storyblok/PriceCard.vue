@@ -1,10 +1,6 @@
 <script setup>
 const props = defineProps({ card: Object, defaultColor: String })
 
-const textColor = computed(() => {
-  return props.card.text_color === 'light' ? 'text-white' : 'text-dark'
-})
-
 const price = computed(() => {
   const priceText = String(props.card.price)
   if (!priceText) return null
@@ -18,6 +14,8 @@ const textBelowPrice = computed(() =>
 const textBelowButton = computed(() =>
   renderCustomRichText(props.card.text_below_button)
 )
+
+const currency = computed(() => props.card?.currency || '€')
 </script>
 
 <template>
@@ -44,7 +42,7 @@ const textBelowButton = computed(() =>
     <h4 class="mb-6 text-lg">{{ card.subheadline }}</h4>
     <span v-if="price" class="mx-auto inline-flex items-end">
       <span class="mr-2 block translate-y-[4px] self-start text-4xl font-black">
-        €
+        {{ currency }}
       </span>
       <span class="text-6xl font-black">{{ price[0] }}</span>
       <span v-if="price[1]" class="block -translate-y-[1px] text-3xl">
