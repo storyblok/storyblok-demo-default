@@ -12,13 +12,13 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@storyblok/nuxt": "^5.5.0",
-    "@storyblok/vue": "^7.1.9",
+    "@storyblok/nuxt": "^5.5.1",
+    "@storyblok/vue": "^7.1.10",
     "@tailwindcss/typography": "^0.5.9",
     "clone-deep": "^4.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
-    "nuxt": "^3.5.3",
+    "nuxt": "^3.6.1",
     "prettier": "^2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
     "swiper": "^9.4.1"
