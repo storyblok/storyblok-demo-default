@@ -1,8 +1,7 @@
 <script setup>
-let slug = await getProcessedSlug()
-
+const slug = await getSlug()
+const processedSlug = await getProcessedSlug()
 const language = await getLanguage(slug)
-
 const releaseId = await getReleaseId()
 const resolveRelations = [
   'banner-reference.banners',
@@ -27,8 +26,11 @@ const { customParent } = useRuntimeConfig().public
 
 try {
   try {
-    if (slug === 'error-404') error404.value = true
-    const { data } = await storyblokApi.get('cdn/stories/' + slug, apiParams)
+    if (processedSlug === 'error-404') error404.value = true
+    const { data } = await storyblokApi.get(
+      'cdn/stories/' + processedSlug,
+      apiParams
+    )
     story.value = data.story
   } catch (error) {
     if (error.status === 404) error404.value = true

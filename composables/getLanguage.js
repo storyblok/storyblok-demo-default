@@ -9,6 +9,8 @@ export default async function (slug) {
   const { data } = await storyblokApi.get('cdn/spaces/me')
   languageCodes.value = data.space.language_codes
 
+  console.log(languageCodes.value)
+
   /**
    * If the the first part of the slug array matches one of the language codes defined in the space,
    * it matches the language code that has to be specified in the API request for the story/stories.
