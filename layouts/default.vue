@@ -15,7 +15,7 @@ const defaultBorderRadiuses = {
   '--rounded_xl': '15px',
   '--rounded_2xl': '20px',
   '--rounded_3xl': '25px',
-  '--rounded_full': '9999px',
+  '--rounded_full': '0px',
 }
 
 const theme = reactive({ ...defaultColors, ...defaultBorderRadiuses })
