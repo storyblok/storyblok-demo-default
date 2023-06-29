@@ -96,7 +96,7 @@ const showVideo = computed(() => {
         ></video>
         <img
           v-else-if="!showVideo && blok.background_image.filename"
-          :src="optimizedImage"
+          :src="optimizedImage + filters"
           :alt="blok.background_image.alt"
           class="pointer-events-none absolute left-0 top-0 z-0 h-full w-full object-cover"
         />
