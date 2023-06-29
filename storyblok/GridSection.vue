@@ -19,7 +19,7 @@ const gridClasses = computed(() => getGridClasses(props.blok.cols))
       <Lead v-if="blok.lead">
         {{ blok.lead }}
       </Lead>
-      <div :class="gridClasses">
+      <div :class="[gridClasses, { 'md:!mt-0': !blok.headline && !blok.lead }]">
         <StoryblokComponent
           v-for="card in blok.cards"
           :key="card._uid"

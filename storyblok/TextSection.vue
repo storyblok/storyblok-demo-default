@@ -17,7 +17,7 @@ const containerColor = computed(() => {
   >
     <div class="container">
       <div
-        class="mx-auto w-full max-w-6xl rounded-lg p-12 md:py-24"
+        class="mx-auto w-full max-w-7xl rounded-lg p-12 md:py-24"
         :class="[
           containerColor,
           { ' text-center': blok.alignment === 'center' },
