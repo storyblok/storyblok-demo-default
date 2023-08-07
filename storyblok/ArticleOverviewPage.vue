@@ -1,111 +1,109 @@
 <script setup>
-defineProps({ blok: Object })
+defineProps({ blok: Object });
 
-let { slug } = useRoute().params
-let language = 'default'
+let { slug } = useRoute().params;
+let language = "default";
 
-if (slug) language = await getLanguage(slug)
+if (slug) language = await getLanguage(slug);
 
-// filters
-const searchTerm = ref('')
-const checkedCategories = ref([])
-const checkedAuthor = ref('')
+const searchTerm = ref("");
+const checkedCategories = ref([]);
+const checkedAuthor = ref("");
 
 const filterQuery = computed(() => {
-  let query = {}
+  let query = {};
 
   if (checkedCategories.value.length > 0) {
     query.categories = {
-      in_array: checkedCategories.value.join(','),
-    }
+      in_array: checkedCategories.value.join(","),
+    };
   }
 
-  if (checkedAuthor.value !== '') {
+  if (checkedAuthor.value !== "") {
     query.author = {
       in: checkedAuthor.value,
-    }
+    };
   }
 
-  return query
-})
+  return query;
+});
 
 const resetFilters = () => {
-  searchTerm.value = ''
-  checkedCategories.value = []
-  checkedAuthor.value = ''
-  fetchArticles()
-}
+  searchTerm.value = "";
+  checkedCategories.value = [];
+  checkedAuthor.value = "";
+  fetchArticles();
+};
 
-watch(searchTerm, (newValue) => {
-  if (newValue === '') fetchArticles()
-})
+watch(searchTerm, () => {
+  fetchArticles();
+});
 
-const storyblokApi = useStoryblokApi()
+watch(checkedCategories, () => {
+  fetchArticles();
+});
 
-const loading = ref(true)
+watch(checkedAuthor, () => {
+  fetchArticles();
+});
 
-const articles = ref(null)
+const storyblokApi = useStoryblokApi();
+
+const loading = ref(true);
+
+const articles = ref(null);
 
 const fetchArticles = async () => {
-  loading.value = true
-  articles.value = null
-  const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
-    starts_with: 'articles',
+  loading.value = true;
+  articles.value = null;
+  const { data } = await storyblokApi.get("cdn/stories/", {
+    version: "draft",
+    starts_with: "articles",
     language: language,
-    fallback_lang: 'default',
+    fallback_lang: "default",
     search_term: searchTerm.value,
     filter_query: filterQuery.value,
-  })
-  articles.value = data.stories.filter((story) => story.is_startpage !== true)
-  loading.value = false
-}
+  });
+  articles.value = data.stories.filter((story) => story.is_startpage !== true);
+  loading.value = false;
+};
 
-fetchArticles()
+fetchArticles();
 
-// Get all authors
-const authors = ref(null)
+const authors = ref(null);
 
 const getAuthors = async () => {
-  const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
-    starts_with: 'authors',
-  })
-  authors.value = data.stories
-}
+  const { data } = await storyblokApi.get("cdn/stories/", {
+    version: "draft",
+    starts_with: "authors",
+  });
+  authors.value = data.stories;
+};
 
-getAuthors()
+getAuthors();
 
-// Get all categories
-const categories = ref(null)
+const categories = ref(null);
 
 const getCategories = async () => {
-  const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
-    starts_with: 'categories',
-  })
-  categories.value = data.stories.filter((story) => story.is_startpage !== true)
-}
+  const { data } = await storyblokApi.get("cdn/stories/", {
+    version: "draft",
+    starts_with: "categories",
+  });
+  categories.value = data.stories.filter(
+    (story) => story.is_startpage !== true,
+  );
+};
 
-getCategories()
+getCategories();
 
-const button1 = {
+const button = {
   link: {
-    linktype: 'url',
+    linktype: "url",
   },
-  size: 'small',
-  style: 'default',
-  button_color: 'primary',
-}
-
-const button2 = {
-  link: {
-    linktype: 'url',
-  },
-  size: 'small',
-  style: 'ghost',
-  button_color: 'medium',
-}
+  size: "small",
+  style: "ghost",
+  button_color: "medium",
+};
 </script>
 
 <template>
@@ -175,20 +173,12 @@ const button2 = {
           </fieldset>
         </div>
         <div>
-          <Button
-            :button="button1"
-            @click.prevent="fetchArticles()"
-            class="mt-4"
-          >
-            Apply filters
-          </Button>
-        </div>
-        <div>
-          <Button :button="button2" @click.prevent="resetFilters()">
+          <Button :button="button" @click.prevent="resetFilters()" class="mt-4">
             Reset filters
           </Button>
         </div>
       </aside>
+
       <section
         v-if="!loading && articles.length"
         class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-12"
@@ -201,6 +191,7 @@ const button2 = {
           class="bg-light"
         />
       </section>
+
       <section v-else-if="!loading && !articles.length">
         Unfortunately, no articles matched your criteria.
       </section>
