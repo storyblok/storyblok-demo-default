@@ -57,7 +57,7 @@ const showVideo = computed(() => {
         class="relative flex min-h-[540px] items-center justify-center overflow-hidden bg-light px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
         :class="[
           { 'rounded-lg': !blok.full_width },
-          { 'plus-pattern': blok.pattern_overlay },
+          blok.overlay !== 'no-overlay' ? blok.overlay : '',
         ]"
       >
         <div class="relative z-30">

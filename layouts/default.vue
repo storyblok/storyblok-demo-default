@@ -154,10 +154,6 @@ section.banner-section + section.banner-section {
   @apply pt-0;
 }
 
-section.page-section.bg-white + section.banner-reference-section {
-  @apply -mt-16 sm:-mt-20 md:-mt-24 lg:-mt-28 xl:-mt-32;
-}
-
 section.hero-section + section.text-section.overlap-preceding-hero {
   @apply -mb-16 py-0 sm:-mb-20 md:-mb-24 lg:-mb-28;
 }
@@ -168,14 +164,22 @@ section.hero-section
   @apply -translate-y-24;
 }
 
-.plus-pattern::before {
+.overlay-15::before {
   content: '';
   @apply absolute left-0 top-0 z-10 h-full w-full;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.15);
   background-blend-mode: overlay;
 }
 
-.plus-pattern::after {
+.overlay-30::before,
+.overlay-pattern-1::before {
+  content: '';
+  @apply absolute left-0 top-0 z-10 h-full w-full;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: overlay;
+}
+
+.overlay-pattern-1::after {
   content: '';
   @apply absolute left-0 top-0 z-20 h-full w-full;
   background-image: url('~/assets/images/plus-pattern.svg');

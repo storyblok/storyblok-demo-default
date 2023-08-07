@@ -20,7 +20,7 @@ const currency = computed(() => props.card?.currency || '€')
 
 <template>
   <div
-    class="relative flex w-full max-w-md flex-col rounded-lg px-6 py-12 lg:max-w-none"
+    class="relative flex w-full max-w-md flex-col rounded-lg px-6 py-12 text-dark lg:max-w-none"
     :class="[
       card.background_color?.value ? '' : defaultColor,
       { 'shadow-xl': card.most_popular },
