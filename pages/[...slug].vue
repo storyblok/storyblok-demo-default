@@ -29,7 +29,7 @@ try {
     if (processedSlug === 'error-404') error404.value = true
     const { data } = await storyblokApi.get(
       'cdn/stories/' + processedSlug,
-      apiParams
+      apiParams,
     )
     story.value = data.story
   } catch (error) {

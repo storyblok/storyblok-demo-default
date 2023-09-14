@@ -16,7 +16,7 @@ if (route.query.path && !visitedPaths.value.includes(route.query.path)) {
 
 const show = computed(() =>
   // if in Visual Editor, allow previewing of content for both scenarios, otherwise show content depending on cookie value
-  route.query._storyblok ? props.blok.preview : visitor.value
+  route.query._storyblok ? props.blok.preview : visitor.value,
 )
 </script>
 

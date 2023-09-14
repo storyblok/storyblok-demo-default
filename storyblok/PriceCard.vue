@@ -9,10 +9,10 @@ const price = computed(() => {
 })
 
 const textBelowPrice = computed(() =>
-  renderCustomRichText(props.card.text_below_price)
+  renderCustomRichText(props.card.text_below_price),
 )
 const textBelowButton = computed(() =>
-  renderCustomRichText(props.card.text_below_button)
+  renderCustomRichText(props.card.text_below_button),
 )
 
 const currency = computed(() => props.card?.currency || '€')

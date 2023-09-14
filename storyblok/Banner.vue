@@ -28,7 +28,7 @@ const filters = computed(() => {
 })
 
 const optimizedImage = computed(
-  () => props.blok.background_image?.filename + '/m/2000x0'
+  () => props.blok.background_image?.filename + '/m/2000x0',
 )
 
 const showVideo = computed(() => {

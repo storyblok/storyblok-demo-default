@@ -2,10 +2,10 @@
 const props = defineProps({ blok: Object })
 
 const optimizedArticleImage = computed(() =>
-  getOptimizedImage(props.blok.image, 2000)
+  getOptimizedImage(props.blok.image, 2000),
 )
 const optimizedAuthorImage = computed(() =>
-  getOptimizedImage(props.blok.author.content.profile_picture, 200)
+  getOptimizedImage(props.blok.author.content.profile_picture, 200),
 )
 </script>
 

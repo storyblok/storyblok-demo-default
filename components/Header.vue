@@ -23,7 +23,7 @@ const getFolderStories = async () => {
   })
   folderStories.value = !props.auto_nav_folder
     ? data.stories.filter(
-        (story) => story.parent_id === 0 || story.parent_id === null
+        (story) => story.parent_id === 0 || story.parent_id === null,
       )
     : data.stories
 }
@@ -32,7 +32,7 @@ getFolderStories()
 
 watch(
   () => props.auto_nav_folder,
-  () => getFolderStories()
+  () => getFolderStories(),
 )
 
 const mobileNavOpen = ref(false)
