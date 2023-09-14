@@ -12,16 +12,16 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.8.0",
-    "@storyblok/nuxt": "^5.5.1",
-    "@storyblok/vue": "^7.1.10",
-    "@tailwindcss/typography": "^0.5.9",
+    "@storyblok/nuxt": "^5.6.13",
+    "@storyblok/vue": "^7.2.0",
+    "@tailwindcss/typography": "^0.5.10",
     "clone-deep": "^4.0.1",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.2",
-    "nuxt": "^3.6.1",
-    "prettier": "^2.8.8",
-    "prettier-plugin-tailwindcss": "^0.3.0",
-    "swiper": "^9.4.1"
+    "lint-staged": "^14.0.1",
+    "nuxt": "^3.7.3",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
+    "swiper": "^10.2.0"
   },
   "prettier": {
     "singleQuote": true,
