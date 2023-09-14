@@ -29,11 +29,11 @@ const optimizedImage = computed(() =>
       <h3 class="mb-3 text-xl font-medium text-dark">
         {{ article.headline }}
       </h3>
-      <div class="line-clamp-3 font-light leading-relaxed">
+      <div class="line-clamp-3 font-light leading-relaxed text-dark">
         {{ article.teaser }}
       </div>
     </div>
-    <div class="flex justify-between px-6 py-3 text-primary">
+    <div class="flex justify-between px-6 py-3 text-dark">
       <span class="font-light uppercase tracking-widest">Read</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
