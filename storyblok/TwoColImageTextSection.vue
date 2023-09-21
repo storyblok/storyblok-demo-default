@@ -26,15 +26,15 @@ const optimizedImages2 = computed(() => {
   >
     <div class="container">
       <div
-        class="flex flex-col items-center space-y-6 sm:space-x-10 md:flex-row md:space-x-12 md:space-y-0"
+        class="flex flex-col items-center space-y-6 md:flex-row md:space-x-12 md:space-y-0"
       >
         <div class="w-full text-left md:w-7/12 lg:w-8/12">
           <Headline v-if="blok.headline">
             {{ blok.headline }}
           </Headline>
         </div>
-        <div class="w-full md:w-5/12 lg:w-4/12">
-          <div v-if="blok.subheadline" class="lg:text-lg">
+        <div class="w-full text-left md:w-5/12 lg:w-4/12 lg:text-lg">
+          <div v-if="blok.subheadline">
             {{ blok.subheadline }}
           </div>
         </div>

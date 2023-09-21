@@ -34,6 +34,7 @@ const containerColor = computed(() => {
           :class="{ 'mx-auto': blok.alignment === 'center' }"
         />
         <div
+          v-if="blok.button.length"
           class="mt-8 inline-flex gap-6"
           :class="[{ ' mx-auto': blok.alignment === 'center' }]"
         >
