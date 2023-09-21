@@ -6,7 +6,6 @@ let language = 'default'
 
 if (slug) language = await getLanguage(slug)
 
-// filters
 const searchTerm = ref('')
 const checkedCategories = ref([])
 const checkedAuthor = ref('')
@@ -36,8 +35,16 @@ const resetFilters = () => {
   fetchArticles()
 }
 
-watch(searchTerm, (newValue) => {
-  if (newValue === '') fetchArticles()
+watch(searchTerm, () => {
+  fetchArticles()
+})
+
+watch(checkedCategories, () => {
+  fetchArticles()
+})
+
+watch(checkedAuthor, () => {
+  fetchArticles()
 })
 
 const storyblokApi = useStoryblokApi()
@@ -63,7 +70,6 @@ const fetchArticles = async () => {
 
 fetchArticles()
 
-// Get all authors
 const authors = ref(null)
 
 const getAuthors = async () => {
@@ -76,7 +82,6 @@ const getAuthors = async () => {
 
 getAuthors()
 
-// Get all categories
 const categories = ref(null)
 
 const getCategories = async () => {
@@ -89,16 +94,7 @@ const getCategories = async () => {
 
 getCategories()
 
-const button1 = {
-  link: {
-    linktype: 'url',
-  },
-  size: 'small',
-  style: 'default',
-  button_color: 'primary',
-}
-
-const button2 = {
+const button = {
   link: {
     linktype: 'url',
   },
@@ -175,20 +171,12 @@ const button2 = {
           </fieldset>
         </div>
         <div>
-          <Button
-            :button="button1"
-            @click.prevent="fetchArticles()"
-            class="mt-4"
-          >
-            Apply filters
-          </Button>
-        </div>
-        <div>
-          <Button :button="button2" @click.prevent="resetFilters()">
+          <Button :button="button" @click.prevent="resetFilters()" class="mt-4">
             Reset filters
           </Button>
         </div>
       </aside>
+
       <section
         v-if="!loading && articles.length"
         class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 xl:gap-12"
@@ -201,6 +189,7 @@ const button2 = {
           class="bg-light"
         />
       </section>
+
       <section v-else-if="!loading && !articles.length">
         Unfortunately, no articles matched your criteria.
       </section>
