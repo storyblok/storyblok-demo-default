@@ -164,6 +164,10 @@ section.hero-section
   @apply -translate-y-24;
 }
 
+section.banner-section:first-child {
+  @apply pt-0;
+}
+
 .overlay-15::before {
   content: '';
   @apply absolute left-0 top-0 z-10 h-full w-full;
