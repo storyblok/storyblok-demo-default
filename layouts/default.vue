@@ -80,31 +80,11 @@ onMounted(() => {
       <div
         class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-primary shadow-sm"
-        >
-          <span class="text-sm text-white">Primary</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-secondary shadow-sm"
-        >
-          <span class="text-sm text-white">Secondary</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-light shadow-sm"
-        >
-          <span class="text-sm text-black">Light</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-medium shadow-sm"
-        >
-          <span class="text-sm text-black">Medium</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-dark shadow-sm"
-        >
-          <span class="text-sm text-white">Dark</span>
-        </div>
+        <ColorPreview color="primary" />
+        <ColorPreview color="secondary" />
+        <ColorPreview color="light" />
+        <ColorPreview color="medium" />
+        <ColorPreview color="dark" />
       </div>
     </div>
     <slot />
@@ -164,7 +144,14 @@ section.hero-section
   @apply -translate-y-24;
 }
 
-section.banner-section:first-child {
+section.banner-section.padding:first-child {
+  @apply pt-0;
+}
+
+section.banner-section.padding.bg-white + section.page-section.bg-white,
+section.banner-section.padding.bg-light + section.page-section.bg-light,
+section.banner-section.bg-white + section.page-section.padding.bg-white,
+section.banner-section.bg-light + section.page-section.padding.bg-light {
   @apply pt-0;
 }
 
