@@ -1,4 +1,6 @@
 <script setup>
+const props = defineProps({ storyUuid: String, storyFullSlug: String })
+
 const defaultColors = {
   '--primary': '#395ECE',
   '--secondary': '#00B3B0',
@@ -26,6 +28,7 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
   version: 'draft',
   resolve_links: 'url',
+  resolve_relations: 'site-config.enable_breadcrumbs_per_story',
 })
 
 story.value = data.story
@@ -49,6 +52,26 @@ const cssVariables = computed(() => {
   }
   return theme
 })
+
+const enableBreadcrumbs = computed(() => {
+  const slugFound = story.value.content.enable_breadcrumbs_per_story.find(
+    (story) => {
+      console.log(story.uuid)
+      console.log(props.storyUuid)
+      return story.uuid === props.storyUuid
+    },
+  )
+  if (story.value.content.enable_breadcrumbs_globally || slugFound) {
+    return true
+  }
+  return false
+})
+
+const altStyleBreadcrumbs = computed(
+  () =>
+    props.storyFullSlug.startsWith('articles/') &&
+    props.storyFullSlug !== 'articles/',
+)
 
 const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
@@ -87,6 +110,11 @@ onMounted(() => {
         <ColorPreview color="dark" />
       </div>
     </div>
+    <Breadcrumbs
+      v-if="enableBreadcrumbs"
+      :slug="storyFullSlug"
+      :alt-style="altStyleBreadcrumbs"
+    />
     <slot />
     <Footer
       :text_color="story.content.footer_text_color"

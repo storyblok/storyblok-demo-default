@@ -5,7 +5,7 @@ const optimizedImages1 = computed(() => {
   return {
     mobile: getOptimizedImage(props.blok.image_1, 800, 600),
     tablet: getOptimizedImage(props.blok.image_1, 700, 600),
-    desktop: getOptimizedImage(props.blok.image_1, 800, 600),
+    desktop: getOptimizedImage(props.blok.image_1, 1200, 800),
   }
 })
 
@@ -13,7 +13,7 @@ const optimizedImages2 = computed(() => {
   return {
     mobile: getOptimizedImage(props.blok.image_2, 800, 600),
     tablet: getOptimizedImage(props.blok.image_2, 500, 600),
-    desktop: getOptimizedImage(props.blok.image_2, 400, 600),
+    desktop: getOptimizedImage(props.blok.image_2, 600, 800),
   }
 })
 </script>
