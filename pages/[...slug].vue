@@ -1,8 +1,4 @@
 <script setup>
-definePageMeta({
-  layout: false,
-})
-
 const slug = await getSlug()
 const processedSlug = await getProcessedSlug()
 const language = await getLanguage(slug)
@@ -55,14 +51,8 @@ try {
 </script>
 
 <template>
-  <NuxtLayout
-    name="default"
-    :story-uuid="story.uuid"
-    :story-full-slug="story.full_slug"
-  >
-    <Error404 v-if="error404">
-      Unfortunately, this page could not be found.
-    </Error404>
-    <StoryblokComponent v-if="story" :blok="story.content" :uuid="story.uuid" />
-  </NuxtLayout>
+  <Error404 v-if="error404">
+    Unfortunately, this page could not be found.
+  </Error404>
+  <StoryblokComponent v-if="story" :blok="story.content" :uuid="story.uuid" />
 </template>

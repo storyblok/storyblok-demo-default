@@ -32,7 +32,7 @@ const breadcrumbs = computed(() => {
       v-if="breadcrumbs"
       class="my-6 flex space-x-2 rounded-lg bg-light px-6 py-3"
       :class="
-        altStyle ? 'bg-white bg-opacity-80  backdrop-blur-md' : 'bg-light'
+        altStyle ? 'bg-white bg-opacity-60  backdrop-blur-md' : 'bg-light'
       "
     >
       <li

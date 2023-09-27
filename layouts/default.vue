@@ -1,6 +1,4 @@
 <script setup>
-const props = defineProps({ storyUuid: String, storyFullSlug: String })
-
 const defaultColors = {
   '--primary': '#395ECE',
   '--secondary': '#00B3B0',
@@ -53,18 +51,15 @@ const cssVariables = computed(() => {
   return theme
 })
 
-const enableBreadcrumbs = computed(() => {
-  const slugFound = story.value.content.enable_breadcrumbs_per_story.find(
-    (story) => story.uuid === props.storyUuid,
-  )
-  if (story.value.content.enable_breadcrumbs_globally || slugFound) return true
-  return false
+const autoNavFolder = computed(() => {
+  if (!story.value.content.header_auto_nav_folder[0]?.slug) return ''
+  return story.value.content.header_auto_nav_folder[0].slug
 })
 
+const processedSlug = await getProcessedSlug()
+
 const altStyleBreadcrumbs = computed(
-  () =>
-    props.storyFullSlug.startsWith('articles/') &&
-    props.storyFullSlug !== 'articles/',
+  () => processedSlug.startsWith('articles/') && processedSlug !== 'articles/',
 )
 
 const viewingSiteConfig = await isSiteConfig()
@@ -84,7 +79,7 @@ onMounted(() => {
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"
       :auto_nav="story.content.header_auto_nav"
-      :auto_nav_folder="story.content.header_auto_nav_folder"
+      :auto_nav_folder="autoNavFolder"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
       :light="story.content.header_light"
@@ -105,8 +100,8 @@ onMounted(() => {
       </div>
     </div>
     <Breadcrumbs
-      v-if="enableBreadcrumbs"
-      :slug="storyFullSlug"
+      v-if="story.content.enable_breadcrumbs && !viewingSiteConfig"
+      :slug="processedSlug"
       :alt-style="altStyleBreadcrumbs"
     />
     <slot />

@@ -55,11 +55,13 @@ const showVideo = computed(() => {
   >
     <div :class="{ container: !blok.full_width }">
       <div
-        class="relative flex min-h-[540px] items-center justify-center overflow-hidden bg-light px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
+        class="relative flex min-h-[540px] items-center justify-center overflow-hidden px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
         :class="[
           { 'rounded-lg': !blok.full_width },
           blok.overlay !== 'no-overlay' ? blok.overlay : '',
+          { 'bg-light': !blok.background_color?.color },
         ]"
+        :style="`background-color: ${blok.background_color?.color}`"
       >
         <div class="relative z-30">
           <h2

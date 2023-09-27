@@ -121,7 +121,7 @@ const button = {
             name="search"
             id="search"
             v-model="searchTerm"
-            class="rounded-full border border-medium px-4 py-2 focus:outline-none"
+            class="rounded-full border border-dark px-4 py-2 focus:outline-none"
             @keypress.enter="fetchArticles()"
           />
         </div>
