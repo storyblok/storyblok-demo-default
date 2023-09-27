@@ -14,6 +14,12 @@ const borderColor = computed(() => {
   return props.textColor === 'text-white' ? 'border-light' : 'border-dark'
 })
 
+const placeHolderColor = computed(() => {
+  return props.textColor === 'text-white'
+    ? 'placeholder-white'
+    : 'placeholder-dark'
+})
+
 const button = computed(() => {
   return {
     link: {
@@ -26,18 +32,6 @@ const button = computed(() => {
   }
 })
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-</style>
 
 <template>
   <form action="" class="relative">
@@ -52,7 +46,7 @@ const button = computed(() => {
         type="email"
         placeholder="Your email"
         class="rounded-lg border bg-transparent px-6 py-4 transition-all focus:outline-none"
-        :class="[textColor, borderColor]"
+        :class="[textColor, borderColor, placeHolderColor]"
         required
       />
     </div>
@@ -72,3 +66,15 @@ const button = computed(() => {
     </Transition>
   </form>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

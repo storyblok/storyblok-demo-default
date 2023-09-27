@@ -55,15 +55,9 @@ const cssVariables = computed(() => {
 
 const enableBreadcrumbs = computed(() => {
   const slugFound = story.value.content.enable_breadcrumbs_per_story.find(
-    (story) => {
-      console.log(story.uuid)
-      console.log(props.storyUuid)
-      return story.uuid === props.storyUuid
-    },
+    (story) => story.uuid === props.storyUuid,
   )
-  if (story.value.content.enable_breadcrumbs_globally || slugFound) {
-    return true
-  }
+  if (story.value.content.enable_breadcrumbs_globally || slugFound) return true
   return false
 })
 

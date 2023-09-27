@@ -100,14 +100,15 @@ const button = {
   },
   size: 'small',
   style: 'ghost',
-  button_color: 'medium',
+  text_color: 'light',
+  background_color: 'dark',
 }
 </script>
 
 <template>
   <main class="container py-12 md:py-16" v-editable="blok">
     <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
-    <section class="my-16 flex">
+    <section class="my-16 flex text-dark">
       <aside
         class="invisible hidden flex-shrink-0 flex-col space-y-6 md:visible md:mr-6 md:flex md:w-[210px] xl:mr-12 xl:w-[240px]"
       >
