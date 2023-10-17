@@ -7,7 +7,7 @@ import {
   Euler,
 } from 'three'
 
-const story = await useAsyncStoryblok('scrollytelling', { version: 'draft' })
+const props = defineProps({ blok: Object, uuid: String })
 
 const gl = {
   clearColor: '#181C3E',
@@ -37,12 +37,15 @@ watch(progress, (value) => {
 </script>
 
 <template>
-  <StoryblokComponent v-if="story" :blok="story.content" />
-
+  <StoryblokComponent
+    v-for="blok in blok.sections"
+    :key="blok._uid"
+    :blok="blok"
+  />
   <TresCanvas
-    v-if="story.content"
+    v-if="blok"
     v-bind="gl"
-    :clear-color="story.content.clearColor"
+    :clear-color="blok.clearColor"
     window-size
   >
     <TresPerspectiveCamera ref="cameraRef" :position="[0, 0, 15]" />

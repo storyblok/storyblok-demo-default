@@ -1,8 +1,9 @@
 <script setup>
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping, Vector3 } from 'three'
 import gsap from 'gsap'
-
 import { OrbitControls } from '@tresjs/cientos'
+
+const props = defineProps({ blok: Object, uuid: String })
 
 const gl = {
   clearColor: '#181C3E',
@@ -13,16 +14,11 @@ const gl = {
   toneMapping: NoToneMapping,
 }
 
-const story = await useAsyncStoryblok('product-custom', { version: 'draft' })
-
 const state = useProductConfigurator()
 
 const availableBaseMaterials = computed(() => {
-  if (
-    story.value.content &&
-    story.value.content.baseMaterial.availableMaterials
-  ) {
-    return story.value.content.baseMaterial.availableMaterials.map(
+  if (props.blok && props.blok.baseMaterial.availableMaterials) {
+    return props.blok.baseMaterial.availableMaterials.map(
       (material, index) => ({
         id: index,
         ...material,
@@ -33,11 +29,8 @@ const availableBaseMaterials = computed(() => {
 })
 
 const availableAccentMaterials = computed(() => {
-  if (
-    story.value.content &&
-    story.value.content.accentMaterial.availableMaterials
-  ) {
-    return story.value.content.accentMaterial.availableMaterials.map(
+  if (props.blok && props.blok.accentMaterial.availableMaterials) {
+    return props.blok.accentMaterial.availableMaterials.map(
       (material, index) => ({
         id: index,
         ...material,
@@ -48,11 +41,8 @@ const availableAccentMaterials = computed(() => {
 })
 
 const availableDetailMaterials = computed(() => {
-  if (
-    story.value.content &&
-    story.value.content.detailMaterial.availableMaterials
-  ) {
-    return story.value.content.detailMaterial.availableMaterials.map(
+  if (props.blok && props.blok.detailMaterial.availableMaterials) {
+    return props.blok.detailMaterial.availableMaterials.map(
       (material, index) => ({
         id: index,
         ...material,
@@ -95,8 +85,8 @@ function resetMaterials() {
 </script>
 
 <template>
-  <div class="pt-56px h-100vh flex flex-col bg-gray-800 sm:flex-row">
-    <div class="h-50% sm:h-100% relative w-full sm:w-1/2">
+  <div class="flex h-[100vh] flex-col bg-dark sm:flex-row">
+    <div class="relative h-[50%] w-full sm:h-[100%] sm:w-1/2">
       <Transition
         name="fade-overlay"
         enter-active-class="opacity-1 transition-opacity duration-200"
@@ -104,14 +94,12 @@ function resetMaterials() {
       >
         <div
           v-show="!hasFinishLoading"
-          class="t-0 l-0 font-mono absolute z-30 flex h-full w-full items-center justify-center bg-black text-white"
+          class="t-0 l-0 absolute z-30 flex h-full w-full items-center justify-center bg-dark text-white"
         >
-          <div class="font-italic title w-200px">
-            Building Rocket 🚀... {{ progress }} %
-          </div>
+          <div class="w-[200px]">Building Rocket 🚀... {{ progress }} %</div>
         </div>
       </Transition>
-      <TresCanvas v-if="story" v-bind="gl">
+      <TresCanvas v-if="blok" v-bind="gl">
         <TresPerspectiveCamera ref="cameraRef" :position="cameraPosition" />
         <OrbitControls />
         <Suspense>
@@ -138,31 +126,28 @@ function resetMaterials() {
     <aside
       class="relative h-full w-full overflow-scroll p-8 text-white sm:w-1/2 sm:p-16"
     >
-      <h1
-        v-if="story.content.headline"
-        class="mb-12 w-full text-center text-2xl font-bold"
-      >
-        {{ story.content.headline }}
-      </h1>
-      <p class="text-center text-sm text-gray-400">
-        {{ story.content.description }}
-      </p>
-      <section class="mb-16 mt-32 flex w-full items-start text-gray-300">
-        <h2 class="w-1/2 font-bold text-gray-300 lg:w-1/3">Base Color</h2>
+      <Headline v-if="blok.headline" color="white" class="text-center">
+        {{ blok.headline }}
+      </Headline>
+      <Lead v-if="blok.description" class="text-center text-light">
+        {{ blok.description }}
+      </Lead>
+      <section class="mb-16 mt-32 flex w-full items-start text-light">
+        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Base Color</h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >
           <li v-for="(material, index) in availableBaseMaterials" :key="index">
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
               :style="{ backgroundColor: material.color }"
               @click="state.selectedBaseMaterial = material"
             />
           </li>
         </ul>
       </section>
-      <section class="mb-16 flex w-full items-start text-gray-300">
-        <h2 class="w-1/2 font-bold text-gray-300 lg:w-1/3">Accent Color</h2>
+      <section class="mb-16 flex w-full items-start text-light">
+        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Accent Color</h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >
@@ -171,15 +156,15 @@ function resetMaterials() {
             :key="index"
           >
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
               :style="{ backgroundColor: material.color }"
               @click="state.selectedAccentMaterial = material"
             />
           </li>
         </ul>
       </section>
-      <section class="mb-16 flex w-full items-start text-gray-300">
-        <h2 class="w-1/2 font-bold text-gray-300 lg:w-1/3">Detail Color</h2>
+      <section class="mb-16 flex w-full items-start text-light">
+        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Detail Color</h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >
@@ -188,7 +173,7 @@ function resetMaterials() {
             :key="index"
           >
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
               :style="{ backgroundColor: material.color }"
               @click="state.selectedDetailMaterial = material"
             />
@@ -203,14 +188,7 @@ function resetMaterials() {
           @click="resetMaterials"
         >
           Reset
-          <i class="i-carbon-reset ml-3" />
         </button>
-        <NuxtLink
-          class="rounded bg-white px-4 py-2 font-bold text-gray-800 transition hover:bg-gray-200"
-          to="/scrollytelling"
-        >
-          Start Exploring
-        </NuxtLink>
       </footer>
     </aside>
   </div>
