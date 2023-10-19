@@ -3,7 +3,7 @@ const props = defineProps({ color: String, size: String })
 
 const classes = computed(() => {
   let classes =
-    'font-medium py-2 mb-2 md:mb-3 leading-tight sm:leading-tight lg:leading-tight'
+    'font-display font-medium py-2 mb-2 md:mb-3 leading-tight sm:leading-tight lg:leading-tight'
 
   if (props.size === 'small') {
     classes += ' text-2xl sm:text-3xl lg:text-4xl'

@@ -133,7 +133,9 @@ function resetMaterials() {
         {{ blok.description }}
       </Lead>
       <section class="mb-16 mt-32 flex w-full items-start text-light">
-        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Base Color</h2>
+        <h2 class="w-1/2 font-display font-bold text-light lg:w-1/3">
+          Base Color
+        </h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >
@@ -147,7 +149,9 @@ function resetMaterials() {
         </ul>
       </section>
       <section class="mb-16 flex w-full items-start text-light">
-        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Accent Color</h2>
+        <h2 class="w-1/2 font-display font-bold text-light lg:w-1/3">
+          Accent Color
+        </h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >
@@ -164,7 +168,9 @@ function resetMaterials() {
         </ul>
       </section>
       <section class="mb-16 flex w-full items-start text-light">
-        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Detail Color</h2>
+        <h2 class="w-1/2 font-display font-bold text-light lg:w-1/3">
+          Detail Color
+        </h2>
         <ul
           class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
         >

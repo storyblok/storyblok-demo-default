@@ -22,7 +22,7 @@ const optimizedAuthorImage = computed(() =>
       />
       <div v-if="blok.headline" class="container relative z-10 text-white">
         <h1
-          class="mb-4 text-2xl font-black leading-tight sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
+          class="mb-4 font-display text-2xl font-bold leading-tight sm:text-3xl sm:leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
         >
           {{ blok.headline }}
         </h1>
@@ -43,15 +43,19 @@ const optimizedAuthorImage = computed(() =>
           class="sticky top-32 flex w-full max-w-[300px] shrink-0 flex-col space-y-6"
         >
           <div class="flex flex-col space-y-1.5 rounded-lg bg-light p-4">
-            <h4 class="text-sm font-normal uppercase tracking-wide">
+            <h4
+              class="font-display text-sm font-normal uppercase tracking-wide"
+            >
               Categories
             </h4>
             <ul class="flex flex-col space-y-1.5">
               <li v-for="cat in blok.categories" :key="cat.uuid">
                 <NuxtLink :to="'/' + cat.full_slug">
-                  <h5 class="text-primary transition-all hover:text-secondary">
+                  <span
+                    class="text-primary transition-all hover:text-secondary"
+                  >
                     {{ cat.name }}
-                  </h5>
+                  </span>
                 </NuxtLink>
               </li>
             </ul>
@@ -68,7 +72,9 @@ const optimizedAuthorImage = computed(() =>
                 class="pointer-events-none h-24 w-24 rounded-full object-cover"
               />
               <div>
-                <h4 class="mb-1.5 text-sm font-normal uppercase tracking-wide">
+                <h4
+                  class="mb-1.5 font-display text-sm font-normal uppercase tracking-wide"
+                >
                   Author
                 </h4>
                 <h5 class="text-primary">{{ blok.author.name }}</h5>

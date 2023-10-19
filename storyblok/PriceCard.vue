@@ -38,13 +38,13 @@ const currency = computed(() => props.card?.currency || '€')
     >
       Most popular
     </div>
-    <h3 class="mb-3 text-2xl font-medium">{{ card.headline }}</h3>
-    <h4 class="mb-6 text-lg">{{ card.subheadline }}</h4>
+    <h3 class="mb-3 font-display text-2xl font-medium">{{ card.headline }}</h3>
+    <h4 class="mb-6 font-display text-lg">{{ card.subheadline }}</h4>
     <span v-if="price" class="mx-auto inline-flex items-end">
-      <span class="mr-2 block translate-y-[4px] self-start text-4xl font-black">
+      <span class="mr-2 block translate-y-[4px] self-start text-4xl font-bold">
         {{ currency }}
       </span>
-      <span class="text-6xl font-black">{{ price[0] }}</span>
+      <span class="text-6xl font-bold">{{ price[0] }}</span>
       <span v-if="price[1]" class="block -translate-y-[1px] text-3xl">
         .{{ price[1] }}
       </span>

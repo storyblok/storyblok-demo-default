@@ -5,7 +5,7 @@ defineProps({ blok: Object })
 <template>
   <section class="container mx-auto flex min-h-screen items-center justify-end">
     <div class="w-full px-8 text-right text-light sm:w-1/2 sm:px-0">
-      <h2 class="mb-4 text-6xl font-extrabold text-light">
+      <h2 class="mb-4 font-display text-6xl font-bold text-light">
         {{ blok?.headline }}
       </h2>
       <RichText

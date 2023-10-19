@@ -26,7 +26,7 @@ const optimizedImage = computed(() =>
       />
     </div>
     <div class="grow p-6 text-left">
-      <h3 class="mb-3 text-xl font-medium text-dark">
+      <h3 class="mb-3 font-display text-xl font-medium text-dark">
         {{ article.headline }}
       </h3>
       <div class="line-clamp-3 font-light leading-relaxed text-dark">

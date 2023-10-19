@@ -51,7 +51,10 @@ const showSeparator = computed(() => props.background_color === 'dark')
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="mb-5 text-xl font-black xl:text-2xl" :class="textColor">
+        <h3
+          class="mb-5 font-display text-xl font-bold xl:text-2xl"
+          :class="textColor"
+        >
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>

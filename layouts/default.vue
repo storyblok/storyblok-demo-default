@@ -1,4 +1,9 @@
 <script setup>
+const defaultFontFamilies = {
+  '--font-family-display': 'Roboto, sans-serif',
+  '--font-family-body': 'Roboto, sans-serif',
+}
+
 const defaultColors = {
   '--primary': '#395ECE',
   '--secondary': '#00B3B0',
@@ -18,7 +23,11 @@ const defaultBorderRadiuses = {
   '--rounded_full': '9999px',
 }
 
-const theme = reactive({ ...defaultColors, ...defaultBorderRadiuses })
+const theme = reactive({
+  ...defaultFontFamilies,
+  ...defaultColors,
+  ...defaultBorderRadiuses,
+})
 
 const story = ref()
 const storyblokApi = useStoryblokApi()
@@ -32,6 +41,16 @@ const { data } = await storyblokApi.get('cdn/stories/site-config', {
 story.value = data.story
 
 const cssVariables = computed(() => {
+  if (story.value.content.use_custom_fonts) {
+    if (story.value.content.custom_font_display) {
+      theme['--font-family-display'] = story.value.content.custom_font_display
+    }
+    if (story.value.content.custom_font_body) {
+      theme['--font-family-body'] = story.value.content.custom_font_body
+    }
+  } else {
+    Object.assign(theme, defaultFontFamilies)
+  }
   if (story.value.content.use_custom_colors) {
     theme['--primary'] = story.value.content.primary.color
     theme['--secondary'] = story.value.content.secondary.color
@@ -74,7 +93,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <main :style="cssVariables">
+  <main :style="cssVariables" class="font-body">
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"

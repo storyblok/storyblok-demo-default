@@ -1,5 +1,5 @@
 <template>
-  <div class="font-thin uppercase leading-loose">
+  <div class="font-light uppercase leading-loose">
     <slot />
   </div>
 </template>

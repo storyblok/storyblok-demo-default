@@ -65,14 +65,14 @@ const showVideo = computed(() => {
       >
         <div class="relative z-30">
           <h2
-            class="mb-4 text-center text-3xl font-black leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
+            class="mb-4 text-center font-display text-3xl font-bold leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
             :class="[textColor]"
           >
             {{ blok.headline }}
           </h2>
           <div class="mx-auto max-w-3xl">
             <h3
-              class="text-md text-center font-thin md:text-lg lg:text-xl"
+              class="text-md text-center font-display font-light md:text-lg lg:text-xl"
               :class="[textColor]"
             >
               {{ blok.subheadline }}

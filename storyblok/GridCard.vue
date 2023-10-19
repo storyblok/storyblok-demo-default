@@ -32,7 +32,7 @@ const textColor = computed(() => {
     />
     <div class="flex grow flex-col">
       <div class="grow" :class="textColor">
-        <h3 class="mb-3 text-xl font-medium">
+        <h3 class="mb-3 font-display text-xl font-medium">
           {{ card.label }}
         </h3>
         <div class="font-light leading-relaxed">{{ card.text }}</div>

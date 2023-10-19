@@ -37,7 +37,7 @@ const button = computed(() => {
   <form action="" class="relative" :class="textColor">
     <div class="flex flex-col space-y-6">
       <div class="flex items-center justify-center space-x-1 lg:justify-start">
-        <h4 class="text-xl">Leave us a message</h4>
+        <h4 class="font-display text-xl">Leave us a message</h4>
       </div>
       <input
         type="text"

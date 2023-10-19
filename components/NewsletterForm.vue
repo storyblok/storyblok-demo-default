@@ -40,7 +40,7 @@ const button = computed(() => {
         class="flex items-center justify-center space-x-1 lg:justify-start"
         :class="textColor"
       >
-        <h4 class="text-xl">Sign up for our newsletter</h4>
+        <h4 class="font-display text-xl">Sign up for our newsletter</h4>
       </div>
       <input
         type="email"
