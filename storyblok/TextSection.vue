@@ -2,6 +2,8 @@
 const props = defineProps({ blok: Object })
 
 const containerColor = computed(() => {
+  if (props.blok.single_color_background)
+    return 'bg-' + props.blok.background_color
   return props.blok.background_color === 'light' ? 'bg-white' : 'bg-light'
 })
 </script>
@@ -17,10 +19,11 @@ const containerColor = computed(() => {
   >
     <div class="container">
       <div
-        class="mx-auto w-full max-w-7xl rounded-lg p-12 md:py-24"
+        class="mx-auto w-full max-w-7xl rounded-lg"
         :class="[
           containerColor,
           { ' text-center': blok.alignment === 'center' },
+          { 'p-12 md:py-24': !blok.single_color_background },
         ]"
       >
         <Headline v-if="blok.headline" class="mb-4">
