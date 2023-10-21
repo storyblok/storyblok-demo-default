@@ -33,7 +33,7 @@ const optimizedImages2 = computed(() => {
             {{ blok.headline }}
           </Headline>
         </div>
-        <div class="w-full text-left md:w-5/12 lg:w-4/12 lg:text-lg">
+        <div class="w-full text-left text-dark md:w-5/12 lg:w-4/12 lg:text-lg">
           <div v-if="blok.subheadline">
             {{ blok.subheadline }}
           </div>
