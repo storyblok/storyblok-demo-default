@@ -27,7 +27,7 @@ const breadcrumbs = computed(() => {
 </script>
 
 <template>
-  <div class="container invisible relative z-50 hidden lg:visible lg:block">
+  <div class="container invisible relative z-50 hidden md:visible md:block">
     <ul
       v-if="breadcrumbs"
       class="my-6 flex space-x-2 rounded-lg bg-light px-6 py-3"

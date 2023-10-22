@@ -12,7 +12,6 @@ const props = defineProps({
 const folderStories = ref(null)
 
 const getFolderStories = async () => {
-  console.log(props.auto_nav_folder)
   const storyblokApi = useStoryblokApi()
   const { data } = await storyblokApi.get('cdn/stories', {
     version: 'draft',

@@ -48,11 +48,27 @@ try {
 } catch (error) {
   console.log(error)
 }
+
+const enableBreadcrumbs = useState('enableBreadcrumbs')
+const breadcrumbsExcludedStories = useState('breadcrumbsExcludedStories')
+const enableBreadcrumbsForStory = computed(() => {
+  if (!enableBreadcrumbs.value) return false
+  const found = breadcrumbsExcludedStories.value.find(
+    (storyUuid) => storyUuid === story.value.uuid,
+  )
+  if (!found) return true
+})
+const breadCrumbsAltStyle = computed(() => processedSlug.startsWith('articles'))
 </script>
 
 <template>
   <Error404 v-if="error404">
     Unfortunately, this page could not be found.
   </Error404>
+  <Breadcrumbs
+    v-if="enableBreadcrumbsForStory"
+    :slug="processedSlug"
+    :alt-style="breadCrumbsAltStyle"
+  />
   <StoryblokComponent v-if="story" :blok="story.content" :uuid="story.uuid" />
 </template>

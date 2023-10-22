@@ -1,4 +1,6 @@
 <script setup>
+const props = defineProps({ uuid: String })
+
 const defaultFontFamilies = {
   '--font-family-display': 'Roboto, sans-serif',
   '--font-family-body': 'Roboto, sans-serif',
@@ -35,7 +37,6 @@ const storyblokApi = useStoryblokApi()
 const { data } = await storyblokApi.get('cdn/stories/site-config', {
   version: 'draft',
   resolve_links: 'url',
-  resolve_relations: 'site-config.enable_breadcrumbs_per_story',
 })
 
 story.value = data.story
@@ -75,11 +76,19 @@ const autoNavFolder = computed(() => {
   return story.value.content.header_auto_nav_folder[0].slug
 })
 
-const processedSlug = await getProcessedSlug()
-
-const altStyleBreadcrumbs = computed(
-  () => processedSlug.startsWith('articles/') && processedSlug !== 'articles/',
+const enableBreadcrumbs = useState(
+  'enableBreadcrumbs',
+  () => story.value.content.enable_breadcrumbs,
 )
+
+const breadcrumbsExcludedStories = useState(
+  'breadcrumbsExcludedStories',
+  () => story.value.content.breadcrumbs_excluded_stories,
+)
+
+/* const altStyleBreadcrumbs = computed(
+  () => processedSlug.startsWith('articles/') && processedSlug !== 'articles/',
+) */
 
 const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
@@ -118,11 +127,6 @@ onMounted(() => {
         <ColorPreview color="dark" />
       </div>
     </div>
-    <Breadcrumbs
-      v-if="story.content.enable_breadcrumbs && !viewingSiteConfig"
-      :slug="processedSlug"
-      :alt-style="altStyleBreadcrumbs"
-    />
     <slot />
     <Footer
       :text_color="story.content.footer_text_color"
