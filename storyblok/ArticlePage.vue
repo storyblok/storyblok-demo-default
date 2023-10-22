@@ -43,17 +43,11 @@ const optimizedAuthorImage = computed(() =>
           class="sticky top-32 flex w-full max-w-[300px] shrink-0 flex-col space-y-6"
         >
           <div class="flex flex-col space-y-1.5 rounded-lg bg-light p-4">
-            <h4
-              class="font-display text-sm font-normal uppercase tracking-wide"
-            >
-              Categories
-            </h4>
+            <h4 class="font-display text-xl text-dark">Categories</h4>
             <ul class="flex flex-col space-y-1.5">
               <li v-for="cat in blok.categories" :key="cat.uuid">
                 <NuxtLink :to="'/' + cat.full_slug">
-                  <span
-                    class="text-primary transition-all hover:text-secondary"
-                  >
+                  <span class="text-dark transition-all hover:text-secondary">
                     {{ cat.name }}
                   </span>
                 </NuxtLink>
@@ -72,15 +66,11 @@ const optimizedAuthorImage = computed(() =>
                 class="pointer-events-none h-24 w-24 rounded-full object-cover"
               />
               <div>
-                <h4
-                  class="mb-1.5 font-display text-sm font-normal uppercase tracking-wide"
-                >
-                  Author
-                </h4>
-                <h5 class="text-primary">{{ blok.author.name }}</h5>
+                <h4 class="mb-1.5 font-display text-xl text-dark">Author</h4>
+                <h5 class="text-dark">{{ blok.author.name }}</h5>
               </div>
             </div>
-            <div class="text-sm font-light leading-relaxed">
+            <div class="text-sm font-light leading-relaxed text-dark">
               {{ blok.author.content.description }}
             </div>
           </div>

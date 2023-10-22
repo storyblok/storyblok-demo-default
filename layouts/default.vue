@@ -116,7 +116,7 @@ onMounted(() => {
       v-if="viewingSiteConfig && story.content.use_custom_colors"
       class="container py-12"
     >
-      <Headline class="mb-8">Color Previews</Headline>
+      <Headline class="mb-8">Color Preview</Headline>
       <div
         class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
@@ -126,6 +126,22 @@ onMounted(() => {
         <ColorPreview color="medium" />
         <ColorPreview color="dark" />
       </div>
+    </div>
+    <div
+      v-if="viewingSiteConfig && story.content.use_custom_fonts"
+      class="container py-12 text-dark"
+    >
+      <Headline>Typography Preview</Headline>
+      <Subheadline class="mb-4">Lorem ipsum dolor sit amet</Subheadline>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
     </div>
     <slot />
     <Footer

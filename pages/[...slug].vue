@@ -52,6 +52,7 @@ try {
 const enableBreadcrumbs = useState('enableBreadcrumbs')
 const breadcrumbsExcludedStories = useState('breadcrumbsExcludedStories')
 const enableBreadcrumbsForStory = computed(() => {
+  if (processedSlug.startsWith('site-config')) return false
   if (!enableBreadcrumbs.value) return false
   const found = breadcrumbsExcludedStories.value.find(
     (storyUuid) => storyUuid === story.value.uuid,
