@@ -27,6 +27,7 @@
     "nuxt": "^3.7.3",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
+    "shopify-buy": "^2.21.1",
     "swiper": "^10.2.0"
   },
   "prettier": {
