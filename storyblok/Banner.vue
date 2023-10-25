@@ -5,7 +5,13 @@ const textColor = computed(() => {
   return 'text-' + props.blok.text_color
 })
 
+const isSvg = computed(() => {
+  const detectFileExtension = props.blok.background_image?.filename.split('.')
+  return detectFileExtension[detectFileExtension.length - 1] === 'svg'
+})
+
 const filters = computed(() => {
+  if (isSvg.value) return ''
   const blur =
     props.blok.background_blur.value > 0
       ? 'blur(' + props.blok.background_blur.value + ')'
@@ -27,9 +33,12 @@ const filters = computed(() => {
   }
 })
 
-const optimizedImage = computed(
-  () => props.blok.background_image?.filename + '/m/2000x0',
-)
+const optimizedImage = computed(() => {
+  console.log(isSvg.value)
+  let filename = props.blok.background_image?.filename
+  if (!isSvg.value) filename += '/m/2000x0'
+  return filename
+})
 
 const showVideo = computed(() => {
   if (

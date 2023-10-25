@@ -33,7 +33,8 @@ try {
     )
     story.value = data.story
   } catch (error) {
-    if (error.status === 404) error404.value = true
+    const { status } = JSON.parse(error)
+    if (status === 404) error404.value = true
     const { data } = await storyblokApi.get('cdn/stories/error-404', apiParams)
     story.value = data.story
   }
@@ -53,13 +54,16 @@ const enableBreadcrumbs = useState('enableBreadcrumbs')
 const breadcrumbsExcludedStories = useState('breadcrumbsExcludedStories')
 const enableBreadcrumbsForStory = computed(() => {
   if (processedSlug.startsWith('site-config')) return false
+  if (error404.value === true) return false
   if (!enableBreadcrumbs.value) return false
   const found = breadcrumbsExcludedStories.value.find(
     (storyUuid) => storyUuid === story.value.uuid,
   )
   if (!found) return true
 })
-const breadCrumbsAltStyle = computed(() => processedSlug.startsWith('articles'))
+const breadCrumbsAltStyle = computed(
+  () => processedSlug.startsWith('articles/') && processedSlug.length > 9,
+)
 </script>
 
 <template>

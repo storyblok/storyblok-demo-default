@@ -27,10 +27,17 @@ const breadcrumbs = computed(() => {
 </script>
 
 <template>
-  <div class="container invisible relative z-50 hidden md:visible md:block">
+  <div
+    class="container invisible z-50 hidden md:visible md:block"
+    :class="
+      altStyle
+        ? 'absolute left-1/2 top-36 -translate-x-1/2'
+        : 'relative mb-12 mt-4'
+    "
+  >
     <ul
       v-if="breadcrumbs"
-      class="my-6 flex space-x-2 rounded-lg bg-light px-6 py-3"
+      class="flex space-x-2 rounded-lg bg-light px-6 py-3"
       :class="
         altStyle ? 'bg-white bg-opacity-60  backdrop-blur-md' : 'bg-light'
       "

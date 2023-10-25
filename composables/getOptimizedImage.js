@@ -1,5 +1,5 @@
 export default function (image, width = 1200, height = 0) {
-  if (!image.filename) return
+  if (!image?.filename) return
 
   let imageSource = image.filename + `/m/${width}x${height}`
 
