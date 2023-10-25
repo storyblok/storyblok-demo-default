@@ -19,8 +19,8 @@ const fetchProduct = async (id) => {
     productObject.title = fetchedProduct.title
     productObject.image = fetchedProduct.images[0].src
     productObject.currency = fetchedProduct.variants[0].price.currencyCode
-    productObject.price = Math.floor(fetchedProduct.variants[0].price.amount)
-    productObject.avaiable = !fetchedProduct.variants[0].available
+    productObject.price = fetchedProduct.variants[0].price.amount
+    productObject.avaiable = fetchedProduct.variants[0].available
   })
   return productObject
 }
@@ -73,7 +73,7 @@ watchEffect(async () => {
             :alt="product.title"
             class="pointer-events-none block"
           />
-          <div class="flex justify-between bg-light px-4 py-2">
+          <div class="flex justify-between bg-light px-6 py-3 text-dark">
             <span>{{ product.title }}</span>
             <span v-if="product.avaiable" class="font-bold">
               {{ product.price + ' ' + product.currency }}
