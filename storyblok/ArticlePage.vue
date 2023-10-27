@@ -15,7 +15,7 @@ const optimizedAuthorImage = computed(() =>
       class="overlay-15 relative -mt-32 flex h-[75vh] w-full items-end pb-40 lg:h-screen lg:pb-80"
     >
       <img
-        v-if="blok.image.filename"
+        v-if="optimizedArticleImage"
         :src="optimizedArticleImage"
         :alt="blok.image.alt"
         class="pointer-events-none absolute left-0 top-0 z-0 h-full w-full object-cover"
