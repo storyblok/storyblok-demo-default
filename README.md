@@ -28,7 +28,7 @@ npm run dev
 
 Your project will now be served on [https://localhost:3000](https://localhost:3000).
 
-Have a look at the [Nuxt 3 deployment documentation](https://v3.nuxtjs.org/guide/deploy/presets) for further information.
+Have a look at the [Nuxt 3 deployment documentation](https://nuxt.com/docs/getting-started/deployment) for further information.
 
 ## Some particularities to be aware of
 
