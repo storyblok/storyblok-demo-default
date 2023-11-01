@@ -206,8 +206,8 @@ section.banner-section.padding:first-child {
 
 section.banner-section.padding.bg-white + section.page-section.bg-white,
 section.banner-section.padding.bg-light + section.page-section.bg-light,
-section.banner-section.bg-white + section.page-section.padding.bg-white,
-section.banner-section.bg-light + section.page-section.padding.bg-light {
+section.page-section.bg-white + section.banner-section.padding.bg-white,
+section.page-section.bg-light + section.banner-section.padding.bg-light {
   @apply pt-0;
 }
 
