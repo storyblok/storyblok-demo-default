@@ -28,14 +28,6 @@ const classes = computed(() => {
     'inline-flex items-center tracking-wider cursor-pointer transition-all duration-300 border border-' +
     props.button.background_color
 
-  let contrastTextColor = ''
-  if (props.button.text_color === 'light') {
-    contrastTextColor = 'dark'
-  } else {
-    contrastTextColor = 'light'
-  }
-  console.log('check: ' + contrastTextColor)
-
   switch (props.button.border_radius) {
     case 'small':
       classes += ' rounded-md'
@@ -71,7 +63,7 @@ const classes = computed(() => {
         ' hover:bg-' +
         props.button.background_color +
         ' hover:text-' +
-        contrastTextColor
+        props.button.text_color
       break
     case 'default':
     default:

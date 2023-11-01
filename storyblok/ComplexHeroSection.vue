@@ -22,7 +22,7 @@ const composedImages = computed(() => {
 <template>
   <section
     class="page-section complex-hero-section"
-    :class="['bg-' + blok.background_color, { '!pt-0': index == 0 }]"
+    :class="['bg-' + blok.background_color]"
     v-editable="blok"
   >
     <div

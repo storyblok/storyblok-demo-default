@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({ textColor: String })
+const props = defineProps({ textColor: String, button: Object })
 
 const showMessage = ref(false)
 
@@ -18,18 +18,6 @@ const placeHolderColor = computed(() => {
   return props.textColor === 'text-white'
     ? 'placeholder-white'
     : 'placeholder-dark'
-})
-
-const button = computed(() => {
-  return {
-    link: {
-      linktype: 'url',
-    },
-    size: 'default',
-    style: 'default',
-    text_color: props.textColor === 'text-white' ? 'dark' : 'light',
-    background_color: props.textColor === 'text-white' ? 'light' : 'dark',
-  }
 })
 </script>
 
@@ -62,8 +50,8 @@ const button = computed(() => {
       ></textarea>
     </div>
 
-    <div class="flex justify-center lg:justify-start">
-      <Button :button="button" @click="submit" class="mt-8">Submit</Button>
+    <div v-if="button" class="mt-8 flex justify-center lg:justify-start">
+      <Button :button="button" @click.prevent="submit" />
     </div>
 
     <Transition name="fade">
