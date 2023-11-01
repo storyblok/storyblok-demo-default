@@ -77,7 +77,7 @@ const showSeparator = computed(() => props.background_color === 'dark')
       ></div>
       <img
         src="~/assets/images/made-with-love.svg"
-        width="180"
+        width="120"
         class="pointer-events-none mx-auto block py-9"
         alt="Made with love by the Storyblok team!"
       />
