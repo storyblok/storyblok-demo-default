@@ -43,7 +43,7 @@ const showVideo = computed(() => {
     :class="[
       height,
       verticalAlignment,
-      { '!pt-0': index == 0 },
+      { '-mt-32': index == 0 },
       blok.overlay !== 'no-overlay' ? blok.overlay : '',
     ]"
     v-editable="blok"

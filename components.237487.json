@@ -890,7 +890,7 @@
       "name": "featured-articles-section",
       "display_name": null,
       "created_at": "2023-06-22T10:09:23.111Z",
-      "updated_at": "2023-06-22T10:09:23.111Z",
+      "updated_at": "2023-11-01T13:15:36.553Z",
       "id": 4160562,
       "schema": {
         "cols": {
@@ -946,7 +946,7 @@
           "source": "internal_stories",
           "folder_slug": "articles/",
           "filter_content_type": "article-page",
-          "min_options": "3",
+          "min_options": "2",
           "max_options": "6",
           "display_name": "Articles",
           "key": "cards",
@@ -976,7 +976,7 @@
       "name": "form-section",
       "display_name": null,
       "created_at": "2023-06-22T10:09:22.670Z",
-      "updated_at": "2023-09-21T09:29:05.541Z",
+      "updated_at": "2023-11-01T15:27:17.906Z",
       "id": 4160548,
       "schema": {
         "headline": {
@@ -1007,7 +1007,7 @@
         },
         "tab-1cb1ba6a-87d2-4063-90d4-cfbd80ab4f1a": {
           "display_name": "Text",
-          "keys": ["headline", "lead"],
+          "keys": ["headline", "lead", "button"],
           "pos": 3,
           "type": "tab"
         },
@@ -1048,6 +1048,13 @@
           "datasource_slug": "colors",
           "exclude_empty_option": true,
           "default_value": "dark"
+        },
+        "button": {
+          "type": "bloks",
+          "restrict_type": "",
+          "restrict_components": true,
+          "component_whitelist": ["button"],
+          "maximum": 1
         }
       },
       "image": "//a.storyblok.com/f/172000/x/a3cc7dcd9f/form-section-preview.png",

@@ -46,7 +46,7 @@ const selectedForm = computed(() => {
         <component
           :is="selectedForm"
           :textColor="textColor"
-          :button="blok?.button[0]"
+          :button="blok?.button && blok?.button[0]"
         />
       </div>
     </div>
