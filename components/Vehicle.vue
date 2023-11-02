@@ -1,10 +1,8 @@
-<script setup lang="ts">
+<script setup>
 import { MeshPhysicalMaterial } from 'three'
 const { nodes, materials } = await useGLTF('/models/american-roadster.glb', {
   draco: true,
 })
-
-console.log(nodes)
 
 const roadster = nodes['american-roadster']
 

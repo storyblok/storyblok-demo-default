@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { BasicShadowMap, SRGBColorSpace, NoToneMapping } from 'three'
 import { gsap } from 'gsap'
 
@@ -18,7 +18,6 @@ const { hasFinishLoading, progress } = await useProgress()
 const environmentTexture = ref(null)
 
 // Materials
-
 const state = useProductConfigurator()
 
 const availableBaseMaterials = computed(() => {
@@ -46,7 +45,6 @@ const availableAccentMaterials = computed(() => {
 })
 
 // Camera animation
-
 const cameraRef = ref(null)
 const firstTime = ref(true)
 
@@ -77,18 +75,6 @@ watch(hasFinishLoading, (hasFinishLoading) => {
 <template>
   <div class="flex h-[100vh] flex-col bg-dark sm:flex-row">
     <div class="relative h-[50%] w-full sm:h-[100%] sm:w-2/3">
-      <!-- <Transition
-        name="fade-overlay"
-        enter-active-class="opacity-1 transition-opacity duration-200"
-        leave-active-class="opacity-0 transition-opacity duration-200"
-      >
-      <div
-          v-show="!hasFinishLoading"
-          class="t-0 l-0 absolute z-30 flex h-full w-full items-center justify-center bg-dark text-white"
-        >
-          <div class="w-[200px]"> Building car... {{ progress }} %</div>
-        </div>
-      </Transition> -->
       <TresCanvas v-bind="gl">
         <TresPerspectiveCamera
           ref="cameraRef"
@@ -104,7 +90,7 @@ watch(hasFinishLoading, (hasFinishLoading) => {
           />
         </Suspense>
         <Suspense>
-          <TheVehicle :env="environmentTexture" />
+          <Vehicle :env="environmentTexture" />
         </Suspense>
         <OrbitControls />
         <TresAmbientLight :intensity="1" />
@@ -121,35 +107,41 @@ watch(hasFinishLoading, (hasFinishLoading) => {
       >
         {{ blok.headline }}
       </Headline>
-      <section class="mb-16 mt-32 flex w-full items-start text-light">
-        <h2 class="w-1/2 font-display font-bold text-light lg:w-1/3">
-          Paint Color
-        </h2>
+      <section class="mb-16 mt-32 flex w-full items-center text-light">
+        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Paint Color</h2>
         <ul
-          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
+          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start gap-3 pl-0"
         >
           <li v-for="(material, index) in availableBaseMaterials" :key="index">
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white shadow-md transition-all duration-500 lg:h-10 lg:w-10"
+              :class="
+                state.selectedBaseMaterial.id === material.id
+                  ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
+                  : ''
+              "
               :style="{ backgroundColor: material.color }"
               @click="state.selectedBaseMaterial = material"
             />
           </li>
         </ul>
       </section>
-      <section class="mb-16 flex w-full items-start text-light">
-        <h2 class="w-1/2 font-display font-bold text-light lg:w-1/3">
-          Accent Color
-        </h2>
+      <section class="mb-16 flex w-full items-center text-light">
+        <h2 class="w-1/2 font-bold text-light lg:w-1/3">Accent Color</h2>
         <ul
-          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
+          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start gap-3 pl-0"
         >
           <li
             v-for="(material, index) in availableAccentMaterials"
             :key="index"
           >
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white shadow-md transition-all duration-500 lg:h-10 lg:w-10"
+              :class="
+                state.selectedAccentMaterial.id === material.id
+                  ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
+                  : ''
+              "
               :style="{ backgroundColor: material.color }"
               @click="state.selectedAccentMaterial = material"
             />
