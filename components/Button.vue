@@ -28,9 +28,6 @@ const classes = computed(() => {
     'inline-flex items-center tracking-wider cursor-pointer transition-all duration-300 border border-' +
     props.button.background_color
 
-  if (props.button.border_radius) {
-  }
-
   switch (props.button.border_radius) {
     case 'small':
       classes += ' rounded-md'

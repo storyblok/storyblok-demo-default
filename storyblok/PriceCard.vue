@@ -34,7 +34,7 @@ const currency = computed(() => props.card?.currency || '€')
   >
     <div
       v-if="card.most_popular"
-      class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-lg bg-secondary px-4 py-1 text-sm uppercase text-white"
+      class="absolute left-1/2 top-0 w-full max-w-[200px] -translate-x-1/2 rounded-b-lg bg-dark px-4 py-1 text-sm uppercase text-white"
     >
       Most popular
     </div>

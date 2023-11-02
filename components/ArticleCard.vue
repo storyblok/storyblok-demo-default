@@ -16,7 +16,7 @@ const optimizedImage = computed(() =>
   <NuxtLink
     :to="inEditor ? '' : '/' + slug"
     v-if="article"
-    class="group group flex h-full w-full max-w-md transform flex-col overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+    class="group group flex h-full w-full max-w-md transform flex-col overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg lg:max-w-full"
   >
     <div class="h-[210px] w-full overflow-hidden xl:h-[300px]">
       <img
@@ -34,7 +34,7 @@ const optimizedImage = computed(() =>
       </div>
     </div>
     <div class="flex justify-between px-6 py-3 text-dark">
-      <span class="font-light uppercase tracking-widest">Read</span>
+      <span class="font-medium">Continue reading</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

@@ -43,7 +43,11 @@ const selectedForm = computed(() => {
         <Lead v-if="blok.lead" :class="textColor">{{ blok.lead }}</Lead>
       </div>
       <div class="w-full max-w-md">
-        <component :is="selectedForm" :textColor="textColor" />
+        <component
+          :is="selectedForm"
+          :textColor="textColor"
+          :button="blok?.button && blok?.button[0]"
+        />
       </div>
     </div>
   </section>
