@@ -74,7 +74,7 @@ const composedImages = computed(() => {
           </div>
           <div
             v-if="blok.badges.length"
-            class="flex shrink-0 flex-wrap gap-4 sm:grid sm:grid-cols-3 md:gap-8"
+            class="flex shrink-0 flex-wrap gap-4 md:gap-8"
           >
             <img
               v-for="entry in blok.badges"

@@ -137,11 +137,16 @@ function resetMaterials() {
           Base Color
         </h2>
         <ul
-          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
+          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start gap-3 pl-0"
         >
           <li v-for="(material, index) in availableBaseMaterials" :key="index">
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white transition-all duration-500 lg:h-10 lg:w-10"
+              :class="
+                state.selectedBaseMaterial.id === material.id
+                  ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
+                  : ''
+              "
               :style="{ backgroundColor: material.color }"
               @click="state.selectedBaseMaterial = material"
             />
@@ -153,14 +158,19 @@ function resetMaterials() {
           Accent Color
         </h2>
         <ul
-          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
+          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start gap-3 pl-0"
         >
           <li
             v-for="(material, index) in availableAccentMaterials"
             :key="index"
           >
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white transition-all duration-500 lg:h-10 lg:w-10"
+              :class="
+                state.selectedAccentMaterial.id === material.id
+                  ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
+                  : ''
+              "
               :style="{ backgroundColor: material.color }"
               @click="state.selectedAccentMaterial = material"
             />
@@ -172,14 +182,19 @@ function resetMaterials() {
           Detail Color
         </h2>
         <ul
-          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start pl-0"
+          class="lg:2/3 ml-0 flex w-1/2 list-none flex-wrap justify-start gap-3 pl-0"
         >
           <li
             v-for="(material, index) in availableDetailMaterials"
             :key="index"
           >
             <div
-              class="border-blue mr-4 inline-block h-6 w-6 cursor-pointer rounded-full border-2 border-solid shadow-md lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white transition-all duration-500 lg:h-10 lg:w-10"
+              :class="
+                state.selectedDetailMaterial.id === material.id
+                  ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
+                  : ''
+              "
               :style="{ backgroundColor: material.color }"
               @click="state.selectedDetailMaterial = material"
             />

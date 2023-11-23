@@ -114,7 +114,7 @@ watch(hasFinishLoading, (hasFinishLoading) => {
         >
           <li v-for="(material, index) in availableBaseMaterials" :key="index">
             <div
-              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white shadow-md transition-all duration-500 lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white transition-all duration-500 lg:h-10 lg:w-10"
               :class="
                 state.selectedBaseMaterial.id === material.id
                   ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
@@ -136,7 +136,7 @@ watch(hasFinishLoading, (hasFinishLoading) => {
             :key="index"
           >
             <div
-              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white shadow-md transition-all duration-500 lg:h-10 lg:w-10"
+              class="h-6 w-6 cursor-pointer rounded-full border-2 border-white transition-all duration-500 lg:h-10 lg:w-10"
               :class="
                 state.selectedAccentMaterial.id === material.id
                   ? 'shadow-[0_0_15px_0_rgba(255,255,255,0.9)]'
