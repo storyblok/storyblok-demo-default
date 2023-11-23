@@ -664,7 +664,7 @@
       "name": "complex-hero-section",
       "display_name": null,
       "created_at": "2023-10-22T12:09:38.021Z",
-      "updated_at": "2023-11-01T10:19:28.654Z",
+      "updated_at": "2023-11-23T09:10:50.994Z",
       "id": 4764357,
       "schema": {
         "background_color": {
@@ -848,7 +848,7 @@
         }
       },
       "image": "//a.storyblok.com/f/172000/x/b564cf74bd/hero-preview.png",
-      "preview_field": "headline",
+      "preview_field": null,
       "is_root": false,
       "preview_tmpl": "<div>{{headline}}</div>\n{{image(options.image_1.filename)/}} ",
       "is_nestable": true,
@@ -1900,7 +1900,7 @@
       "name": "single-product-section",
       "display_name": "Single Product Section",
       "created_at": "2023-10-25T13:53:15.319Z",
-      "updated_at": "2023-10-25T15:55:33.291Z",
+      "updated_at": "2023-11-23T09:12:02.343Z",
       "id": 4783880,
       "schema": {
         "product": {
@@ -1999,7 +1999,7 @@
       "image": "//a.storyblok.com/f/172000/x/fb5b1759f3/image-text-section-preview.png",
       "preview_field": "headline",
       "is_root": false,
-      "preview_tmpl": "",
+      "preview_tmpl": "<div>{{headline}}</div>\n{{image(options.product.items[0].image)/}} ",
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
@@ -2576,7 +2576,7 @@
       "name": "two-col-image-text-section",
       "display_name": "Two Column Image Text Section",
       "created_at": "2023-09-14T11:24:32.307Z",
-      "updated_at": "2023-09-21T08:36:10.211Z",
+      "updated_at": "2023-11-23T09:08:12.567Z",
       "id": 4574616,
       "schema": {
         "image_1": {
@@ -2608,16 +2608,11 @@
         },
         "tab-13ca152d-db6e-4fe4-9621-3fd4e9391a75": {
           "display_name": "Style",
-          "keys": ["background_color", "reverse_layout"],
+          "keys": ["background_color"],
           "pos": 5,
           "type": "tab",
           "name": "tab-13ca152d-db6e-4fe4-9621-3fd4e9391a75",
           "key": "tab-13ca152d-db6e-4fe4-9621-3fd4e9391a75"
-        },
-        "reverse_layout": {
-          "type": "boolean",
-          "pos": 6,
-          "key": "reverse_layout"
         },
         "background_color": {
           "type": "option",
@@ -2643,7 +2638,7 @@
       "image": "//a.storyblok.com/f/172000/x/fb5b1759f3/image-text-section-preview.png",
       "preview_field": "headline",
       "is_root": false,
-      "preview_tmpl": "<div>{{headline}}</div>\n{{image(options.image.filename)/}} ",
+      "preview_tmpl": "<div>{{headline}}</div>\n{{image(options.image_1.filename)/}} \n{{image(options.image_2.filename)/}} ",
       "is_nestable": true,
       "all_presets": [],
       "preset_id": null,
