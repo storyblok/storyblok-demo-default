@@ -1,81 +1,7 @@
 {
   "presets": [
     {
-      "id": 1970225,
-      "name": "Astronaut Space Suit Replica",
-      "preset": {
-        "_uid": "203d108f-82e7-4ba1-ab93-cc246f8a0deb",
-        "text": {
-          "type": "doc",
-          "content": [
-            {
-              "type": "paragraph",
-              "content": [
-                {
-                  "text": "Embark on a cosmic journey with our meticulously crafted Astronaut Edition Space Suit Replica. This stunning replica faithfully captures the details of authentic astronaut attire, from the reflective helmet visor to the functional life support backpack. Perfect for space enthusiasts and collectors, it's a tangible piece of the awe-inspiring world of space exploration.",
-                  "type": "text",
-                  "marks": [
-                    {
-                      "type": "textStyle",
-                      "attrs": {
-                        "color": "rgb(15, 15, 15)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "button": [
-          {
-            "_uid": "4a2c8354-43c0-4a42-bce2-dedcffdc00fc",
-            "link": {
-              "id": "",
-              "url": "",
-              "linktype": "story",
-              "fieldtype": "multilink",
-              "cached_url": ""
-            },
-            "size": "medium",
-            "label": "Buy now",
-            "style": "default",
-            "component": "button",
-            "text_color": "light",
-            "border_radius": "default",
-            "background_color": "primary"
-          }
-        ],
-        "product": {
-          "items": [
-            {
-              "id": "gid://shopify/Product/7788021645465",
-              "sku": "space-suit",
-              "name": "Cosmic Explorer Series: Astronaut Edition Space Suit Replica",
-              "type": "product",
-              "image": "https://cdn.shopify.com/s/files/1/0501/4120/0537/files/pexels-pixabay-2156_x140.jpg?v=1700731710",
-              "variants": false,
-              "description": "Dive into the thrilling world of space exploration with our meticulously crafted Cosmic Explorer Series: Astronaut Edition Space Suit Replica. This stunning replica captures the intricate details of authentic astronaut attire, making it the perfect addition to any space enthusiast's collection or an exceptional gift for those who dream of reaching for the stars. Constructed with precision and attention to detail, our space suit replica features high-quality materials and finishes, replicating the iconic look of space suits worn by astronauts on their daring missions. From the reflective helmet visor to the functional life support backpack, every element is faithfully recreated to provide an immersive and realistic experience. Whether you're a space enthusiast, a collector of unique memorabilia, or someone with a passion for the wonders beyond our atmosphere, the Cosmic Explorer Series: Astronaut Edition Space Suit Replica is sure to inspire awe and ignite the spirit of exploration. Strive for the stars and bring the marvels of space exploration into your own space with this extraordinary and authentic replica."
-            }
-          ],
-          "plugin": "sb-shopify"
-        },
-        "headline": "Astronaut Space Suit Replica",
-        "component": "single-product-section",
-        "reverse_layout": false,
-        "background_color": "white"
-      },
-      "component_id": 4783880,
-      "space_id": 237487,
-      "created_at": "2023-11-23T09:47:53.478Z",
-      "updated_at": "2023-11-23T09:47:53.478Z",
-      "image": "",
-      "color": "",
-      "icon": "",
-      "description": ""
-    },
-    {
-      "id": 1809954,
+      "id": 1748612,
       "name": "Demo Space Adventure",
       "preset": {
         "_uid": "f9cc7b2b-b20b-4cc0-9227-a44981ae237b",
@@ -150,29 +76,29 @@
           "fieldtype": "asset"
         }
       },
-      "component_id": 4160554,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.923Z",
-      "updated_at": "2023-06-22T10:09:22.923Z",
+      "component_id": 2848325,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:14:03.220Z",
+      "updated_at": "2023-04-24T10:14:03.220Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1813321,
+      "id": 1815033,
       "name": "Embark on Epic Adventures Beyond Earth",
       "preset": {
-        "_uid": "e8ea6eea-6f8b-4de7-875c-cc81204829ea",
+        "_uid": "40747d5b-eb67-4f37-adb0-2fc0a069e33a",
         "cols": "3",
         "lead": "Experience the Future of Space Tourism with Unforgettable Journeys to the International Space Station, Lunar Expeditions, and Mars Missions.",
         "cards": [
           {
-            "_uid": "837fb1fd-035b-4e6a-8553-fbb2956268b5",
+            "_uid": "f0d2d662-f8eb-44d5-9981-03c64b10a290",
             "price": "9000.90",
             "button": [
               {
-                "_uid": "8c540cf7-209a-4732-b0c8-26e4f6f11497",
+                "_uid": "6306a5c2-868e-495b-8230-0aa07719191d",
                 "link": {
                   "id": "",
                   "url": "",
@@ -184,11 +110,10 @@
                 "label": "Contact sales",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
+            "currency": "€",
             "headline": "ISS",
             "component": "price-card",
             "subheadline": "Experience life aboard the ISS",
@@ -297,11 +222,11 @@
             }
           },
           {
-            "_uid": "5fe11d2f-a272-4adf-802a-719d0fe43383",
+            "_uid": "899a7487-9f8e-45dd-9fb8-e5efadd462f9",
             "price": "49000.90",
             "button": [
               {
-                "_uid": "1f58479a-893b-47f1-883d-1d55b61ab923",
+                "_uid": "66d4ecfb-cb67-4523-9d90-d609130c588f",
                 "link": {
                   "id": "",
                   "url": "",
@@ -313,11 +238,10 @@
                 "label": "Contact sales",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "secondary"
+                "button_color": "secondary"
               }
             ],
+            "currency": "€",
             "headline": "Moon",
             "component": "price-card",
             "subheadline": "Land on the Lunar surface",
@@ -412,11 +336,11 @@
             }
           },
           {
-            "_uid": "141e318f-6558-478e-8c61-727693e4361e",
+            "_uid": "6d803b37-6bea-44a4-96e2-dcee2704dc68",
             "price": "99000.90",
             "button": [
               {
-                "_uid": "c45d6341-a7f9-48a5-b9e1-e4ab7616357b",
+                "_uid": "04d8e8e9-afb4-4358-a8d2-9080675b16e1",
                 "link": {
                   "id": "",
                   "url": "",
@@ -428,11 +352,10 @@
                 "label": "Contact sales",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
+            "currency": "€",
             "headline": "Mars",
             "component": "price-card",
             "subheadline": "Set foot on the Red Planet",
@@ -547,17 +470,17 @@
         "component": "grid-section",
         "background_color": "white"
       },
-      "component_id": 4160561,
-      "space_id": 237487,
-      "created_at": "2023-06-26T07:58:10.108Z",
-      "updated_at": "2023-12-03T09:21:02.703Z",
+      "component_id": 2848324,
+      "space_id": 172000,
+      "created_at": "2023-06-27T10:07:39.656Z",
+      "updated_at": "2023-06-27T10:07:39.656Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809950,
+      "id": 1748611,
       "name": "Planet Facts",
       "preset": {
         "_uid": "8a824a2a-43b5-45d7-aa70-b7fd3be02941",
@@ -590,9 +513,7 @@
                 "label": "Read the article",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "headline": "Mars",
@@ -626,9 +547,7 @@
                 "label": "Read the article",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "headline": "Venus",
@@ -662,9 +581,7 @@
                 "label": "Read the article",
                 "style": "default",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "headline": "Jupiter",
@@ -675,17 +592,17 @@
         "headline": "Planet Facts",
         "component": "tabbed-content-section"
       },
-      "component_id": 4160549,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.741Z",
-      "updated_at": "2023-12-03T09:24:11.200Z",
+      "component_id": 3870233,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:13:35.033Z",
+      "updated_at": "2023-04-24T10:13:35.033Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809957,
+      "id": 1748663,
       "name": "Space Facts",
       "preset": {
         "_uid": "5e8d93f8-5df3-4b05-a48a-083be4f22e1d",
@@ -721,18 +638,11 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
-            "icon_width": "80",
-            "text_color": "dark",
-            "background_color": {
-              "value": "",
-              "plugin": "storyblok-palette"
-            }
+            "icon_width": "80"
           },
           {
             "_uid": "316a6686-e83a-4b23-85ab-30a1d88b877d",
@@ -763,14 +673,12 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
             "icon_width": "80",
-            "text_color": "dark",
+            "text_color": "",
             "background_color": {
               "value": "",
               "plugin": "storyblok-palette"
@@ -805,18 +713,11 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
-            "icon_width": "80",
-            "text_color": "dark",
-            "background_color": {
-              "value": "",
-              "plugin": "storyblok-palette"
-            }
+            "icon_width": "80"
           },
           {
             "_uid": "78ba6806-a7d5-427c-b619-d1f3732be7be",
@@ -847,18 +748,11 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
-            "icon_width": "80",
-            "text_color": "dark",
-            "background_color": {
-              "value": "",
-              "plugin": "storyblok-palette"
-            }
+            "icon_width": "80"
           },
           {
             "_uid": "ce00ee8b-05d9-4a13-a73c-12e58755b501",
@@ -889,18 +783,11 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
-            "icon_width": "80",
-            "text_color": "dark",
-            "background_color": {
-              "value": "",
-              "plugin": "storyblok-palette"
-            }
+            "icon_width": "80"
           },
           {
             "_uid": "bc520a1e-5a75-4bfa-ba69-855bd3e5d102",
@@ -931,18 +818,11 @@
                 "label": "Read More",
                 "style": "ghost",
                 "component": "button",
-                "text_color": "light",
-                "border_radius": "default",
-                "background_color": "primary"
+                "button_color": "primary"
               }
             ],
             "component": "grid-card",
-            "icon_width": "80",
-            "text_color": "dark",
-            "background_color": {
-              "value": "",
-              "plugin": "storyblok-palette"
-            }
+            "icon_width": "80"
           }
         ],
         "headline": "Space Facts",
@@ -950,17 +830,17 @@
         "background_color": "white",
         "headline__i18n__fr": "C'est un gros titre..."
       },
-      "component_id": 4160561,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:23.088Z",
-      "updated_at": "2023-12-03T09:23:39.577Z",
+      "component_id": 2848324,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:32:27.963Z",
+      "updated_at": "2023-04-24T10:32:27.963Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809955,
+      "id": 1748609,
       "name": "Still want to learn more?",
       "preset": {
         "_uid": "56f29146-8e47-4793-b92e-d4a334e30b7a",
@@ -1017,17 +897,17 @@
         },
         "background_brightness": "0"
       },
-      "component_id": 4160557,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.997Z",
-      "updated_at": "2023-06-22T10:09:22.997Z",
+      "component_id": 2848316,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:12:26.120Z",
+      "updated_at": "2023-04-24T10:12:26.120Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809956,
+      "id": 1748608,
       "name": "Top Five Discoveries",
       "preset": {
         "_uid": "aef60e0e-6ad2-4fdc-ba22-fba3badad86c",
@@ -1041,30 +921,21 @@
               "fieldtype": "multilink",
               "cached_url": ""
             },
-            "size": "medium",
+            "size": "large",
+            "ghost": true,
             "label": "Explore Mars",
             "style": "default",
             "component": "button",
-            "text_color": "dark",
-            "border_radius": "default",
-            "background_color": "white"
+            "button_color": "primary"
           }
         ],
-        "overlay": "overlay-pattern-1",
         "headline": "Top Five Discoveries, Curiosity Rover at Mars",
         "component": "banner",
         "full_width": true,
         "text_color": "white",
         "subheadline": "There are many things we don't know about space. The mysteries of black holes, dark matter, dark energy, quantum entanglement, antimatter, and so much more.",
-        "background_blur": {
-          "value": 0,
-          "plugin": "storyblok-slider"
-        },
-        "background_color": {
-          "_uid": "b23df809-7c7b-4c46-982c-3325c7c0336b",
-          "color": "#f40000",
-          "plugin": "native-color-picker"
-        },
+        "background_blur": "",
+        "pattern_overlay": true,
         "background_image": {
           "id": 5671216,
           "alt": "",
@@ -1076,34 +947,19 @@
           "fieldtype": "asset",
           "is_external_url": false
         },
-        "background_video": {
-          "id": null,
-          "alt": null,
-          "name": "",
-          "focus": null,
-          "title": null,
-          "source": null,
-          "filename": "",
-          "copyright": null,
-          "fieldtype": "asset",
-          "meta_data": {}
-        },
-        "background_brightness": {
-          "value": 0,
-          "plugin": "storyblok-slider"
-        }
+        "background_brightness": "0"
       },
-      "component_id": 4160557,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:23.011Z",
-      "updated_at": "2023-12-03T09:27:51.246Z",
+      "component_id": 2848316,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:12:02.127Z",
+      "updated_at": "2023-04-24T10:12:02.127Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809951,
+      "id": 1748614,
       "name": "We don't know what we don't know",
       "preset": {
         "_uid": "0328648d-0481-434c-8c71-9cd3f86420ef",
@@ -1159,17 +1015,17 @@
         "background_color": "light",
         "overlap_preceding_hero": true
       },
-      "component_id": 4160552,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.844Z",
-      "updated_at": "2023-06-22T10:09:22.844Z",
+      "component_id": 2848329,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:15:07.768Z",
+      "updated_at": "2023-04-24T10:15:07.768Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809952,
+      "id": 1748613,
       "name": "What do astronauts do for fun?",
       "preset": {
         "_uid": "48da15cb-fd2b-422d-9d03-c977c35ce798",
@@ -1252,13 +1108,11 @@
           "id": 5671213,
           "alt": "",
           "name": "",
-          "focus": "502x327:503x328",
+          "focus": "",
           "title": "",
           "filename": "https://a.storyblok.com/f/172000/1000x1170/f92915eac0/astronaut.jpg",
           "copyright": "",
           "fieldtype": "asset",
-          "meta_data": {},
-          "content_type": "jpg",
           "is_external_url": false
         },
         "button": [
@@ -1272,31 +1126,31 @@
               "cached_url": "articles/"
             },
             "size": "medium",
+            "ghost": false,
             "label": "Read More",
-            "style": "ghost",
             "component": "button",
-            "text_color": "light",
-            "border_radius": "default",
-            "background_color": "primary"
+            "button_color": "primary",
+            "background_color": "white"
           }
         ],
         "headline": "What do astronauts do for fun?",
         "component": "image-text-section",
+        "text_color": "light",
         "image_layout": "fixed-height",
         "reverse_layout": true,
         "background_color": "white"
       },
-      "component_id": 4160553,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.876Z",
-      "updated_at": "2023-12-03T09:22:43.200Z",
+      "component_id": 2848326,
+      "space_id": 172000,
+      "created_at": "2023-04-24T10:14:38.794Z",
+      "updated_at": "2023-04-24T10:14:38.794Z",
       "image": "",
       "color": "",
       "icon": "",
       "description": ""
     },
     {
-      "id": 1809953,
+      "id": 1659210,
       "name": "What's in space now?",
       "preset": {
         "_uid": "7880ff31-6ca4-4e29-b11c-0e60a768f4df",
@@ -1416,10 +1270,10 @@
         "reverse_layout": false,
         "background_color": "white"
       },
-      "component_id": 4160553,
-      "space_id": 237487,
-      "created_at": "2023-06-22T10:09:22.890Z",
-      "updated_at": "2023-06-22T10:09:22.890Z",
+      "component_id": 2848326,
+      "space_id": 172000,
+      "created_at": "2022-09-01T11:33:42.934Z",
+      "updated_at": "2022-09-01T11:33:42.934Z",
       "image": "",
       "color": "",
       "icon": "",
