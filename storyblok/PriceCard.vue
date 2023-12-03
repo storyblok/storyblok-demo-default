@@ -44,7 +44,7 @@ const currency = computed(() => props.card?.currency || '€')
       <span class="mr-2 block translate-y-[4px] self-start text-4xl font-bold">
         {{ currency }}
       </span>
-      <span class="text-6xl font-bold">{{ price[0] }}</span>
+      <span class="text-4xl font-bold">{{ price[0] }}</span>
       <span v-if="price[1]" class="block -translate-y-[1px] text-3xl">
         .{{ price[1] }}
       </span>

@@ -90,7 +90,7 @@ onMounted(() => {
         <ul v-if="!auto_nav">
           <li v-for="item in nav" :key="item._uid">
             <NavItem
-              class="hover:underline hover:underline-offset-2"
+              class="nav-item"
               :class="light ? 'text-dark' : 'text-white'"
               :item="item"
             />
@@ -100,7 +100,7 @@ onMounted(() => {
           <li v-for="story in folderStories" :key="story.uuid">
             <NuxtLink
               :to="story.full_slug"
-              class="cursor-pointer transition-colors hover:underline hover:underline-offset-2"
+              class="nav-item cursor-pointer transition-colors"
               :class="light ? 'text-dark' : 'text-white'"
             >
               {{ story.name }}
@@ -137,6 +137,18 @@ header nav.main-nav a.router-link-active {
 }
 
 header nav.main-nav ul {
-  @apply flex space-x-4 xl:space-x-8 xl:text-lg;
+  @apply flex space-x-4 xl:space-x-8;
+}
+
+header nav.main-nav ul li .nav-item {
+  @apply relative text-sm font-thin uppercase xl:text-base;
+}
+header nav.main-nav ul li .nav-item::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 h-[1px] w-0 bg-white opacity-0 transition-all duration-500;
+}
+
+header nav.main-nav ul li .nav-item:hover::after {
+  @apply w-full opacity-100;
 }
 </style>
