@@ -1,115 +1,114 @@
 <script setup>
-defineProps({ blok: Object });
+defineProps({ blok: Object })
 
-let { slug } = useRoute().params;
-let language = "default";
+let { slug } = useRoute().params
+let language = 'default'
 
-if (slug) language = await getLanguage(slug);
+if (slug) language = await getLanguage(slug)
 
-const searchTerm = ref("");
-const checkedCategories = ref([]);
-const checkedAuthor = ref("");
+const searchTerm = ref('')
+const checkedCategories = ref([])
+const checkedAuthor = ref('')
 
 const filterQuery = computed(() => {
-  let query = {};
+  let query = {}
 
   if (checkedCategories.value.length > 0) {
     query.categories = {
-      in_array: checkedCategories.value.join(","),
-    };
+      in_array: checkedCategories.value.join(','),
+    }
   }
 
-  if (checkedAuthor.value !== "") {
+  if (checkedAuthor.value !== '') {
     query.author = {
       in: checkedAuthor.value,
-    };
+    }
   }
 
-  return query;
-});
+  return query
+})
 
 const resetFilters = () => {
-  searchTerm.value = "";
-  checkedCategories.value = [];
-  checkedAuthor.value = "";
-  fetchArticles();
-};
+  searchTerm.value = ''
+  checkedCategories.value = []
+  checkedAuthor.value = ''
+  fetchArticles()
+}
 
 watch(searchTerm, () => {
-  fetchArticles();
-});
+  fetchArticles()
+})
 
 watch(checkedCategories, () => {
-  fetchArticles();
-});
+  fetchArticles()
+})
 
 watch(checkedAuthor, () => {
-  fetchArticles();
-});
+  fetchArticles()
+})
 
-const storyblokApi = useStoryblokApi();
+const storyblokApi = useStoryblokApi()
 
-const loading = ref(true);
+const loading = ref(true)
 
-const articles = ref(null);
+const articles = ref(null)
 
 const fetchArticles = async () => {
-  loading.value = true;
-  articles.value = null;
-  const { data } = await storyblokApi.get("cdn/stories/", {
-    version: "draft",
-    starts_with: "articles",
+  loading.value = true
+  articles.value = null
+  const { data } = await storyblokApi.get('cdn/stories/', {
+    version: 'draft',
+    starts_with: 'articles',
     language: language,
-    fallback_lang: "default",
+    fallback_lang: 'default',
     search_term: searchTerm.value,
     filter_query: filterQuery.value,
-  });
-  articles.value = data.stories.filter((story) => story.is_startpage !== true);
-  loading.value = false;
-};
+  })
+  articles.value = data.stories.filter((story) => story.is_startpage !== true)
+  loading.value = false
+}
 
-fetchArticles();
+fetchArticles()
 
-const authors = ref(null);
+const authors = ref(null)
 
 const getAuthors = async () => {
-  const { data } = await storyblokApi.get("cdn/stories/", {
-    version: "draft",
-    starts_with: "authors",
-  });
-  authors.value = data.stories;
-};
+  const { data } = await storyblokApi.get('cdn/stories/', {
+    version: 'draft',
+    starts_with: 'authors',
+  })
+  authors.value = data.stories
+}
 
-getAuthors();
+getAuthors()
 
-const categories = ref(null);
+const categories = ref(null)
 
 const getCategories = async () => {
-  const { data } = await storyblokApi.get("cdn/stories/", {
-    version: "draft",
-    starts_with: "categories",
-  });
-  categories.value = data.stories.filter(
-    (story) => story.is_startpage !== true,
-  );
-};
+  const { data } = await storyblokApi.get('cdn/stories/', {
+    version: 'draft',
+    starts_with: 'categories',
+  })
+  categories.value = data.stories.filter((story) => story.is_startpage !== true)
+}
 
-getCategories();
+getCategories()
 
 const button = {
   link: {
-    linktype: "url",
+    linktype: 'url',
   },
-  size: "small",
-  style: "ghost",
-  button_color: "medium",
-};
+  size: 'small',
+  style: 'ghost',
+  text_color: 'light',
+  background_color: 'dark',
+}
 </script>
 
 <template>
   <main class="container py-12 md:py-16" v-editable="blok">
     <Headline v-if="blok.headline">{{ blok.headline }}</Headline>
-    <section class="my-16 flex">
+    <section class="my-16 flex text-dark">
       <aside
         class="invisible hidden flex-shrink-0 flex-col space-y-6 md:visible md:mr-6 md:flex md:w-[210px] xl:mr-12 xl:w-[240px]"
       >
@@ -122,7 +121,7 @@ const button = {
             name="search"
             id="search"
             v-model="searchTerm"
-            class="rounded-full border border-medium px-4 py-2 focus:outline-none"
+            class="rounded-full border border-dark px-4 py-2 focus:outline-none"
             @keypress.enter="fetchArticles()"
           />
         </div>

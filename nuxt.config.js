@@ -1,5 +1,6 @@
 export default defineNuxtConfig({
   modules: [
+    '@tresjs/nuxt',
     [
       '@storyblok/nuxt',
       {
@@ -19,6 +20,8 @@ export default defineNuxtConfig({
     public: {
       templateToken: process.env.STORYBLOK_TOKEN,
       customParent: process.env.STORYBLOK_CUSTOM_PARENT,
+      shopifyDomain: process.env.SHOPIFY_DOMAIN,
+      shopifyToken: process.env.SHOPIFY_TOKEN,
     },
   },
   vite: {

@@ -24,6 +24,8 @@ const cssVars = computed(() => {
     '--activeTab': activeTab.value,
   }
 })
+
+// TODO: use focus point helper function for images, check padding/margin in mobile
 </script>
 
 <template>
@@ -37,12 +39,15 @@ const cssVars = computed(() => {
         {{ blok.lead }}
       </Lead>
     </div>
-    <div class="tabbed-content-section-mobile md:invisible md:hidden">
+    <div
+      class="tabbed-content-section-mobile"
+      :class="{ 'md:invisible md:hidden': !blok.always_accordion }"
+    >
       <ul class="relative flex flex-col">
         <li v-for="(entry, index) in blok.entries" class="group">
           <button
             @click.prevent="setActiveTabMobile(index)"
-            class="border-1 flex w-full cursor-pointer justify-between border-b border-gray-900 py-4 text-left text-lg text-dark group-last:border-0"
+            class="border-1 flex w-full cursor-pointer justify-between border-t border-dark py-4 text-left text-lg text-dark group-first:border-0"
             ref="buttonRefs"
           >
             <span>{{ entry.headline }}</span>
@@ -79,33 +84,14 @@ const cssVars = computed(() => {
               </svg>
             </span>
           </button>
-          <section v-if="mobileTabsStates[index]">
-            <div
-              class="flex flex-col space-y-6 py-6 text-dark"
-              v-editable="entry"
-            >
-              <img
-                :src="entry.image?.filename + '/m/800x0'"
-                :alt="entry.image?.alt"
-                class="rounded-lg md:order-last"
-              />
-              <div>
-                <p>{{ entry.description }}</p>
-                <Button
-                  v-for="button in entry.button"
-                  class="mt-6"
-                  :key="button._uid"
-                  :button="button"
-                />
-              </div>
-            </div>
-          </section>
+          <StoryblokComponent v-if="mobileTabsStates[index]" :blok="entry" />
         </li>
       </ul>
     </div>
     <div
       class="tabbed-content-section-desktop invisible hidden md:visible md:block"
       :style="cssVars"
+      v-if="!blok.always_accordion"
     >
       <ul class="relative mb-8 flex border-b border-gray-900">
         <li
@@ -126,26 +112,7 @@ const cssVars = computed(() => {
         :key="entry._uid"
         :id="'entry-' + entry._uid"
       >
-        <div
-          v-if="index === activeTab"
-          class="grid grid-cols-2 gap-12 text-dark"
-          v-editable="entry"
-        >
-          <div>
-            <p>{{ entry.description }}</p>
-            <Button
-              v-for="button in entry.button"
-              class="mt-6"
-              :key="button._uid"
-              :button="button"
-            />
-          </div>
-          <img
-            :src="entry.image?.filename + '/m/800x0'"
-            :alt="entry.image?.alt"
-            class="rounded-lg"
-          />
-        </div>
+        <StoryblokComponent v-if="index === activeTab" :blok="entry" />
       </section>
     </div>
   </section>

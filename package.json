@@ -10,17 +10,33 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
+  "dependencies": {
+    "@tresjs/cientos": "^3.5.1",
+    "@tresjs/nuxt": "^1.2.2",
+    "gsap": "^3.12.2"
+  },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^6.8.0",
-    "@storyblok/nuxt": "^5.6.4",
-    "@storyblok/vue": "^7.1.16",
-    "@tailwindcss/typography": "^0.5.9",
+    "@marvr/storyblok-rich-text-vue-renderer": "^3.2.1",
+    "@nuxtjs/tailwindcss": "^6.8.1",
+    "@storyblok/nuxt": "^5.7.4",
+    "@storyblok/vue": "^7.3.1",
+    "@tailwindcss/typography": "^0.5.10",
     "clone-deep": "^4.0.1",
     "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "nuxt": "^3.6.5",
-    "prettier": "^3.0.2",
-    "prettier-plugin-tailwindcss": "^0.5.3",
-    "swiper": "^10.2.0"
+    "lint-staged": "^15.0.2",
+    "nuxt": "^3.8.0",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "shopify-buy": "^2.21.1",
+    "swiper": "^11.0.3"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "semi": false,
+    "tabWidth": 2,
+    "htmlWhitespaceSensitivity": "ignore",
+    "plugins": [
+      "prettier-plugin-tailwindcss"
+    ]
   }
 }

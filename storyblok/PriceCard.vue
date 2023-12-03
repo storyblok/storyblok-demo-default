@@ -9,10 +9,10 @@ const price = computed(() => {
 })
 
 const textBelowPrice = computed(() =>
-  renderCustomRichText(props.card.text_below_price)
+  renderCustomRichText(props.card.text_below_price),
 )
 const textBelowButton = computed(() =>
-  renderCustomRichText(props.card.text_below_button)
+  renderCustomRichText(props.card.text_below_button),
 )
 
 const currency = computed(() => props.card?.currency || '€')
@@ -20,7 +20,7 @@ const currency = computed(() => props.card?.currency || '€')
 
 <template>
   <div
-    class="relative flex w-full max-w-md flex-col rounded-lg px-6 py-12 lg:max-w-none"
+    class="relative flex w-full max-w-md flex-col rounded-lg px-6 py-12 text-dark lg:max-w-none"
     :class="[
       card.background_color?.value ? '' : defaultColor,
       { 'shadow-xl': card.most_popular },
@@ -34,17 +34,17 @@ const currency = computed(() => props.card?.currency || '€')
   >
     <div
       v-if="card.most_popular"
-      class="absolute left-1/2 top-0 -translate-x-1/2 rounded-b-lg bg-secondary px-4 py-1 text-sm uppercase text-white"
+      class="absolute left-1/2 top-0 w-full max-w-[200px] -translate-x-1/2 rounded-b-lg bg-dark px-4 py-1 text-sm uppercase text-white"
     >
       Most popular
     </div>
-    <h3 class="mb-3 text-2xl font-medium">{{ card.headline }}</h3>
-    <h4 class="mb-6 text-lg">{{ card.subheadline }}</h4>
+    <h3 class="mb-3 font-display text-2xl font-medium">{{ card.headline }}</h3>
+    <h4 class="mb-6 font-display text-lg">{{ card.subheadline }}</h4>
     <span v-if="price" class="mx-auto inline-flex items-end">
-      <span class="mr-2 block translate-y-[4px] self-start text-4xl font-black">
+      <span class="mr-2 block translate-y-[4px] self-start text-4xl font-bold">
         {{ currency }}
       </span>
-      <span class="text-6xl font-black">{{ price[0] }}</span>
+      <span class="text-4xl font-bold">{{ price[0] }}</span>
       <span v-if="price[1]" class="block -translate-y-[1px] text-3xl">
         .{{ price[1] }}
       </span>

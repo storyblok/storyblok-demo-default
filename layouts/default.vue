@@ -1,4 +1,11 @@
 <script setup>
+const props = defineProps({ uuid: String })
+
+const defaultFontFamilies = {
+  '--font-family-display': 'Roboto, sans-serif',
+  '--font-family-body': 'Roboto, sans-serif',
+}
+
 const defaultColors = {
   '--primary': '#395ECE',
   '--secondary': '#00B3B0',
@@ -18,7 +25,11 @@ const defaultBorderRadiuses = {
   '--rounded_full': '9999px',
 }
 
-const theme = reactive({ ...defaultColors, ...defaultBorderRadiuses })
+const theme = reactive({
+  ...defaultFontFamilies,
+  ...defaultColors,
+  ...defaultBorderRadiuses,
+})
 
 const story = ref()
 const storyblokApi = useStoryblokApi()
@@ -31,6 +42,16 @@ const { data } = await storyblokApi.get('cdn/stories/site-config', {
 story.value = data.story
 
 const cssVariables = computed(() => {
+  if (story.value.content.use_custom_fonts) {
+    if (story.value.content.custom_font_display) {
+      theme['--font-family-display'] = story.value.content.custom_font_display
+    }
+    if (story.value.content.custom_font_body) {
+      theme['--font-family-body'] = story.value.content.custom_font_body
+    }
+  } else {
+    Object.assign(theme, defaultFontFamilies)
+  }
   if (story.value.content.use_custom_colors) {
     theme['--primary'] = story.value.content.primary.color
     theme['--secondary'] = story.value.content.secondary.color
@@ -50,6 +71,25 @@ const cssVariables = computed(() => {
   return theme
 })
 
+const autoNavFolder = computed(() => {
+  if (!story.value.content.header_auto_nav_folder[0]?.slug) return ''
+  return story.value.content.header_auto_nav_folder[0].slug
+})
+
+const enableBreadcrumbs = useState(
+  'enableBreadcrumbs',
+  () => story.value.content.enable_breadcrumbs,
+)
+
+const breadcrumbsExcludedStories = useState(
+  'breadcrumbsExcludedStories',
+  () => story.value.content.breadcrumbs_excluded_stories,
+)
+
+/* const altStyleBreadcrumbs = computed(
+  () => processedSlug.startsWith('articles/') && processedSlug !== 'articles/',
+) */
+
 const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
 
@@ -62,12 +102,12 @@ onMounted(() => {
 </script>
 
 <template>
-  <main :style="cssVariables">
+  <main :style="cssVariables" class="font-body">
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"
       :auto_nav="story.content.header_auto_nav"
-      :auto_nav_folder="story.content.header_auto_nav_folder"
+      :auto_nav_folder="autoNavFolder"
       :nav="story.content.header_nav"
       :buttons="story.content.header_buttons"
       :light="story.content.header_light"
@@ -76,36 +116,32 @@ onMounted(() => {
       v-if="viewingSiteConfig && story.content.use_custom_colors"
       class="container py-12"
     >
-      <Headline class="mb-8">Color Previews</Headline>
+      <Headline class="mb-8">Color Preview</Headline>
       <div
         class="grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
       >
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-primary shadow-sm"
-        >
-          <span class="text-sm text-white">Primary</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-secondary shadow-sm"
-        >
-          <span class="text-sm text-white">Secondary</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-light shadow-sm"
-        >
-          <span class="text-sm text-black">Light</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-medium shadow-sm"
-        >
-          <span class="text-sm text-black">Medium</span>
-        </div>
-        <div
-          class="flex aspect-square w-full items-center justify-center rounded-3xl bg-dark shadow-sm"
-        >
-          <span class="text-sm text-white">Dark</span>
-        </div>
+        <ColorPreview color="primary" />
+        <ColorPreview color="secondary" />
+        <ColorPreview color="light" />
+        <ColorPreview color="medium" />
+        <ColorPreview color="dark" />
       </div>
+    </div>
+    <div
+      v-if="viewingSiteConfig && story.content.use_custom_fonts"
+      class="container py-12 text-dark"
+    >
+      <Headline>Typography Preview</Headline>
+      <Subheadline class="mb-4">Lorem ipsum dolor sit amet</Subheadline>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
     </div>
     <slot />
     <Footer
@@ -164,14 +200,33 @@ section.hero-section
   @apply -translate-y-24;
 }
 
-.plus-pattern::before {
+section.banner-section.padding:first-child {
+  @apply pt-0;
+}
+
+section.banner-section.padding.bg-white + section.page-section.bg-white,
+section.banner-section.padding.bg-light + section.page-section.bg-light,
+section.page-section.bg-white + section.banner-section.padding.bg-white,
+section.page-section.bg-light + section.banner-section.padding.bg-light {
+  @apply pt-0;
+}
+
+.overlay-15::before {
   content: '';
   @apply absolute left-0 top-0 z-10 h-full w-full;
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.15);
   background-blend-mode: overlay;
 }
 
-.plus-pattern::after {
+.overlay-30::before,
+.overlay-pattern-1::before {
+  content: '';
+  @apply absolute left-0 top-0 z-10 h-full w-full;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: overlay;
+}
+
+.overlay-pattern-1::after {
   content: '';
   @apply absolute left-0 top-0 z-20 h-full w-full;
   background-image: url('~/assets/images/plus-pattern.svg');

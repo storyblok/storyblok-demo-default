@@ -25,8 +25,17 @@ const url = computed(() => {
 
 const classes = computed(() => {
   let classes =
-    'inline-flex items-center rounded-full tracking-wider cursor-pointer transition-all duration-300 border border-' +
-    props.button.button_color
+    'inline-flex items-center tracking-wider cursor-pointer transition-all duration-300 border border-' +
+    props.button.background_color
+
+  switch (props.button.border_radius) {
+    case 'small':
+      classes += ' rounded-md'
+      break
+    case 'default':
+    default:
+      classes += ' rounded-full'
+  }
 
   switch (props.button.size) {
     case 'small':
@@ -41,35 +50,28 @@ const classes = computed(() => {
       break
   }
 
-  if (props.button.style === 'default') {
-    if (
-      props.button.button_color !== 'white' &&
-      props.button.button_color !== 'light'
-    ) {
-      classes += ' text-white'
-    } else {
-      classes += ' text-dark'
-    }
-    classes += ' hover:scale-105 transform bg-' + props.button.button_color
-  } else {
-    if (
-      props.button.button_color !== 'white' &&
-      props.button.button_color !== 'light'
-    ) {
-      classes += ' hover:text-white'
-    } else {
-      classes += ' hover:text-dark'
-    }
-    if (props.button.style === 'semi') {
-      classes += ' bg-opacity-10 backdrop-blur-lg bg-white'
-    } else {
-      classes += ' bg-transparent'
-    }
-    classes +=
-      ' text-' +
-      props.button.button_color +
-      ' hover:bg-' +
-      props.button.button_color
+  switch (props.button.style) {
+    case 'semi':
+      classes +=
+        ' bg-opacity-10 backdrop-blur-lg bg-white hover:bg-opacity-20 text-' +
+        props.button.background_color
+      break
+    case 'ghost':
+      classes +=
+        ' bg-transparent text-' +
+        props.button.background_color +
+        ' hover:bg-' +
+        props.button.background_color +
+        ' hover:text-' +
+        props.button.text_color
+      break
+    case 'default':
+    default:
+      classes +=
+        ' hover:scale-105 transform bg-' +
+        props.button.background_color +
+        ' text-' +
+        props.button.text_color
   }
 
   return classes

@@ -5,7 +5,13 @@ const textColor = computed(() => {
   return 'text-' + props.blok.text_color
 })
 
+const isSvg = computed(() => {
+  const detectFileExtension = props.blok.background_image?.filename.split('.')
+  return detectFileExtension[detectFileExtension.length - 1] === 'svg'
+})
+
 const filters = computed(() => {
+  if (isSvg.value) return ''
   const blur =
     props.blok.background_blur.value > 0
       ? 'blur(' + props.blok.background_blur.value + ')'
@@ -27,9 +33,12 @@ const filters = computed(() => {
   }
 })
 
-const optimizedImage = computed(
-  () => props.blok.background_image?.filename + '/m/2000x0'
-)
+const optimizedImage = computed(() => {
+  console.log(isSvg.value)
+  let filename = props.blok.background_image?.filename
+  if (!isSvg.value) filename += '/m/2000x0'
+  return filename
+})
 
 const showVideo = computed(() => {
   if (
@@ -48,28 +57,31 @@ const showVideo = computed(() => {
     class="page-section banner-section bg-white"
     :class="[
       { 'no-padding': blok.full_width },
+      { padding: !blok.full_width },
       { 'pointer-events-none': referenced },
     ]"
     v-editable="blok"
   >
     <div :class="{ container: !blok.full_width }">
       <div
-        class="relative flex min-h-[540px] items-center justify-center overflow-hidden bg-light px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
+        class="relative flex min-h-[540px] items-center justify-center overflow-hidden px-4 py-16 sm:px-6 md:min-h-[600px] md:px-8 lg:min-h-[720px] lg:px-12 lg:py-32 xl:py-40 2xl:py-48"
         :class="[
           { 'rounded-lg': !blok.full_width },
-          { 'plus-pattern': blok.pattern_overlay },
+          blok.overlay !== 'no-overlay' ? blok.overlay : '',
+          { 'bg-light': !blok.background_color?.color },
         ]"
+        :style="`background-color: ${blok.background_color?.color}`"
       >
         <div class="relative z-30">
           <h2
-            class="mb-4 text-center text-3xl font-black leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
+            class="mb-4 text-center font-display text-3xl font-bold leading-tight md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight"
             :class="[textColor]"
           >
             {{ blok.headline }}
           </h2>
           <div class="mx-auto max-w-3xl">
             <h3
-              class="text-md text-center font-thin md:text-lg lg:text-xl"
+              class="text-md text-center font-display font-light md:text-lg lg:text-xl"
               :class="[textColor]"
             >
               {{ blok.subheadline }}

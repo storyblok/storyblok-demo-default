@@ -51,7 +51,10 @@ const showSeparator = computed(() => props.background_color === 'dark')
         </div>
       </div>
       <div v-for="index in 3" :key="index">
-        <h3 class="mb-5 text-xl font-black xl:text-2xl" :class="textColor">
+        <h3
+          class="mb-5 font-display text-xl font-medium xl:text-2xl"
+          :class="textColor"
+        >
           {{ navs['nav_' + index + '_headline'] }}
         </h3>
         <nav>
@@ -74,7 +77,7 @@ const showSeparator = computed(() => props.background_color === 'dark')
       ></div>
       <img
         src="~/assets/images/made-with-love.svg"
-        width="180"
+        width="120"
         class="pointer-events-none mx-auto block py-9"
         alt="Made with love by the Storyblok team!"
       />

@@ -8,7 +8,7 @@ const inEditor = computed(() => {
 })
 
 const optimizedImage = computed(() =>
-  getOptimizedImage(props.article?.image, 400)
+  getOptimizedImage(props.article?.image, 400),
 )
 </script>
 
@@ -16,7 +16,7 @@ const optimizedImage = computed(() =>
   <NuxtLink
     :to="inEditor ? '' : '/' + slug"
     v-if="article"
-    class="group group flex h-full w-full max-w-md transform flex-col overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+    class="group group flex h-full w-full max-w-md transform flex-col overflow-hidden rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg lg:max-w-full"
   >
     <div class="h-[210px] w-full overflow-hidden xl:h-[300px]">
       <img
@@ -26,15 +26,15 @@ const optimizedImage = computed(() =>
       />
     </div>
     <div class="grow p-6 text-left">
-      <h3 class="mb-3 text-xl font-medium text-dark">
+      <h3 class="mb-3 font-display text-xl font-medium text-dark">
         {{ article.headline }}
       </h3>
-      <div class="line-clamp-3 font-light leading-relaxed">
+      <div class="line-clamp-3 font-light leading-relaxed text-dark">
         {{ article.teaser }}
       </div>
     </div>
-    <div class="flex justify-between px-6 py-3 text-primary">
-      <span class="font-light uppercase tracking-widest">Read</span>
+    <div class="flex justify-between px-6 py-3 text-dark">
+      <span class="font-medium">Continue reading</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
