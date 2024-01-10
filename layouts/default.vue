@@ -72,6 +72,7 @@ const cssVariables = computed(() => {
 })
 
 const autoNavFolder = computed(() => {
+  if (!story.value.content.header_auto_nav_folder) return ''
   if (!story.value.content.header_auto_nav_folder[0]?.slug) return ''
   return story.value.content.header_auto_nav_folder[0].slug
 })
@@ -85,10 +86,6 @@ const breadcrumbsExcludedStories = useState(
   'breadcrumbsExcludedStories',
   () => story.value.content.breadcrumbs_excluded_stories,
 )
-
-/* const altStyleBreadcrumbs = computed(
-  () => processedSlug.startsWith('articles/') && processedSlug !== 'articles/',
-) */
 
 const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
