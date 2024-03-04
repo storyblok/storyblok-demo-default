@@ -58,8 +58,18 @@ const cssVariables = computed(() => {
     theme['--light'] = story.value.content.light.color
     theme['--medium'] = story.value.content.medium.color
     theme['--dark'] = story.value.content.dark.color
+    if (story.value.content.colored_headlines) {
+      theme['--headline-color'] = story.value.content.primary.color
+    } else {
+      theme['--headline-color'] = story.value.content.dark.color
+    }
   } else {
     Object.assign(theme, defaultColors)
+    if (story.value.content.colored_headlines) {
+      theme['--headline-color'] = defaultColors['--primary']
+    } else {
+      theme['--headline-color'] = defaultColors['--dark']
+    }
   }
   if (story.value.content.disable_rounded_corners) {
     for (const key in theme) {
@@ -77,16 +87,6 @@ const autoNavFolder = computed(() => {
   return story.value.content.header_auto_nav_folder[0].slug
 })
 
-const enableBreadcrumbs = useState(
-  'enableBreadcrumbs',
-  () => story.value.content.enable_breadcrumbs,
-)
-
-const breadcrumbsExcludedStories = useState(
-  'breadcrumbsExcludedStories',
-  () => story.value.content.breadcrumbs_excluded_stories,
-)
-
 const viewingSiteConfig = await isSiteConfig()
 const { customParent } = useRuntimeConfig().public
 
@@ -100,6 +100,7 @@ onMounted(() => {
 
 <template>
   <main :style="cssVariables" class="font-body">
+    <pre>{{ theme }}</pre>
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"

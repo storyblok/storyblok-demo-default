@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
   modules: [
-    '@tresjs/nuxt',
     [
       '@storyblok/nuxt',
       {
@@ -13,6 +12,7 @@ export default defineNuxtConfig({
       },
     ],
     '@nuxtjs/tailwindcss',
+    '@tresjs/nuxt',
   ],
   ssr: false,
   css: ['@/assets/css/fonts.css'],

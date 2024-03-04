@@ -141,7 +141,7 @@ header nav.main-nav ul {
 }
 
 header nav.main-nav ul li .nav-item {
-  @apply relative text-sm font-thin uppercase xl:text-base;
+  @apply relative text-sm xl:text-base;
 }
 header nav.main-nav ul li .nav-item::after {
   content: '';

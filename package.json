@@ -11,24 +11,24 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@tresjs/cientos": "^3.5.1",
-    "@tresjs/nuxt": "^1.2.2",
-    "gsap": "^3.12.2"
+    "@tresjs/cientos": "^3.8.0",
+    "@tresjs/nuxt": "^2.1.1",
+    "gsap": "^3.12.5"
   },
   "devDependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^3.2.1",
-    "@nuxtjs/tailwindcss": "^6.8.1",
-    "@storyblok/nuxt": "^5.7.4",
-    "@storyblok/vue": "^7.3.1",
+    "@nuxtjs/tailwindcss": "^6.11.4",
+    "@storyblok/nuxt": "^6.0.4",
+    "@storyblok/vue": "^8.0.5",
     "@tailwindcss/typography": "^0.5.10",
     "clone-deep": "^4.0.1",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.0.2",
-    "nuxt": "^3.8.0",
-    "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.6",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "nuxt": "^3.10.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "shopify-buy": "^2.21.1",
-    "swiper": "^11.0.3"
+    "swiper": "^11.0.7"
   },
   "prettier": {
     "singleQuote": true,

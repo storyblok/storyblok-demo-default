@@ -14,7 +14,7 @@ const classes = computed(() => {
   if (props.color === 'white') {
     classes += ' text-white'
   } else {
-    classes += ' text-dark'
+    classes += ' headline-color'
   }
 
   return classes
@@ -26,3 +26,9 @@ const classes = computed(() => {
     <slot />
   </h2>
 </template>
+
+<style scoped>
+h2.headline-color {
+  color: var(--headline-color);
+}
+</style>
