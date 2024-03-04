@@ -34,7 +34,6 @@ const filters = computed(() => {
 })
 
 const optimizedImage = computed(() => {
-  console.log(isSvg.value)
   let filename = props.blok.background_image?.filename
   if (!isSvg.value) filename += '/m/2000x0'
   return filename
