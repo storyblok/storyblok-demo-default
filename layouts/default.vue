@@ -100,7 +100,6 @@ onMounted(() => {
 
 <template>
   <main :style="cssVariables" class="font-body">
-    <pre>{{ theme }}</pre>
     <Header
       :logo="story.content.header_logo"
       :disable_transparency="story.content.header_disable_transparency"
@@ -180,11 +179,8 @@ section.page-section.no-padding {
   @apply py-0;
 }
 
-section.page-section.bg-white:not(.banner-section)
-  + section.page-section.bg-white:not(.banner-section),
-section.page-section.bg-light:not(.banner-section)
-  + section.page-section.bg-light:not(.banner-section),
-section.banner-section + section.banner-section {
+section.page-section.bg-white + section.page-section.bg-white,
+section.page-section.bg-light + section.page-section.bg-light {
   @apply pt-0;
 }
 
@@ -199,13 +195,6 @@ section.hero-section
 }
 
 section.banner-section.padding:first-child {
-  @apply pt-0;
-}
-
-section.banner-section.padding.bg-white + section.page-section.bg-white,
-section.banner-section.padding.bg-light + section.page-section.bg-light,
-section.page-section.bg-white + section.banner-section.padding.bg-white,
-section.page-section.bg-light + section.banner-section.padding.bg-light {
   @apply pt-0;
 }
 

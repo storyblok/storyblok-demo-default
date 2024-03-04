@@ -54,10 +54,10 @@ const showVideo = computed(() => {
 
 <template>
   <section
-    class="page-section banner-section bg-white"
+    class="page-section banner-section"
     :class="[
-      { 'no-padding': blok.full_width },
-      { padding: !blok.full_width },
+      { 'no-padding': blok.full_width || referenced },
+      { 'padding bg-white': !blok.full_width && !referenced },
       { 'pointer-events-none': referenced },
     ]"
     v-editable="blok"
