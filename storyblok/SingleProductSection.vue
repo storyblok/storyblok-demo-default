@@ -16,11 +16,13 @@ const fetchProduct = async (id) => {
   if (!id) return
   let productObject = {}
   await shopifyClient.product.fetch(id).then((fetchedProduct) => {
+    console.log(fetchedProduct)
     productObject.title = fetchedProduct.title
     productObject.image = fetchedProduct.images[0].src
     productObject.currency = fetchedProduct.variants[0].price.currencyCode
     productObject.price = fetchedProduct.variants[0].price.amount
-    productObject.avaiable = fetchedProduct.variants[0].available
+    productObject.available = fetchedProduct.variants[0].available
+    productObject.description = fetchedProduct.description
   })
   return productObject
 }
@@ -53,8 +55,21 @@ watchEffect(async () => {
         <Headline v-if="blok.headline" class="mb-4">
           {{ blok.headline }}
         </Headline>
-
-        <RichText :text="blok.text" />
+        <div
+          v-if="
+            !pending &&
+            product &&
+            !blok.override_product_description &&
+            product.description
+          "
+          class="prose prose-lg"
+        >
+          {{ product.description }}
+        </div>
+        <RichText
+          v-if="blok.override_product_description && blok.text"
+          :text="blok.text"
+        />
         <div v-if="blok.button.length" class="mt-8">
           <Button
             v-for="button in blok.button"
@@ -71,11 +86,11 @@ watchEffect(async () => {
           <img
             :src="product.image"
             :alt="product.title"
-            class="pointer-events-none block"
+            class="pointer-events-none block aspect-[16/10] object-cover"
           />
           <div class="flex justify-between bg-light px-6 py-3 text-dark">
             <span>{{ product.title }}</span>
-            <span v-if="product.avaiable" class="font-bold">
+            <span v-if="product.available" class="font-bold">
               {{ product.price + ' ' + product.currency }}
             </span>
             <span v-else class="font-bold">Currently out of stock</span>

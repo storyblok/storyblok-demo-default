@@ -18,8 +18,8 @@
   "devDependencies": {
     "@marvr/storyblok-rich-text-vue-renderer": "^3.2.1",
     "@nuxtjs/tailwindcss": "^6.11.4",
-    "@storyblok/nuxt": "^6.0.4",
-    "@storyblok/vue": "^8.0.5",
+    "@storyblok/nuxt": "^6.0.5",
+    "@storyblok/vue": "^8.0.6",
     "@tailwindcss/typography": "^0.5.10",
     "clone-deep": "^4.0.1",
     "husky": "^9.0.11",
