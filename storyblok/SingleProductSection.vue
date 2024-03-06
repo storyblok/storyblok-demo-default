@@ -8,7 +8,6 @@ const shopifyClient = Client.buildClient({
   storefrontAccessToken: config.public.shopifyToken,
 })
 
-const productId = computed(() => props.blok?.product?.items[0]?.id)
 const product = ref(null)
 const pending = ref(true)
 
@@ -16,7 +15,6 @@ const fetchProduct = async (id) => {
   if (!id) return
   let productObject = {}
   await shopifyClient.product.fetch(id).then((fetchedProduct) => {
-    console.log(fetchedProduct)
     productObject.title = fetchedProduct.title
     productObject.image = fetchedProduct.images[0].src
     productObject.currency = fetchedProduct.variants[0].price.currencyCode
@@ -27,16 +25,23 @@ const fetchProduct = async (id) => {
   return productObject
 }
 
-watchEffect(async () => {
-  try {
-    product.value = await fetchProduct(productId.value)
-    pending.value = false
-  } catch (error) {
-    console.log(error)
-    product.value = null
-    pending.value = false
-  }
-})
+watch(
+  () => props.blok,
+  async () => {
+    if (props.blok?.product?.items[0]?.id) {
+      try {
+        product.value = await fetchProduct(props.blok?.product?.items[0]?.id)
+        pending.value = false
+      } catch (error) {
+        product.value = null
+        pending.value = false
+      }
+    }
+  },
+  {
+    deep: true,
+  },
+)
 </script>
 
 <template>
