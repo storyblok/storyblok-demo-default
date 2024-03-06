@@ -25,18 +25,27 @@ const fetchProduct = async (id) => {
   return productObject
 }
 
+const useProduct = async () => {
+  if (props.blok?.product?.items[0]?.id) {
+    try {
+      product.value = await fetchProduct(props.blok?.product?.items[0]?.id)
+      pending.value = false
+    } catch (error) {
+      product.value = null
+      pending.value = false
+    }
+  } else {
+    product.value = null
+    pending.value = false
+  }
+}
+
+useProduct()
+
 watch(
   () => props.blok,
   async () => {
-    if (props.blok?.product?.items[0]?.id) {
-      try {
-        product.value = await fetchProduct(props.blok?.product?.items[0]?.id)
-        pending.value = false
-      } catch (error) {
-        product.value = null
-        pending.value = false
-      }
-    }
+    useProduct()
   },
   {
     deep: true,
