@@ -24,9 +24,9 @@
     "clone-deep": "^4.0.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.5",
-    "nuxt": "^3.11.2",
-    "prettier": "^3.3.0",
-    "prettier-plugin-tailwindcss": "^0.6.1",
+    "nuxt": "^3.12.1",
+    "prettier": "^3.3.2",
+    "prettier-plugin-tailwindcss": "^0.6.2",
     "shopify-buy": "^2.22.0",
     "swiper": "^11.1.4"
   },
