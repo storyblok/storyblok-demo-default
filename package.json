@@ -5,14 +5,14 @@
     "dev": "nuxt dev --https --ssl-cert localhost.pem --ssl-key localhost-key.pem",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "prepare": "husky install"
+    "prepare": "husky init"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
     "@tresjs/cientos": "^3.9.0",
-    "@tresjs/nuxt": "^2.1.2",
+    "@tresjs/nuxt": "^3.0.0",
     "gsap": "^3.12.5"
   },
   "devDependencies": {
