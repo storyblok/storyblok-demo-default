@@ -5,7 +5,7 @@ const storyblokApi = useStoryblokApi()
 
 const allLinks = ref()
 
-const links = await storyblokApi.getAll('cdn/links', { version: 'draft' })
+const links = await storyblokApi.getAll('cdn/links', { version: getVersion() })
 allLinks.value = links
 
 const breadcrumbs = computed(() => {
@@ -38,9 +38,7 @@ const breadcrumbs = computed(() => {
     <ul
       v-if="breadcrumbs"
       class="flex space-x-2 rounded-lg bg-light px-6 py-3"
-      :class="
-        altStyle ? 'bg-white bg-opacity-60  backdrop-blur-md' : 'bg-light'
-      "
+      :class="altStyle ? 'bg-white bg-opacity-60 backdrop-blur-md' : 'bg-light'"
     >
       <li
         v-for="(breadcrumb, index) in breadcrumbs"
