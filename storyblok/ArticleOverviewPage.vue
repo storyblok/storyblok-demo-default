@@ -57,7 +57,7 @@ const fetchArticles = async () => {
   loading.value = true
   articles.value = null
   const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
+    version: getVersion(),
     starts_with: 'articles',
     language: language,
     fallback_lang: 'default',
@@ -74,7 +74,7 @@ const authors = ref(null)
 
 const getAuthors = async () => {
   const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
+    version: getVersion(),
     starts_with: 'authors',
   })
   authors.value = data.stories
@@ -86,7 +86,7 @@ const categories = ref(null)
 
 const getCategories = async () => {
   const { data } = await storyblokApi.get('cdn/stories/', {
-    version: 'draft',
+    version: getVersion(),
     starts_with: 'categories',
   })
   categories.value = data.stories.filter((story) => story.is_startpage !== true)

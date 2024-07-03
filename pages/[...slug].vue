@@ -13,7 +13,7 @@ const story = ref(null)
 const storyblokApi = useStoryblokApi()
 
 const apiParams = {
-  version: 'draft',
+  version: getVersion(),
   language: language,
   fallback_lang: 'default',
   resolve_relations: resolveRelations,
@@ -33,8 +33,7 @@ try {
     )
     story.value = data.story
   } catch (error) {
-    const { status } = JSON.parse(error)
-    if (status === 404) error404.value = true
+    if (error.status === 404) error404.value = true
     const { data } = await storyblokApi.get('cdn/stories/error-404', apiParams)
     story.value = data.story
   }

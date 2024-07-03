@@ -14,7 +14,7 @@ const folderStories = ref(null)
 const getFolderStories = async () => {
   const storyblokApi = useStoryblokApi()
   const { data } = await storyblokApi.get('cdn/stories', {
-    version: 'draft',
+    version: getVersion(),
     level: props.auto_nav_folder ? 2 : 1,
     excluding_slugs: 'site-config,error-404',
     excluding_fields: 'body',
