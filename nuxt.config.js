@@ -14,8 +14,10 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@tresjs/nuxt',
   ],
+
   ssr: false,
   css: ['@/assets/css/fonts.css'],
+
   runtimeConfig: {
     public: {
       templateToken: process.env.STORYBLOK_TOKEN,
@@ -24,7 +26,10 @@ export default defineNuxtConfig({
       shopifyToken: process.env.SHOPIFY_TOKEN,
     },
   },
+
   vite: {
     optimizeDeps: { exclude: ['fsevents'] },
   },
+
+  compatibilityDate: '2024-07-24',
 })
